@@ -3,7 +3,7 @@ name: Déploiement GitHub Pages
 on:
   push:
     branches:
-      - claude/clever-cray-LBYop
+      - main
   workflow_dispatch:
 
 permissions:
