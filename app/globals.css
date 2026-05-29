@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   🎨  THÈME — POINT UNIQUE DE CHANGEMENT DE COULEUR
+   ------------------------------------------------------------
+   Pour créer une autre version (ex: la version VERTE inspirée
+   des yeux d'Eliott), il suffit de remplacer les 5 valeurs
+   --brand-* ci-dessous. Tout le site se met à jour.
+   Format : R G B  (séparés par des espaces, pas de virgules)
+   ============================================================ */
+:root {
+  /* ----- VERSION BLEUE (bleu du logo EG-PRO actuel) ----- */
+  --brand: 31 111 184;        /* #1F6FB8  bleu principal */
+  --brand-bright: 42 138 214; /* #2A8AD6  bleu clair / accents */
+  --brand-dark: 15 63 110;    /* #0F3F6E  bleu foncé */
+  --brand-deep: 8 27 51;      /* #081B33  bleu nuit (fonds sombres) */
+  --brand-soft: 232 242 251;  /* #E8F2FB  bleu très clair (fonds doux) */
+
+  /* ----- Neutres (communs à toutes les versions) ----- */
+  --ink: 17 24 39;            /* texte principal */
+  --muted: 100 116 139;       /* texte secondaire */
+
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Sora", "Inter", sans-serif;
+
+  --radius: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: #ffffff;
+  color: rgb(var(--ink));
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Lenis smooth-scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Curseur personnalisé : on masque le curseur natif sur desktop */
+@media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+::selection {
+  background: rgb(var(--brand) / 0.95);
+  color: #fff;
+}
+
+/* Réutilisables ------------------------------------------------ */
+.container-x {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 768px) {
+  .container-x {
+    padding-inline: 2rem;
+  }
+}
+
+/* Dégradé de marque */
+.brand-gradient {
+  background-image: linear-gradient(
+    120deg,
+    rgb(var(--brand-dark)),
+    rgb(var(--brand)) 45%,
+    rgb(var(--brand-bright))
+  );
+}
+.text-gradient {
+  background-image: linear-gradient(
+    120deg,
+    rgb(var(--brand)),
+    rgb(var(--brand-bright))
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Grain / texture légère pour les fonds sombres */
+.bg-grid {
+  background-image: linear-gradient(rgb(255 255 255 / 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Respect des préférences d'accessibilité */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
