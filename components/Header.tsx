@@ -33,12 +33,14 @@ export default function Header() {
         <div className="container-x flex items-center justify-between">
           <Link href="/" data-cursor="Accueil" className="relative z-10 flex items-center gap-2">
             <Img
-              src="/images/logo/logo-blue.png"
+              src="/images/logo/logo-mark.png"
               alt="EG-PRO"
-              width={150}
-              height={56}
+              width={200}
+              height={80}
               priority
-              className="h-10 w-auto object-contain"
+              className={`w-auto object-contain transition-all duration-500 ${
+                scrolled ? "h-12" : "h-14 brightness-0 invert"
+              }`}
             />
           </Link>
 
@@ -51,14 +53,22 @@ export default function Header() {
                   key={item.href}
                   href={item.href}
                   className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                    active ? "text-brand" : "text-ink/70 hover:text-brand"
+                    scrolled
+                      ? active
+                        ? "text-brand"
+                        : "text-ink/70 hover:text-brand"
+                      : active
+                      ? "text-white"
+                      : "text-white/80 hover:text-white"
                   }`}
                 >
                   {item.label}
                   {active && (
                     <motion.span
                       layoutId="nav-pill"
-                      className="absolute inset-0 -z-10 rounded-full bg-brand-soft"
+                      className={`absolute inset-0 -z-10 rounded-full ${
+                        scrolled ? "bg-brand-soft" : "bg-white/15"
+                      }`}
                       transition={{ type: "spring", stiffness: 350, damping: 30 }}
                     />
                   )}
@@ -71,7 +81,11 @@ export default function Header() {
             <a
               href={`tel:${SITE.phoneIntl}`}
               data-cursor="Appeler"
-              className="hidden rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-white shadow-glow transition-colors hover:bg-brand-bright sm:inline-flex"
+              className={`hidden rounded-full px-5 py-2.5 text-sm font-semibold shadow-glow transition-colors sm:inline-flex ${
+                scrolled
+                  ? "bg-brand text-white hover:bg-brand-bright"
+                  : "bg-white text-brand-dark hover:bg-brand-soft"
+              }`}
             >
               {SITE.phone}
             </a>

@@ -102,43 +102,51 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Photo Eliott */}
+        {/* Photo Eliott (détourée, "pop" sur le fond) */}
         <motion.div
           style={{ y: yPhoto }}
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="relative mx-auto w-full max-w-md lg:max-w-none"
+          className="relative mx-auto flex w-full max-w-md items-end justify-center lg:max-w-none"
         >
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl">
-            <motion.div style={{ scale: scalePhoto }} className="absolute inset-0">
-              <Img
-                src="/images/eliott/eliott-portrait.jpeg"
-                alt="Eliott Guerreiro, fondateur d'EG-PRO"
-                fill
-                priority
-                sizes="(max-width: 1024px) 90vw, 480px"
-                className="object-cover object-top"
-              />
-            </motion.div>
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-deep/70 via-transparent to-transparent" />
-            <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
-              <div>
-                <p className="font-display text-xl font-semibold">Eliott Guerreiro</p>
-                <p className="text-sm text-white/70">Fondateur · Partenaire de travaux</p>
-              </div>
-            </div>
+          {/* Halo derrière Eliott */}
+          <div className="pointer-events-none absolute bottom-0 flex h-[90%] w-full items-center justify-center">
+            <div className="brand-gradient h-[78%] w-[78%] rounded-full opacity-40 blur-[90px]" />
           </div>
+          <div className="absolute bottom-6 h-[62%] w-[78%] rounded-[50%] bg-brand-bright/20 blur-2xl" />
 
-          {/* Carte flottante */}
+          <motion.div style={{ scale: scalePhoto }} className="relative z-10">
+            <Img
+              src="/images/eliott/eliott-cutout.png"
+              alt="Eliott Guerreiro, fondateur d'EG-PRO"
+              width={1198}
+              height={1372}
+              priority
+              className="mx-auto h-auto w-full max-w-[440px] object-contain drop-shadow-2xl"
+            />
+          </motion.div>
+
+          {/* Carte flottante : chiffre clé */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.9 }}
-            className="absolute -left-4 top-8 hidden rounded-2xl bg-white/95 px-5 py-4 text-ink shadow-soft backdrop-blur sm:block"
+            className="absolute -left-2 top-10 z-20 hidden rounded-2xl bg-white/95 px-5 py-4 text-ink shadow-soft backdrop-blur sm:block"
           >
             <p className="font-display text-2xl font-bold text-brand">63+</p>
             <p className="text-xs text-muted">partenaires artisans</p>
+          </motion.div>
+
+          {/* Chip nom */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 1 }}
+            className="absolute -right-1 bottom-10 z-20 hidden rounded-2xl border border-white/15 bg-white/10 px-5 py-3 backdrop-blur-md sm:block"
+          >
+            <p className="font-display text-base font-semibold text-white">Eliott Guerreiro</p>
+            <p className="text-xs text-white/70">Fondateur · EG-PRO</p>
           </motion.div>
         </motion.div>
       </div>
