@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { SITE } from "@/lib/site";
+import { SITE, WHATSAPP_URL } from "@/lib/site";
 
 /** Boutons flottants : appel rapide + WhatsApp (apparaissent après un peu de scroll). */
 export default function FloatingActions() {
@@ -23,7 +23,7 @@ export default function FloatingActions() {
           className="fixed bottom-5 right-5 z-[95] flex flex-col gap-3"
         >
           <a
-            href={`https://wa.me/${SITE.whatsapp.replace(/[^0-9]/g, "")}`}
+            href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
             data-cursor="WhatsApp"

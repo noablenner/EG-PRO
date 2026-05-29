@@ -15,6 +15,15 @@ export const SITE = {
   whatsapp: "+33649038211",
 };
 
+// Lien WhatsApp prêt à l'emploi (numéro au format international + message pré-rempli).
+// wa.me ouvre directement la conversation avec Eliott (app mobile ou WhatsApp Web).
+export const WHATSAPP_URL = `https://wa.me/${SITE.whatsapp.replace(
+  /[^0-9]/g,
+  ""
+)}?text=${encodeURIComponent(
+  "Bonjour Eliott, je vous contacte via votre site EG-PRO au sujet de : "
+)}`;
+
 export const NAV = [
   { label: "Accueil", href: "/" },
   { label: "Services", href: "/services" },

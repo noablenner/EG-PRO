@@ -1,6 +1,6 @@
 import Img from "@/components/Img";
 import Link from "next/link";
-import { NAV, SITE } from "@/lib/site";
+import { NAV, SITE, WHATSAPP_URL } from "@/lib/site";
 
 export default function Footer() {
   return (
@@ -61,7 +61,7 @@ export default function Footer() {
               </li>
               <li className="pt-2">
                 <a
-                  href={`https://wa.me/${SITE.whatsapp.replace(/[^0-9]/g, "")}`}
+                  href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:border-white/60"

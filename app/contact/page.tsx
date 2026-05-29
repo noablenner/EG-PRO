@@ -4,7 +4,7 @@ import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
 import Accordion from "@/components/Accordion";
-import { SITE } from "@/lib/site";
+import { SITE, WHATSAPP_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -34,7 +34,7 @@ const CONTACTS = [
   {
     label: "WhatsApp",
     value: "Discutons en direct",
-    href: `https://wa.me/${SITE.whatsapp.replace(/[^0-9]/g, "")}`,
+    href: WHATSAPP_URL,
     cursor: "WhatsApp",
     icon: (
       <path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3z" />
