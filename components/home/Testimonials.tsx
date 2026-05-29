@@ -25,8 +25,8 @@ export default function Testimonials() {
               transition={{ duration: 0.6, delay: (i % 2) * 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="relative rounded-3xl bg-white p-7 shadow-sm"
             >
-              <svg className="absolute right-6 top-6 text-brand/15" width="44" height="44" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M10 7H6a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v3l3-3h0a4 4 0 0 0-1-8zm9 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v3l3-3a4 4 0 0 0-1-8z" />
+              <svg className="absolute bottom-5 right-6 text-brand/15" width="38" height="38" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M10 7H6a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v3l3-3a4 4 0 0 0-1-8z" />
               </svg>
               <blockquote className="relative text-[15px] leading-relaxed text-ink/80">
                 « {t.text} »

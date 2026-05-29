@@ -132,10 +132,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.9 }}
-            className="absolute right-0 top-[22%] z-20 rounded-2xl bg-white/95 px-4 py-3 text-ink shadow-soft backdrop-blur sm:-right-2 sm:top-12 sm:px-5 sm:py-4"
+            className="absolute -right-3 top-[26%] z-20 rounded-2xl border border-white/15 bg-white/10 px-4 py-2.5 backdrop-blur-md sm:-right-3 sm:top-12 sm:px-5 sm:py-3"
           >
-            <p className="font-display text-xl font-bold text-brand sm:text-2xl">63+</p>
-            <p className="text-[11px] text-muted sm:text-xs">partenaires artisans</p>
+            <p className="font-display text-xl font-bold text-brand-bright sm:text-2xl">63+</p>
+            <p className="text-[11px] text-white/70 sm:text-xs">partenaires artisans</p>
           </motion.div>
 
           {/* Chip nom */}
@@ -151,13 +151,13 @@ export default function Hero() {
 
           {/* Petit badge note (remplit l'espace sur mobile) */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 1.1 }}
-            className="absolute left-0 top-1/2 z-20 flex -translate-y-1/2 items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 shadow-soft sm:-left-2"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 1.1 }}
+            className="absolute left-0 top-1/2 z-20 flex -translate-y-1/2 items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-4 py-2.5 backdrop-blur-md sm:-left-2 sm:px-5 sm:py-3"
           >
-            <span className="text-sm">★</span>
-            <span className="text-xs font-semibold text-ink">Local · réactif</span>
+            <span className="text-sm text-brand-bright">★</span>
+            <span className="text-[11px] font-semibold text-white sm:text-xs">Local · réactif</span>
           </motion.div>
         </motion.div>
       </div>
