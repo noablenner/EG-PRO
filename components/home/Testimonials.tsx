@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import SectionHeading from "@/components/SectionHeading";
 import { TESTIMONIALS } from "@/lib/site";
 
@@ -27,46 +27,56 @@ function Card({ t }: { t: (typeof TESTIMONIALS)[number] }) {
   );
 }
 
-/** Mobile : les cartes défilent horizontalement (droite -> gauche) au rythme du scroll vertical. */
-function MobileScroller() {
-  const wrapRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [distance, setDistance] = useState(0);
-  const [wrapH, setWrapH] = useState("220vh");
+/** Mobile : carrousel une carte à la fois, swipe + auto-défilement + points. */
+function MobileCarousel() {
+  const [[idx, dir], setState] = useState<[number, number]>([0, 0]);
+  const n = TESTIMONIALS.length;
+  const current = ((idx % n) + n) % n;
+
+  const go = (d: number) => setState([idx + d, d]);
 
   useEffect(() => {
-    const measure = () => {
-      const track = trackRef.current;
-      if (!track) return;
-      const d = Math.max(0, track.scrollWidth - window.innerWidth + 20);
-      setDistance(d);
-      setWrapH(`${window.innerHeight + d}px`);
-    };
-    measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
+    const id = setInterval(() => setState(([i]) => [i + 1, 1]), 5000);
+    return () => clearInterval(id);
   }, []);
 
-  const { scrollYProgress } = useScroll({
-    target: wrapRef,
-    offset: ["start start", "end end"],
-  });
-  const x = useTransform(scrollYProgress, [0, 1], [0, -distance]);
-
   return (
-    <div ref={wrapRef} style={{ height: wrapH }} className="relative md:hidden">
-      <div className="sticky top-0 flex h-[100svh] items-center overflow-hidden">
-        <motion.div
-          ref={trackRef}
-          style={{ x }}
-          className="flex gap-4 px-5 will-change-transform"
-        >
-          {TESTIMONIALS.map((t, i) => (
-            <div key={i} className="w-[82vw] max-w-[340px] shrink-0">
-              <Card t={t} />
-            </div>
-          ))}
-        </motion.div>
+    <div className="mt-10 md:hidden">
+      <div className="relative overflow-hidden px-1">
+        <AnimatePresence mode="popLayout" custom={dir} initial={false}>
+          <motion.div
+            key={idx}
+            custom={dir}
+            initial={{ opacity: 0, x: dir >= 0 ? 80 : -80 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: dir >= 0 ? -80 : 80 }}
+            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={(_, info) => {
+              if (info.offset.x < -60) go(1);
+              else if (info.offset.x > 60) go(-1);
+            }}
+            className="cursor-grab active:cursor-grabbing"
+          >
+            <Card t={TESTIMONIALS[current]} />
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Points */}
+      <div className="mt-6 flex items-center justify-center gap-2">
+        {TESTIMONIALS.map((_, i) => (
+          <button
+            key={i}
+            aria-label={`Avis ${i + 1}`}
+            onClick={() => setState([i, i > current ? 1 : -1])}
+            className={`h-2 rounded-full transition-all ${
+              i === current ? "w-6 bg-brand" : "w-2 bg-brand/25"
+            }`}
+          />
+        ))}
       </div>
     </div>
   );
@@ -74,7 +84,7 @@ function MobileScroller() {
 
 export default function Testimonials() {
   return (
-    <section className="relative bg-brand-soft/40 py-20 md:py-28">
+    <section className="relative overflow-hidden bg-brand-soft/40 py-20 md:py-28">
       <SectionHeading
         center
         eyebrow="Ce que disent mes clients"
@@ -99,8 +109,10 @@ export default function Testimonials() {
         </div>
       </div>
 
-      {/* Mobile : scroll horizontal piloté par le scroll vertical */}
-      <MobileScroller />
+      {/* Mobile : carrousel swipe */}
+      <div className="container-x">
+        <MobileCarousel />
+      </div>
     </section>
   );
 }
