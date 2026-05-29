@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Img from "@/components/Img";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -32,7 +32,7 @@ export default function Header() {
       >
         <div className="container-x flex items-center justify-between">
           <Link href="/" data-cursor="Accueil" className="relative z-10 flex items-center gap-2">
-            <Image
+            <Img
               src="/images/logo/logo-blue.png"
               alt="EG-PRO"
               width={150}

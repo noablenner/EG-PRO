@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Img from "@/components/Img";
 import { useRef, useState, useCallback } from "react";
 
 /** Slider avant/après : on glisse pour comparer les deux images. */
@@ -45,7 +45,7 @@ export default function BeforeAfter({
       onTouchMove={(e) => setFromClientX(e.touches[0].clientX)}
     >
       {/* Après (fond) */}
-      <Image
+      <Img
         src={after}
         alt={`${alt} — ${afterLabel}`}
         fill
@@ -62,7 +62,7 @@ export default function BeforeAfter({
         style={{ width: `${pos}%` }}
       >
         <div className="relative h-full" style={{ width: ref.current?.offsetWidth || "100%" }}>
-          <Image
+          <Img
             src={before}
             alt={`${alt} — ${beforeLabel}`}
             fill

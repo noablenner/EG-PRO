@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Img from "@/components/Img";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Button from "@/components/Button";
@@ -112,7 +112,7 @@ export default function Hero() {
         >
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl">
             <motion.div style={{ scale: scalePhoto }} className="absolute inset-0">
-              <Image
+              <Img
                 src="/images/eliott/eliott-portrait.jpeg"
                 alt="Eliott Guerreiro, fondateur d'EG-PRO"
                 fill

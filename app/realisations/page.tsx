@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Img from "@/components/Img";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
 import BeforeAfter from "@/components/BeforeAfter";
@@ -58,7 +58,7 @@ export default function RealisationsPage() {
           <Reveal delay={0.1}>
             <div className="grid gap-4">
               <div className="relative aspect-[16/10] overflow-hidden rounded-3xl shadow-soft">
-                <Image
+                <Img
                   src="/images/projets/tabac-simulation-1.png"
                   alt="Simulation 3D de l'intérieur rénové du Républicain"
                   fill
@@ -71,7 +71,7 @@ export default function RealisationsPage() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="relative aspect-square overflow-hidden rounded-2xl shadow-sm">
-                  <Image
+                  <Img
                     src="/images/projets/tabac-actuel.png"
                     alt="Extérieur actuel du Républicain à Mulhouse"
                     fill
@@ -83,7 +83,7 @@ export default function RealisationsPage() {
                   </span>
                 </div>
                 <div className="relative aspect-square overflow-hidden rounded-2xl shadow-sm">
-                  <Image
+                  <Img
                     src="/images/projets/tabac-simulation-2.png"
                     alt="Seconde vue de la simulation du projet"
                     fill

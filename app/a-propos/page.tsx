@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Img from "@/components/Img";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
@@ -36,7 +36,7 @@ export default function AProposPage() {
           <Reveal>
             <div className="relative mx-auto w-full max-w-sm">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-soft">
-                <Image
+                <Img
                   src="/images/eliott/eliott-portrait.jpeg"
                   alt="Eliott Guerreiro, fondateur d'EG-PRO"
                   fill

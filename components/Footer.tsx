@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Img from "@/components/Img";
 import Link from "next/link";
 import { NAV, SITE } from "@/lib/site";
 
@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="container-x relative py-16">
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
-            <Image
+            <Img
               src="/images/logo/logo-blue.png"
               alt="EG-PRO"
               width={170}
