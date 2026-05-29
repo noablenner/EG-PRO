@@ -20,6 +20,8 @@ export default function PageHero({
         animate={{ scale: [1, 1.15, 1] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
+      {/* Bande plate en haut : jonction exacte avec la barre du téléphone (theme-color) */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-brand-deep via-brand-deep to-transparent" />
       <div className="container-x relative">
         <motion.span
           initial={{ opacity: 0, y: 16 }}
