@@ -51,12 +51,12 @@ function Step({
   const x = useTransform(progress, [start - 0.12, start], [40, 0]);
 
   return (
-    <motion.div style={{ opacity, x }} className="border-l-2 border-brand/30 pl-6">
-      <span className="font-display text-sm font-bold text-brand">{step.n}</span>
-      <h3 className="mt-1 font-display text-2xl font-bold text-white sm:text-3xl">
+    <motion.div style={{ opacity, x }} className="border-l-2 border-brand/30 pl-5">
+      <span className="font-display text-xs font-bold text-brand">{step.n}</span>
+      <h3 className="mt-0.5 font-display text-lg font-bold leading-tight text-white sm:text-xl">
         {step.title}
       </h3>
-      <p className="mt-3 max-w-md text-white/65">{step.desc}</p>
+      <p className="mt-1.5 max-w-md text-sm text-white/65">{step.desc}</p>
     </motion.div>
   );
 }
@@ -80,7 +80,7 @@ export default function ProcessScroll() {
     <section
       ref={ref}
       className="relative bg-brand-deep"
-      style={{ height: `${STEPS.length * 90}vh` }}
+      style={{ height: `${STEPS.length * 52}vh` }}
     >
       <div className="bg-grid absolute inset-0 opacity-30" />
       <div className="sticky top-0 flex min-h-screen items-center overflow-hidden">
@@ -123,10 +123,10 @@ export default function ProcessScroll() {
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-bright">
               Comment je travaille
             </span>
-            <h2 className="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">
+            <h2 className="mt-2 font-display text-2xl font-bold text-white sm:text-3xl">
               Simple, fluide, transparent.
             </h2>
-            <div className="mt-10 space-y-7">
+            <div className="mt-6 space-y-4">
               {STEPS.map((s, i) => (
                 <Step key={s.n} step={s} index={i} progress={scrollYProgress} />
               ))}

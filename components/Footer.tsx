@@ -12,11 +12,11 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <Img
-              src="/images/logo/logo-blue.png"
+              src="/images/logo/logo-mark.png"
               alt="EG-PRO"
-              width={170}
-              height={64}
-              className="h-12 w-auto object-contain brightness-0 invert"
+              width={200}
+              height={185}
+              className="h-16 w-auto object-contain brightness-0 invert"
             />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/70">
               Société d'apport d'affaires et de mise en relation dans
