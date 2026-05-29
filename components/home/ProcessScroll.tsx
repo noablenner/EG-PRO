@@ -77,9 +77,6 @@ function Wheel({
           <motion.p className={`font-display font-extrabold text-white ${compact ? "text-4xl" : "text-6xl sm:text-7xl"}`}>
             {bigNumber}
           </motion.p>
-          <span className={`text-white/50 ${compact ? "text-[11px]" : "text-sm"}`}>
-            étapes simples
-          </span>
         </div>
       </div>
     </div>

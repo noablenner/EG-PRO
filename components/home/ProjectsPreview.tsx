@@ -26,7 +26,7 @@ export default function ProjectsPreview() {
         </Reveal>
       </div>
 
-      <div className="mt-12 grid gap-8 md:grid-cols-2">
+      <div className="mt-12 grid gap-16 md:grid-cols-2 md:gap-8">
         {HOME_PROJECTS.map((p, i) => (
           <Reveal key={p.id} delay={i * 0.1}>
             <article>

@@ -22,7 +22,7 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative flex min-h-[100svh] items-center overflow-hidden bg-brand-deep pb-16 pt-28 text-white sm:pb-0"
+      className="relative flex min-h-[100svh] flex-col overflow-hidden bg-brand-deep pt-28 text-white"
     >
       {/* Fonds animés */}
       <div className="bg-grid absolute inset-0 opacity-50" />
@@ -37,7 +37,7 @@ export default function Hero() {
         transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="container-x relative grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+      <div className="container-x relative flex flex-1 flex-col gap-8 lg:grid lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-12">
         {/* Texte */}
         <motion.div style={{ y: yText, opacity }}>
           <motion.span
@@ -108,7 +108,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="relative mx-auto flex w-full max-w-md items-end justify-center lg:max-w-none"
+          className="relative mx-auto mt-auto flex w-full max-w-md items-end justify-center lg:mt-0 lg:max-w-none"
         >
           {/* Halo derrière Eliott */}
           <div className="pointer-events-none absolute bottom-0 flex h-[90%] w-full items-center justify-center">
@@ -132,7 +132,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.9 }}
-            className="absolute left-0 top-6 z-20 rounded-2xl bg-white/95 px-4 py-3 text-ink shadow-soft backdrop-blur sm:-left-2 sm:top-10 sm:px-5 sm:py-4"
+            className="absolute right-0 top-[22%] z-20 rounded-2xl bg-white/95 px-4 py-3 text-ink shadow-soft backdrop-blur sm:-right-2 sm:top-12 sm:px-5 sm:py-4"
           >
             <p className="font-display text-xl font-bold text-brand sm:text-2xl">63+</p>
             <p className="text-[11px] text-muted sm:text-xs">partenaires artisans</p>
@@ -154,7 +154,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 1.1 }}
-            className="absolute right-1 top-1/3 z-20 flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 shadow-soft sm:right-2"
+            className="absolute left-0 top-1/2 z-20 flex -translate-y-1/2 items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 shadow-soft sm:-left-2"
           >
             <span className="text-sm">★</span>
             <span className="text-xs font-semibold text-ink">Local · réactif</span>
@@ -165,7 +165,7 @@ export default function Hero() {
       {/* Indicateur de scroll */}
       <motion.div
         style={{ opacity }}
-        className="absolute bottom-7 left-1/2 -translate-x-1/2"
+        className="absolute bottom-7 left-1/2 hidden -translate-x-1/2 lg:block"
       >
         <div className="flex h-9 w-5 items-start justify-center rounded-full border border-white/30 p-1">
           <motion.span
