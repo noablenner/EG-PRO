@@ -111,8 +111,9 @@ export default function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[90] bg-brand-deep/98 lg:hidden"
+            className="fixed inset-0 z-[90] bg-brand-deep lg:hidden"
           >
+            <div className="absolute inset-0 bg-brand-deep" />
             <div className="bg-grid absolute inset-0 opacity-60" />
             <nav className="relative flex h-full flex-col items-center justify-center gap-2">
               {NAV.map((item, i) => (
