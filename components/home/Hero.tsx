@@ -14,15 +14,15 @@ export default function Hero() {
     target: ref,
     offset: ["start start", "end start"],
   });
-  const yPhoto = useTransform(scrollYProgress, [0, 1], [0, 120]);
-  const scalePhoto = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
-  const yText = useTransform(scrollYProgress, [0, 1], [0, -60]);
-  const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  const yPhoto = useTransform(scrollYProgress, [0, 1], [0, 40]);
+  const scalePhoto = useTransform(scrollYProgress, [0, 1], [1, 1.04]);
+  const yText = useTransform(scrollYProgress, [0, 1], [0, -30]);
+  const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
 
   return (
     <section
       ref={ref}
-      className="relative flex min-h-[100svh] items-center overflow-hidden bg-brand-deep pt-28 text-white"
+      className="relative flex min-h-[100svh] items-center overflow-hidden bg-brand-deep pb-16 pt-28 text-white sm:pb-0"
     >
       {/* Fonds animés */}
       <div className="bg-grid absolute inset-0 opacity-50" />
