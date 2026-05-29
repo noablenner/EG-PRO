@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import SectionHeading from "@/components/SectionHeading";
 import { TESTIMONIALS } from "@/lib/site";
 
@@ -26,9 +27,54 @@ function Card({ t }: { t: (typeof TESTIMONIALS)[number] }) {
   );
 }
 
+/** Mobile : les cartes défilent horizontalement (droite -> gauche) au rythme du scroll vertical. */
+function MobileScroller() {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [distance, setDistance] = useState(0);
+  const [wrapH, setWrapH] = useState("220vh");
+
+  useEffect(() => {
+    const measure = () => {
+      const track = trackRef.current;
+      if (!track) return;
+      const d = Math.max(0, track.scrollWidth - window.innerWidth + 20);
+      setDistance(d);
+      setWrapH(`${window.innerHeight + d}px`);
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
+  const { scrollYProgress } = useScroll({
+    target: wrapRef,
+    offset: ["start start", "end end"],
+  });
+  const x = useTransform(scrollYProgress, [0, 1], [0, -distance]);
+
+  return (
+    <div ref={wrapRef} style={{ height: wrapH }} className="relative md:hidden">
+      <div className="sticky top-0 flex h-[100svh] items-center overflow-hidden">
+        <motion.div
+          ref={trackRef}
+          style={{ x }}
+          className="flex gap-4 px-5 will-change-transform"
+        >
+          {TESTIMONIALS.map((t, i) => (
+            <div key={i} className="w-[82vw] max-w-[340px] shrink-0">
+              <Card t={t} />
+            </div>
+          ))}
+        </motion.div>
+      </div>
+    </div>
+  );
+}
+
 export default function Testimonials() {
   return (
-    <section className="relative overflow-hidden bg-brand-soft/40 py-20 md:py-28">
+    <section className="relative bg-brand-soft/40 py-20 md:py-28">
       <SectionHeading
         center
         eyebrow="Ce que disent mes clients"
@@ -53,21 +99,8 @@ export default function Testimonials() {
         </div>
       </div>
 
-      {/* Mobile : carrousel de cartes qui défile de droite à gauche */}
-      <div className="mt-12 md:hidden">
-        <div className="flex overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
-          <div
-            className="flex w-max animate-marquee gap-4 pr-4"
-            style={{ animationDuration: "38s" }}
-          >
-            {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
-              <div key={i} className="w-[80vw] max-w-[330px] shrink-0">
-                <Card t={t} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      {/* Mobile : scroll horizontal piloté par le scroll vertical */}
+      <MobileScroller />
     </section>
   );
 }
