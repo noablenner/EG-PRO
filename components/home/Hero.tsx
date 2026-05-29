@@ -132,10 +132,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.9 }}
-            className="absolute -left-2 top-10 z-20 hidden rounded-2xl bg-white/95 px-5 py-4 text-ink shadow-soft backdrop-blur sm:block"
+            className="absolute left-0 top-6 z-20 rounded-2xl bg-white/95 px-4 py-3 text-ink shadow-soft backdrop-blur sm:-left-2 sm:top-10 sm:px-5 sm:py-4"
           >
-            <p className="font-display text-2xl font-bold text-brand">63+</p>
-            <p className="text-xs text-muted">partenaires artisans</p>
+            <p className="font-display text-xl font-bold text-brand sm:text-2xl">63+</p>
+            <p className="text-[11px] text-muted sm:text-xs">partenaires artisans</p>
           </motion.div>
 
           {/* Chip nom */}
@@ -143,10 +143,21 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1 }}
-            className="absolute -right-1 bottom-10 z-20 hidden rounded-2xl border border-white/15 bg-white/10 px-5 py-3 backdrop-blur-md sm:block"
+            className="absolute right-0 bottom-8 z-20 rounded-2xl border border-white/15 bg-white/10 px-4 py-2.5 backdrop-blur-md sm:-right-1 sm:bottom-10 sm:px-5 sm:py-3"
           >
-            <p className="font-display text-base font-semibold text-white">Eliott Guerreiro</p>
-            <p className="text-xs text-white/70">Fondateur · EG-PRO</p>
+            <p className="font-display text-sm font-semibold text-white sm:text-base">Eliott Guerreiro</p>
+            <p className="text-[11px] text-white/70 sm:text-xs">Fondateur · EG-PRO</p>
+          </motion.div>
+
+          {/* Petit badge note (remplit l'espace sur mobile) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 1.1 }}
+            className="absolute right-1 top-1/3 z-20 flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 shadow-soft sm:right-2"
+          >
+            <span className="text-sm">★</span>
+            <span className="text-xs font-semibold text-ink">Local · réactif</span>
           </motion.div>
         </motion.div>
       </div>
