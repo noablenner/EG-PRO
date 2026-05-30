@@ -39,9 +39,9 @@ export default function Hero() {
       {/* Bande plate en haut : jonction exacte avec la barre du téléphone (theme-color) */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-brand-deep via-brand-deep to-transparent" />
 
-      <div className="container-x relative flex flex-1 flex-col gap-8 lg:grid lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-12">
+      <div className="container-x relative flex flex-1 flex-col gap-8 lg:grid lg:grid-cols-[1.05fr_0.95fr] lg:grid-rows-1 lg:gap-12">
         {/* Texte */}
-        <motion.div style={{ y: yText, opacity }}>
+        <motion.div style={{ y: yText, opacity }} className="lg:self-center">
           <motion.span
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -110,7 +110,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="relative mx-auto mt-auto flex w-full max-w-md items-end justify-center lg:mt-0 lg:max-w-none"
+          className="relative mx-auto mt-auto flex w-full max-w-md items-end justify-center lg:max-w-none lg:self-end"
         >
           {/* Halo derrière Eliott */}
           <div className="pointer-events-none absolute bottom-0 flex h-[90%] w-full items-center justify-center">

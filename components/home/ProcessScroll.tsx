@@ -83,9 +83,9 @@ function Wheel({
   );
 }
 
-function StepCards({ base }: { base: string }) {
+function StepCards({ base, pb = "pb-[20vh]" }: { base: string; pb?: string }) {
   return (
-    <div className="relative pb-[20vh]">
+    <div className={`relative ${pb}`}>
       {STEPS.map((s, i) => (
         <div
           key={s.n}
@@ -127,7 +127,7 @@ export default function ProcessScroll() {
   });
 
   return (
-    <section ref={ref} className="relative bg-brand-deep py-20 md:py-28">
+    <section ref={ref} className="relative bg-brand-deep pt-20 pb-10 md:pt-28 md:pb-14">
       <div className="bg-grid pointer-events-none absolute inset-0 opacity-30" />
       <div className="container-x relative">
         <Reveal>
@@ -143,10 +143,10 @@ export default function ProcessScroll() {
 
         {/* DESKTOP : roue fixée à gauche + cartes empilées à droite */}
         <div className="mt-14 hidden lg:grid lg:grid-cols-[0.85fr_1fr] lg:items-start lg:gap-16">
-          <div className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:items-center lg:justify-center">
+          <div className="lg:sticky lg:top-[26vh] lg:flex lg:justify-center">
             <Wheel progress={scrollYProgress} />
           </div>
-          <StepCards base="6rem" />
+          <StepCards base="6rem" pb="pb-[4vh]" />
         </div>
 
         {/* MOBILE : roue fixée en haut, cartes qui défilent dessous */}
@@ -155,7 +155,7 @@ export default function ProcessScroll() {
             <Wheel progress={scrollYProgress} compact />
           </div>
           <div className="mt-2">
-            <StepCards base="13.5rem" />
+            <StepCards base="13.5rem" pb="pb-[10vh]" />
           </div>
         </div>
       </div>
