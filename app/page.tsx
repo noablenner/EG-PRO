@@ -5,6 +5,7 @@ import ServicesPreview from "@/components/home/ServicesPreview";
 import ProcessScroll from "@/components/home/ProcessScroll";
 import ProjectsPreview from "@/components/home/ProjectsPreview";
 import Testimonials from "@/components/home/Testimonials";
+import BuildShowcase from "@/components/home/BuildShowcase";
 import CTA from "@/components/CTA";
 
 export default function HomePage() {
@@ -19,6 +20,7 @@ export default function HomePage() {
       <ProcessScroll />
       <ProjectsPreview />
       <Testimonials />
+      <BuildShowcase />
       <CTA />
     </>
   );
