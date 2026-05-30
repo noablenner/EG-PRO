@@ -16,17 +16,17 @@ export default function CTA({
         <div className="bg-grid absolute inset-0 opacity-30" />
         <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-white/10 blur-2xl" />
         <div className="relative">
-          <Reveal>
+          <Reveal className="anim-static-mobile">
             <h2 className="mx-auto max-w-3xl font-display text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
               {title}
             </h2>
           </Reveal>
-          <Reveal delay={0.08}>
+          <Reveal delay={0.08} className="anim-static-mobile">
             <p className="mx-auto mt-5 max-w-xl text-base text-white/80 sm:text-lg">
               {text}
             </p>
           </Reveal>
-          <Reveal delay={0.16}>
+          <Reveal delay={0.16} className="anim-static-mobile">
             <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
               <Button href="/contact" variant="light" cursor="Go">
                 Démarrer un échange
