@@ -3,11 +3,8 @@
 import { motion } from "framer-motion";
 import SectionHeading from "@/components/SectionHeading";
 import { TESTIMONIALS } from "@/lib/site";
-import { useIsMobile } from "@/lib/useIsMobile";
 
 export default function Testimonials() {
-  const isMobile = useIsMobile();
-
   return (
     <section className="relative overflow-hidden bg-brand-soft/40 py-20 md:py-28">
       <SectionHeading
@@ -19,42 +16,32 @@ export default function Testimonials() {
 
       <div className="container-x mt-14">
         <div className="grid gap-5 md:grid-cols-2">
-          {TESTIMONIALS.map((t, i) => {
-            const inner = (
-              <figure className="relative h-full rounded-3xl bg-white p-7 shadow-sm">
-                <svg className="absolute bottom-5 right-6 text-brand/15" width="38" height="38" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M10 7H6a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v3l3-3a4 4 0 0 0-1-8z" />
-                </svg>
-                <blockquote className="relative text-[15px] leading-relaxed text-ink/80">
-                  « {t.text} »
-                </blockquote>
-                <figcaption className="mt-6 flex items-center gap-3">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand font-display text-sm font-bold text-white">
-                    {t.name.split(" ").map((n) => n[0]).join("")}
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-ink">{t.name}</p>
-                    <p className="text-xs text-muted">{t.role}</p>
-                  </div>
-                </figcaption>
-              </figure>
-            );
-
-            // Sur mobile : pas d'animation d'arrivée (contenu déjà là)
-            if (isMobile) return <div key={t.name}>{inner}</div>;
-
-            return (
-              <motion.div
-                key={t.name}
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.6, delay: (i % 2) * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              >
-                {inner}
-              </motion.div>
-            );
-          })}
+          {TESTIMONIALS.map((t, i) => (
+            <motion.figure
+              key={t.name}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6, delay: (i % 2) * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="anim-static-mobile relative rounded-3xl bg-white p-7 shadow-sm"
+            >
+              <svg className="absolute bottom-5 right-6 text-brand/15" width="38" height="38" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M10 7H6a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v3l3-3a4 4 0 0 0-1-8z" />
+              </svg>
+              <blockquote className="relative text-[15px] leading-relaxed text-ink/80">
+                « {t.text} »
+              </blockquote>
+              <figcaption className="mt-6 flex items-center gap-3">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand font-display text-sm font-bold text-white">
+                  {t.name.split(" ").map((n) => n[0]).join("")}
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-ink">{t.name}</p>
+                  <p className="text-xs text-muted">{t.role}</p>
+                </div>
+              </figcaption>
+            </motion.figure>
+          ))}
         </div>
       </div>
     </section>
