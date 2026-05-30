@@ -118,3 +118,11 @@ html.lenis body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Sur mobile : neutralise l'animation d'arrivée (contenu affiché directement) */
+@media (max-width: 767px) {
+  .anim-static-mobile {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

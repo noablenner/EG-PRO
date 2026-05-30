@@ -1,18 +1,13 @@
-"use client";
-
 import Link from "next/link";
 import BeforeAfter from "@/components/BeforeAfter";
 import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
 import { PROJECTS } from "@/lib/site";
-import { useIsMobile } from "@/lib/useIsMobile";
 
 // Sur l'accueil : uniquement les vrais avant/après (façade + tableau électrique).
 const HOME_PROJECTS = PROJECTS.filter((p) => p.id === "facade" || p.id === "tableau");
 
 export default function ProjectsPreview() {
-  const isMobile = useIsMobile();
-
   return (
     <section className="container-x py-20 md:py-28">
       <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -30,8 +25,8 @@ export default function ProjectsPreview() {
       </div>
 
       <div className="mt-12 grid gap-16 md:grid-cols-2 md:gap-8">
-        {HOME_PROJECTS.map((p, i) => {
-          const article = (
+        {HOME_PROJECTS.map((p, i) => (
+          <Reveal key={p.id} delay={i * 0.1} className="anim-static-mobile">
             <article>
               <BeforeAfter
                 before={p.before}
@@ -50,20 +45,11 @@ export default function ProjectsPreview() {
                 </span>
               </div>
             </article>
-          );
-
-          // Sur mobile : pas d'animation d'arrivée
-          if (isMobile) return <div key={p.id}>{article}</div>;
-
-          return (
-            <Reveal key={p.id} delay={i * 0.1}>
-              {article}
-            </Reveal>
-          );
-        })}
+          </Reveal>
+        ))}
       </div>
 
-      <Reveal>
+      <Reveal className="anim-static-mobile">
         <div className="mt-10 text-center md:hidden">
           <Link href="/realisations" data-cursor="Tout voir" className="inline-flex items-center gap-2 font-semibold text-brand hover:text-brand-bright">
             Toutes les réalisations
