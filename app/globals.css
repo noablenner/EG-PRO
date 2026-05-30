@@ -28,6 +28,26 @@
   --radius: 16px;
 }
 
+/* ----- VERSION VERTE (inspirée des yeux d'Eliott) — activée via [data-theme="green"] ----- */
+:root[data-theme="green"] {
+  --brand: 34 150 95;         /* #22965F  vert principal */
+  --brand-bright: 58 190 122; /* #3ABE7A  vert clair / accents */
+  --brand-dark: 20 90 58;     /* #145A3A  vert foncé */
+  --brand-deep: 8 32 22;      /* #082016  vert nuit (fonds sombres) */
+  --brand-soft: 230 245 237;  /* #E6F5ED  vert très clair (fonds doux) */
+}
+
+/* Logo selon le thème actif */
+.logo-green {
+  display: none;
+}
+:root[data-theme="green"] .logo-blue {
+  display: none;
+}
+:root[data-theme="green"] .logo-green {
+  display: block;
+}
+
 * {
   box-sizing: border-box;
 }
