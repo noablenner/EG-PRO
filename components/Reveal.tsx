@@ -20,9 +20,11 @@ export default function Reveal({
   once = true,
 }: Props) {
   const reduce = useReducedMotion();
+  // `anim-static-mobile` neutralise l'animation d'arrivée sur mobile (perf + confort)
+  const cls = ["anim-static-mobile", className].filter(Boolean).join(" ");
   return (
     <motion.div
-      className={className}
+      className={cls}
       initial={reduce ? false : { opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once, margin: "-80px" }}
