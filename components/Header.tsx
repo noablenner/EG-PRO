@@ -55,14 +55,14 @@ export default function Header() {
           </Link>
 
           {/* Nav desktop */}
-          <nav className="hidden items-center gap-1 lg:flex">
+          <nav className="hidden items-center gap-0.5 lg:flex">
             {NAV.map((item) => {
               const active = pathname === item.href;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                  className={`relative whitespace-nowrap rounded-full px-3 py-2 text-[13px] font-medium transition-colors ${
                     scrolled
                       ? active
                         ? "text-brand"
@@ -91,7 +91,7 @@ export default function Header() {
             <a
               href={`tel:${SITE.phoneIntl}`}
               data-cursor="Appeler"
-              className={`hidden rounded-full px-5 py-2.5 text-sm font-semibold shadow-glow transition-colors sm:inline-flex ${
+              className={`hidden rounded-full px-5 py-2.5 text-sm font-semibold shadow-glow transition-colors xl:inline-flex ${
                 scrolled
                   ? "bg-brand text-white hover:bg-brand-bright"
                   : "bg-white text-brand-dark hover:bg-brand-soft"

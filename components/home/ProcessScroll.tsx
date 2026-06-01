@@ -7,28 +7,23 @@ import Reveal from "@/components/Reveal";
 const STEPS = [
   {
     n: "01",
-    title: "Vous m'expliquez votre besoin",
-    desc: "Un appel, un message, un mail. On clarifie ensemble votre projet, vos contraintes et vos délais.",
+    title: "Vous me contactez",
+    desc: "Un appel, un message, un mail : vous m'expliquez votre besoin, votre projet et vos délais.",
   },
   {
     n: "02",
-    title: "Je sélectionne les bons partenaires",
-    desc: "Je m'appuie sur mon réseau d'artisans et d'entreprises sélectionnés et assurés, adaptés à votre chantier.",
+    title: "J'analyse votre besoin",
+    desc: "Je clarifie le projet et les contraintes pour cibler les entreprises vraiment adaptées.",
   },
   {
     n: "03",
-    title: "J'organise visites & devis",
-    desc: "Je facilite les visites de chiffrage et l'obtention de deux à trois devis comparables pour décider sereinement.",
+    title: "Je vous mets en relation",
+    desc: "Je vous oriente vers les bons partenaires de mon réseau et facilite les premiers échanges.",
   },
   {
     n: "04",
-    title: "Je fluidifie les échanges",
-    desc: "Relances et préparation des dossiers : je fais le lien entre vous et les entreprises, sans intervenir sur les travaux.",
-  },
-  {
-    n: "05",
-    title: "Vous gardez la main",
-    desc: "Vous choisissez librement les entreprises. Elles restent responsables des travaux, je reste votre point de contact.",
+    title: "Vous choisissez librement",
+    desc: "Vous gardez la main : vous sélectionnez votre prestataire. Les entreprises restent responsables de leurs travaux.",
   },
 ];
 
@@ -133,7 +128,7 @@ export default function ProcessScroll() {
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-bright">
-              Comment je travaille
+              Comment ça fonctionne ?
             </span>
             <h2 className="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">
               Simple, fluide, transparent.
