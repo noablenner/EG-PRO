@@ -6,7 +6,7 @@ import { useRef } from "react";
 import Button from "@/components/Button";
 import { SITE } from "@/lib/site";
 
-const headline = ["Le bon partenaire,", "le bon artisan,", "au bon moment."];
+const headline = ["Développez vos projets", "de rénovation avec", "les bons partenaires."];
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -82,11 +82,19 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.55 }}
-            className="mt-6 max-w-lg text-lg leading-relaxed text-white/75"
+            className="mt-6 max-w-xl text-lg leading-relaxed text-white/75"
           >
-            EG-PRO connecte particuliers, investisseurs, SCI et syndics à des
-            artisans fiables et réactifs. Je simplifie vos travaux, du premier
-            contact jusqu'au suivi du projet.
+            Mise en relation, développement de projets et réseau d'entreprises
+            pour l'immobilier et la rénovation.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.62 }}
+            className="mt-4 text-sm font-medium text-brand-bright"
+          >
+            Investisseurs · SCI · marchands de biens · syndics · entreprises du bâtiment
           </motion.p>
 
           <motion.div

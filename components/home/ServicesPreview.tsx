@@ -26,7 +26,7 @@ export default function ServicesPreview() {
       <SectionHeading
         eyebrow="Ce que je peux vous apporter"
         title={<>Quatre façons de <span className="text-gradient">vous faire gagner du temps</span></>}
-        intro="Je coordonne un réseau d'artisans et d'entreprises spécialisées pour répondre à tous types de besoins, du particulier au gestionnaire immobilier."
+        intro="Je m'appuie sur un réseau d'artisans et d'entreprises spécialisées pour répondre à tous types de besoins, du particulier au gestionnaire immobilier."
       />
 
       <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">

@@ -23,7 +23,7 @@ const STEPS = [
   {
     n: "04",
     title: "Je fluidifie les échanges",
-    desc: "Relances, coordination, préparation des dossiers : je fais le lien pour que tout avance sans friction.",
+    desc: "Relances et préparation des dossiers : je fais le lien entre vous et les entreprises, sans intervenir sur les travaux.",
   },
   {
     n: "05",

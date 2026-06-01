@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
+import Dossiers from "@/components/Dossiers";
 import CTA from "@/components/CTA";
+import { INVESTOR_STEPS, LEGAL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Investisseurs & rénovation immobilière",
   description:
-    "EG-PRO accompagne investisseurs, SCI, marchands de biens et maîtres d'œuvre : mise en relation, devis comparatifs et coordination des projets de rénovation et de valorisation immobilière dans le Haut-Rhin.",
+    "EG-PRO accompagne investisseurs, SCI, marchands de biens et maîtres d'œuvre : acquisition, chiffrage, réseau d'entreprises, mise en relation, valorisation, remise en état, division et revente. Haut-Rhin & Alsace.",
 };
 
 const FOR_WHOM = [
@@ -19,109 +21,77 @@ const FOR_WHOM = [
   "Entreprises du bâtiment",
 ];
 
-const STEPS = [
-  {
-    title: "Qualification du projet",
-    desc: "On cadre votre opération : type de bien, objectif (location, revente, valorisation), budget cible et délais.",
-  },
-  {
-    title: "Mise en relation ciblée",
-    desc: "Je sélectionne dans mon réseau les entreprises adaptées à votre chantier et à votre niveau d'exigence.",
-  },
-  {
-    title: "Devis comparables",
-    desc: "Organisation des visites et obtention de plusieurs devis comparables pour décider en connaissance de cause.",
-  },
-  {
-    title: "Suivi & fluidité",
-    desc: "Je facilite les échanges et la préparation des dossiers tout au long de l'opération — vous gagnez du temps.",
-  },
-];
-
-const PROJECTS = [
-  "Rénovation d'immeubles",
-  "Restructuration de biens",
-  "Division de lots",
-  "Valorisation immobilière",
-  "Remise en état avant location ou revente",
-];
-
 export default function InvestisseursPage() {
   return (
     <>
       <PageHero
         eyebrow="Investisseurs & rénovation"
-        title={<>Vos opérations, <span className="text-gradient">mieux orchestrées</span></>}
-        intro="EG-PRO se développe de plus en plus autour des investisseurs, SCI, marchands de biens et maîtres d'œuvre. Je vous apporte des mises en relation sérieuses et une vraie fluidité opérationnelle."
+        title={<>Vos opérations immobilières, <span className="text-gradient">mieux entourées</span></>}
+        intro="De l'acquisition à la revente, EG-PRO vous apporte des mises en relation sérieuses et un réseau d'entreprises sélectionnées — pour valoriser vos biens sans perdre de temps."
       />
 
-      {/* Pour qui */}
-      <section className="container-x py-20 md:py-28">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          <SectionHeading
-            eyebrow="Pour qui"
-            title="Un partenaire pensé pour les acteurs de l'immobilier"
-            intro="Que vous gériez un bien ou tout un portefeuille, je m'adapte à votre rythme et à vos contraintes de rentabilité."
-          />
-          <div className="grid gap-3 sm:grid-cols-2">
-            {FOR_WHOM.map((f, i) => (
-              <Reveal key={f} delay={i * 0.06}>
-                <div className="flex items-center gap-3 rounded-2xl border border-ink/8 bg-white px-5 py-4">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-soft text-brand">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
-                  </span>
-                  <span className="text-sm font-medium text-ink">{f}</span>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Méthode */}
-      <section className="bg-brand-deep py-20 text-white md:py-28">
-        <div className="container-x">
-          <SectionHeading
-            light
-            eyebrow="Comment on avance"
-            title="De l'opportunité à la valorisation"
-          />
-          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {STEPS.map((s, i) => (
-              <Reveal key={s.title} delay={i * 0.08}>
-                <div className="h-full rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur">
-                  <span className="font-display text-3xl font-extrabold text-brand-bright">
-                    0{i + 1}
-                  </span>
-                  <h3 className="mt-3 font-display text-lg font-bold">{s.title}</h3>
-                  <p className="mt-2 text-sm text-white/65">{s.desc}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Types d'opérations */}
+      {/* Parcours en 8 étapes */}
       <section className="container-x py-20 md:py-28">
         <SectionHeading
-          eyebrow="Opérations accompagnées"
-          title="Les projets immobiliers où j'interviens"
+          eyebrow="Le parcours de votre projet"
+          title="De l'acquisition à la revente"
+          intro="Un fil conducteur clair. À chaque étape, je vous oriente vers les bons interlocuteurs — vous gardez la décision."
         />
-        <div className="mt-10 flex flex-wrap gap-3">
-          {PROJECTS.map((p, i) => (
-            <Reveal key={p} delay={i * 0.05}>
-              <span className="inline-flex rounded-full border border-brand/20 bg-brand-soft/50 px-5 py-2.5 text-sm font-medium text-brand-dark">
-                {p}
-              </span>
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {INVESTOR_STEPS.map((s, i) => (
+            <Reveal key={s.n} delay={(i % 4) * 0.07}>
+              <div className="group relative h-full overflow-hidden rounded-3xl border border-ink/8 bg-white p-7 shadow-sm transition-shadow hover:shadow-soft">
+                <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-brand-soft transition-transform duration-500 group-hover:scale-150" />
+                <div className="relative">
+                  <span className="font-display text-4xl font-extrabold text-brand/20">{s.n}</span>
+                  <h3 className="mt-2 font-display text-lg font-bold text-ink">{s.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">{s.desc}</p>
+                </div>
+              </div>
             </Reveal>
           ))}
         </div>
       </section>
 
+      {/* Pour qui */}
+      <section className="bg-brand-deep py-20 text-white md:py-28">
+        <div className="container-x grid gap-12 lg:grid-cols-2 lg:items-center">
+          <SectionHeading
+            light
+            eyebrow="Pour qui"
+            title="Pensé pour les acteurs de l'immobilier"
+            intro="Que vous gériez un bien ou tout un portefeuille, je m'adapte à votre rythme et à vos objectifs de rentabilité."
+          />
+          <div className="grid gap-3 sm:grid-cols-2">
+            {FOR_WHOM.map((f, i) => (
+              <Reveal key={f} delay={i * 0.05}>
+                <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 backdrop-blur">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand text-white">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+                  </span>
+                  <span className="text-sm font-medium text-white">{f}</span>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Dossiers concrets */}
+      <Dossiers />
+
+      {/* Rappel du rôle */}
+      <section className="container-x pb-8">
+        <Reveal>
+          <p className="mx-auto max-w-3xl rounded-2xl bg-brand-soft/60 px-6 py-4 text-center text-sm text-brand-dark">
+            {LEGAL}
+          </p>
+        </Reveal>
+      </section>
+
       <CTA
         title="Une opération en vue ?"
-        text="Parlons de votre prochain projet immobilier. Je mobilise les bons partenaires et fluidifie l'ensemble."
+        text="Parlons de votre prochain projet immobilier. Je mobilise les bonnes entreprises et facilite l'ensemble."
       />
     </>
   );

@@ -16,7 +16,7 @@ export default function ServicesPage() {
     <>
       <PageHero
         eyebrow="Services"
-        title={<>Tout ce que je peux <span className="text-gradient">coordonner pour vous</span></>}
+        title={<>Tout ce que je peux <span className="text-gradient">mobiliser pour vous</span></>}
         intro="Je travaille avec un réseau d'artisans et d'entreprises spécialisées pour répondre à tous types de besoins, des particuliers aux gestionnaires immobiliers."
       />
 
