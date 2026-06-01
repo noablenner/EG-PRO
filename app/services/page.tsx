@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
+import WhyEgPro from "@/components/WhyEgPro";
 import CTA from "@/components/CTA";
-import { SERVICES, PROJECT_TYPES, VALUES } from "@/lib/site";
+import { SERVICES, PROJECT_TYPES } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Services — travaux, rénovation, drone & immobilier",
@@ -73,27 +74,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Valeur ajoutée */}
-      <section className="container-x py-20 md:py-28">
-        <SectionHeading
-          center
-          eyebrow="Pourquoi passer par EG-PRO"
-          title="La valeur ajoutée, c'est la fluidité"
-        />
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {VALUES.map((v, i) => (
-            <Reveal key={v.title} delay={i * 0.08}>
-              <div className="h-full rounded-3xl border border-ink/8 p-7">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-soft font-display text-lg font-bold text-brand">
-                  {i + 1}
-                </div>
-                <h3 className="mt-4 font-display text-lg font-bold text-ink">{v.title}</h3>
-                <p className="mt-2 text-sm text-muted">{v.desc}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
+      {/* Pourquoi passer par EG-PRO */}
+      <WhyEgPro />
 
       <CTA />
     </>
