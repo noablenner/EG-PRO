@@ -17,7 +17,7 @@ export const SITE = {
 
 // Mention légale claire sur le rôle d'EG-PRO (à afficher footer + À propos).
 export const LEGAL =
-  "EG-PRO intervient exclusivement comme intermédiaire de mise en relation et apporteur d'affaires. Les entreprises partenaires restent seules responsables de leurs devis, prestations et travaux.";
+  "EG-PRO est une société de courtage en travaux : elle intervient exclusivement comme intermédiaire de mise en relation entre les clients et les entreprises. Les entreprises partenaires restent seules responsables de leurs devis, prestations et travaux.";
 
 // Lien WhatsApp prêt à l'emploi (numéro au format international + message pré-rempli).
 // wa.me ouvre directement la conversation avec Eliott (app mobile ou WhatsApp Web).
@@ -79,6 +79,7 @@ export const AUDIENCE_DETAIL = [
   {
     icon: "🏢",
     title: "Investisseurs immobiliers",
+    href: "/investisseurs",
     intro: "",
     points: [
       "Recherche d'entreprises adaptées à chaque projet",
@@ -92,6 +93,7 @@ export const AUDIENCE_DETAIL = [
   {
     icon: "🏗️",
     title: "Maîtres d'œuvre & entreprises du bâtiment",
+    href: "/maitre-d-oeuvre",
     intro:
       "Vous recherchez des partenaires fiables pour compléter vos équipes ou répondre à un besoin spécifique ? EG-PRO vous aide à identifier rapidement des entreprises et sous-traitants adaptés grâce à un réseau local développé au fil des années.",
     points: [
@@ -105,6 +107,7 @@ export const AUDIENCE_DETAIL = [
   {
     icon: "🏘️",
     title: "Syndics & copropriétés",
+    href: "/coproprietes",
     intro: "",
     points: [
       "Recherche d'entreprises adaptées",
@@ -118,6 +121,7 @@ export const AUDIENCE_DETAIL = [
   {
     icon: "🏭",
     title: "Professionnels & entreprises",
+    href: "/services",
     intro: "",
     points: [
       "Entretien et maintenance des bâtiments",
@@ -370,15 +374,23 @@ export const FAQ = [
   },
   {
     q: "Quel est votre rôle exactement ?",
-    a: "EG-PRO est une société d'apport d'affaires et de mise en relation. Je connecte clients, investisseurs, syndics et professionnels à des entreprises adaptées, je facilite l'organisation des échanges et la préparation des dossiers. Je n'interviens pas comme maître d'œuvre : les entreprises restent seules responsables de leurs devis, prestations et de l'exécution des travaux.",
+    a: "EG-PRO est une société de courtage en travaux (apport d'affaires et mise en relation). Je connecte clients, investisseurs, syndics et professionnels à des entreprises adaptées, et je facilite les premiers échanges. Je n'interviens pas comme maître d'œuvre : les entreprises restent seules responsables de leurs devis, prestations et de l'exécution des travaux.",
+  },
+  {
+    q: "Combien coûte votre service ?",
+    a: "Pour vous, la mise en relation est gratuite et sans engagement. En tant que société de courtage en travaux, EG-PRO est rémunéré par les entreprises partenaires lorsqu'une affaire aboutit — pas par le client. Vous n'avez donc rien à payer pour être mis en relation.",
+  },
+  {
+    q: "Êtes-vous une entreprise de travaux ?",
+    a: "Non. EG-PRO est un intermédiaire : je mets en relation, je ne réalise pas les travaux et je ne dirige pas les chantiers. Chaque entreprise partenaire reste responsable de sa prestation.",
+  },
+  {
+    q: "Suis-je obligé de choisir une entreprise que vous proposez ?",
+    a: "Non, jamais. Vous gardez le libre choix de votre prestataire. Mon rôle est de vous faire gagner du temps en vous orientant vers des partenaires fiables et de vous aider à comparer des devis.",
   },
   {
     q: "En combien de temps puis-je obtenir un retour ?",
     a: "Je m'engage sur la réactivité. Dès réception de votre demande, je reviens vers vous rapidement pour comprendre le besoin et lancer les mises en relation.",
-  },
-  {
-    q: "Combien coûte votre service ?",
-    a: "Parlons-en directement selon votre projet. Expliquez-moi votre besoin et je vous propose le cadre le plus adapté.",
   },
   {
     q: "Comment sélectionnez-vous vos partenaires ?",

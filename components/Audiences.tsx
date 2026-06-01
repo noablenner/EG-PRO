@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
 import { AUDIENCE_DETAIL } from "@/lib/site";
@@ -43,6 +44,17 @@ export default function Audiences({ muted = false }: { muted?: boolean }) {
                       </li>
                     ))}
                   </ul>
+
+                  {a.href && (
+                    <Link
+                      href={a.href}
+                      data-cursor="Voir"
+                      className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand hover:text-brand-bright"
+                    >
+                      En savoir plus
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                    </Link>
+                  )}
                 </div>
               </div>
             </Reveal>

@@ -38,10 +38,24 @@ const TARGETS = [
 
 const WORKS = [
   "Ravalement & nettoyage de façade",
-  "Nettoyage de toiture par drone",
+  "Nettoyage toiture / façade par drone",
   "Étanchéité & couverture",
+  "Charpente",
   "Colonnes montantes électriques",
+  "Mise aux normes électriques des communs",
+  "Plomberie & colonnes d'eau",
+  "Chauffage collectif & VMC",
+  "Assainissement & canalisations",
   "Parties communes & cage d'escalier",
+  "Peinture & sols des communs",
+  "Menuiseries, portes & garde-corps",
+  "Interphonie, digicode & contrôle d'accès",
+  "Serrurerie & métallerie",
+  "Vitrerie",
+  "Espaces verts & nettoyage",
+  "Nettoyage spécialisé & désinfection",
+  "Inspection visuelle par drone",
+  "Entretien régulier (contrats annuels)",
   "Mise en sécurité & conformité",
 ];
 

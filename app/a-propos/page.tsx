@@ -55,22 +55,42 @@ export default function AProposPage() {
           <Reveal delay={0.1}>
             <div>
               <h2 className="font-display text-3xl font-bold text-ink sm:text-4xl">
-                Relier les bonnes personnes, simplement.
+                Mon réseau et mon expérience, au service de vos projets.
               </h2>
               <div className="mt-6 space-y-4 text-muted">
                 <p>{FOUNDER_TEXT}</p>
                 <p>
-                  J'interviens comme intermédiaire et facilitateur entre les
+                  EG-PRO est une <strong className="text-ink">société de courtage en
+                  travaux</strong> : j'interviens comme intermédiaire entre les
                   clients, les investisseurs, les syndics, les maîtres d'œuvre,
                   les entreprises de rénovation et les artisans partenaires.
-                  J'aime donner vie à des idées, relier des personnes et voir
-                  les choses se réaliser concrètement.
+                  J'aime relier les bonnes personnes et voir les projets se
+                  concrétiser.
                 </p>
                 <p>
-                  Mon obsession : la réactivité, le sérieux, la qualité des
-                  partenaires et la fluidité des échanges.
+                  Pour le client, la mise en relation est{" "}
+                  <strong className="text-ink">gratuite et sans engagement</strong> :
+                  je suis rémunéré par les entreprises partenaires, jamais par
+                  vous. Mon obsession : la réactivité, le sérieux et la qualité
+                  des partenaires.
                 </p>
               </div>
+
+              <ul className="mt-7 grid gap-3 sm:grid-cols-2">
+                {[
+                  "Plusieurs années dans l'immobilier & les copropriétés",
+                  "Des centaines de devis étudiés",
+                  "Des centaines de visites réalisées",
+                  "Un réseau de 20+ corps de métier",
+                ].map((x) => (
+                  <li key={x} className="flex items-start gap-2.5 text-sm font-medium text-ink/80">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-soft text-brand">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+                    </span>
+                    {x}
+                  </li>
+                ))}
+              </ul>
             </div>
           </Reveal>
         </div>
@@ -87,6 +107,43 @@ export default function AProposPage() {
               </div>
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      {/* Galerie / aperçu de projets */}
+      <section className="bg-brand-soft/40 py-20 md:py-28">
+        <div className="container-x">
+          <SectionHeading
+            eyebrow="Sur le terrain"
+            title="Des projets bien réels"
+            intro="Quelques aperçus de projets accompagnés, du nettoyage de façade à la rénovation complète."
+          />
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { src: "/images/projets/tabac-simulation-1.png", label: "Le Républicain · projet rénové" },
+              { src: "/images/projets/facade-apres.png", label: "Façade assainie" },
+              { src: "/images/projets/tabac-actuel.png", label: "Façade existante" },
+              { src: "/images/projets/tableau-apres.png", label: "Mise en sécurité électrique" },
+              { src: "/images/projets/tabac-simulation-2.png", label: "Ambiance intérieure" },
+              { src: "/images/projets/facade-avant.png", label: "Avant entretien" },
+            ].map((g, i) => (
+              <Reveal key={g.src} delay={(i % 3) * 0.08}>
+                <div className="group relative aspect-[4/3] overflow-hidden rounded-3xl bg-brand-deep shadow-sm">
+                  <Img
+                    src={g.src}
+                    alt={g.label}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 380px"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <span className="absolute bottom-3 left-4 right-4 text-sm font-semibold text-white drop-shadow">
+                    {g.label}
+                  </span>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
