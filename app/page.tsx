@@ -3,6 +3,7 @@ import Marquee from "@/components/Marquee";
 import StatsBand from "@/components/home/StatsBand";
 import ServicesPreview from "@/components/home/ServicesPreview";
 import ProcessScroll from "@/components/home/ProcessScroll";
+import WhyEgPro from "@/components/WhyEgPro";
 import ProjectsPreview from "@/components/home/ProjectsPreview";
 import Dossiers from "@/components/Dossiers";
 import Testimonials from "@/components/home/Testimonials";
@@ -19,6 +20,7 @@ export default function HomePage() {
       </div>
       <ServicesPreview />
       <ProcessScroll />
+      <WhyEgPro muted />
       <ProjectsPreview />
       <Dossiers light />
       <Testimonials />

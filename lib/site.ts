@@ -141,20 +141,39 @@ export const PROJECT_TYPES = [
 
 export const VALUES = [
   {
+    icon: "💰",
+    title: "Optimisation des coûts",
+    desc: "Grâce au volume d'affaires régulièrement confié à ses partenaires, EG-PRO bénéficie de relations privilégiées avec de nombreuses entreprises locales. Cette connaissance du marché permet souvent d'obtenir des propositions compétitives, cohérentes avec le besoin réel, en évitant les surcoûts liés à des prestations mal dimensionnées.",
+  },
+  {
+    icon: "⏱️",
     title: "Gain de temps",
-    desc: "Vous évitez de chercher et contacter vous-même plusieurs entreprises. Je m'occupe de la mise en relation.",
+    desc: "Un seul interlocuteur pour identifier rapidement les entreprises adaptées à votre projet. Plus besoin de contacter plusieurs sociétés, de relancer différents interlocuteurs ou de multiplier les recherches.",
   },
   {
+    icon: "🤝",
     title: "Réseau qualifié",
-    desc: "Je travaille avec des partenaires sélectionnés et assurés, dans tous les corps de métier.",
+    desc: "EG-PRO s'appuie sur un réseau d'entreprises sélectionnées pour leur sérieux, leur réactivité et la qualité de leurs prestations. Chaque projet est orienté vers les partenaires les plus pertinents selon les besoins exprimés.",
   },
   {
-    title: "Échanges fluides",
-    desc: "Meilleure communication entre investisseurs, entreprises, syndics et intervenants.",
+    icon: "📋",
+    title: "Comparaison simplifiée",
+    desc: "Les demandes sont préparées de manière claire afin d'obtenir des devis plus facilement comparables et d'aider à prendre des décisions éclairées.",
   },
   {
-    title: "Dossiers clairs",
-    desc: "Demandes et devis organisés de façon cohérente pour faciliter vos décisions.",
+    icon: "📍",
+    title: "Connaissance du marché local",
+    desc: "Une présence quotidienne sur le terrain et de nombreuses années d'expérience en immobilier, copropriété et rénovation : EG-PRO dispose d'une vision concrète des acteurs locaux et des réalités du marché.",
+  },
+  {
+    icon: "🏢",
+    title: "Une vision globale des projets",
+    desc: "Investisseurs, syndics, SCI, maîtres d'œuvre, entreprises de rénovation ou particuliers : EG-PRO comprend les enjeux spécifiques de chaque acteur et facilite les mises en relation entre les intervenants.",
+  },
+  {
+    icon: "🔎",
+    title: "Un accompagnement neutre et indépendant",
+    desc: "EG-PRO n'est ni une entreprise de travaux, ni un maître d'œuvre. Son rôle : identifier les partenaires adaptés, faciliter les échanges et accompagner la phase de recherche et de mise en relation — les entreprises gardant la responsabilité complète de leurs prestations et de leurs travaux.",
   },
 ];
 
