@@ -7,7 +7,7 @@ import CTA from "@/components/CTA";
 export const metadata: Metadata = {
   title: "Copropriétés & syndics",
   description:
-    "EG-PRO accompagne syndics de copropriété, conseils syndicaux et gestionnaires immobiliers : visites de chiffrage, devis comparatifs et coordination des échanges entre intervenants dans le Haut-Rhin.",
+    "EG-PRO accompagne syndics de copropriété, conseils syndicaux et gestionnaires immobiliers : visites de chiffrage, devis comparatifs et mise en relation avec les bons intervenants dans le Haut-Rhin.",
 };
 
 const BENEFITS = [
@@ -20,8 +20,8 @@ const BENEFITS = [
     desc: "Deux à trois devis comparables pour présenter des options claires en assemblée et faciliter les décisions.",
   },
   {
-    title: "Coordination des échanges",
-    desc: "Je fais le lien entre syndic, conseil syndical et entreprises pour des échanges fluides et un suivi cohérent.",
+    title: "Mise en relation",
+    desc: "Je fais le lien entre syndic, conseil syndical et entreprises pour des échanges fluides, sans me substituer aux intervenants.",
   },
   {
     title: "Dossiers présentables",
@@ -51,7 +51,7 @@ export default function CoproprietesPage() {
       <PageHero
         eyebrow="Copropriétés & syndics"
         title={<>Des travaux de copropriété <span className="text-gradient">sans casse-tête</span></>}
-        intro="Pour les syndics, conseils syndicaux et gestionnaires : je facilite l'organisation des chiffrages, des devis comparatifs et la coordination des échanges entre tous les intervenants."
+        intro="Pour les syndics, conseils syndicaux et gestionnaires : je facilite l'organisation des chiffrages, l'obtention de devis comparatifs et la mise en relation avec les bons intervenants."
       />
 
       <section className="container-x py-20 md:py-28">
@@ -93,7 +93,7 @@ export default function CoproprietesPage() {
             </div>
           </div>
           <div>
-            <SectionHeading eyebrow="Interventions fréquentes" title="Les travaux que je coordonne" />
+            <SectionHeading eyebrow="Interventions fréquentes" title="Les travaux concernés" />
             <div className="mt-8 flex flex-wrap gap-3">
               {WORKS.map((w, i) => (
                 <Reveal key={w} delay={i * 0.05}>

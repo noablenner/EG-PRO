@@ -1,6 +1,6 @@
 import Img from "@/components/Img";
 import Link from "next/link";
-import { NAV, SITE, WHATSAPP_URL } from "@/lib/site";
+import { NAV, SITE, WHATSAPP_URL, LEGAL } from "@/lib/site";
 
 export default function Footer() {
   return (
@@ -73,11 +73,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/45 sm:flex-row">
-          <p>© {new Date().getFullYear()} {SITE.name}. Tous droits réservés.</p>
-          <p>
-            EG-PRO est un intermédiaire de mise en relation. Les entreprises
-            partenaires restent seules responsables de leurs prestations.
+        <div className="mt-14 border-t border-white/10 pt-6">
+          <p className="max-w-4xl text-xs leading-relaxed text-white/45">
+            {LEGAL}
+          </p>
+          <p className="mt-3 text-xs text-white/35">
+            © {new Date().getFullYear()} {SITE.name}. Tous droits réservés.
           </p>
         </div>
       </div>

@@ -4,6 +4,7 @@ import StatsBand from "@/components/home/StatsBand";
 import ServicesPreview from "@/components/home/ServicesPreview";
 import ProcessScroll from "@/components/home/ProcessScroll";
 import ProjectsPreview from "@/components/home/ProjectsPreview";
+import Dossiers from "@/components/Dossiers";
 import Testimonials from "@/components/home/Testimonials";
 import BuildShowcase from "@/components/home/BuildShowcase";
 import CTA from "@/components/CTA";
@@ -19,6 +20,7 @@ export default function HomePage() {
       <ServicesPreview />
       <ProcessScroll />
       <ProjectsPreview />
+      <Dossiers light />
       <Testimonials />
       <BuildShowcase />
       <CTA />

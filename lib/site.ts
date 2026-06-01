@@ -5,7 +5,7 @@
 
 export const SITE = {
   name: "EG-PRO",
-  tagline: "Votre partenaire de mise en relation travaux & immobilier",
+  tagline: "Développement de projets de rénovation & mise en relation pour l'immobilier",
   founder: "Eliott Guerreiro",
   phone: "06 49 03 82 11",
   phoneIntl: "+33649038211",
@@ -14,6 +14,10 @@ export const SITE = {
   zone: "Mulhouse · Colmar · Guebwiller · Haut-Rhin · Alsace",
   whatsapp: "+33649038211",
 };
+
+// Mention légale claire sur le rôle d'EG-PRO (à afficher footer + À propos).
+export const LEGAL =
+  "EG-PRO intervient exclusivement comme intermédiaire de mise en relation et apporteur d'affaires. Les entreprises partenaires restent seules responsables de leurs devis, prestations et travaux.";
 
 // Lien WhatsApp prêt à l'emploi (numéro au format international + message pré-rempli).
 // wa.me ouvre directement la conversation avec Eliott (app mobile ou WhatsApp Web).
@@ -46,24 +50,24 @@ export const SERVICES = [
     id: "renovation",
     n: "01",
     title: "Travaux & rénovation multi-métiers",
-    desc: "Rénovation intérieure et extérieure, peinture, sols, maçonnerie, petites réparations — je vous oriente vers des artisans qualifiés et je fluidifie les échanges du devis à la réception.",
+    desc: "Rénovation intérieure et extérieure, peinture, sols, maçonnerie, petites réparations — je vous mets en relation avec des artisans qualifiés et je facilite les échanges, de la demande de devis au premier contact.",
     points: [
       "Rénovation intérieure & extérieure",
       "Peinture, sols, petites réparations",
       "Artisans sélectionnés & assurés",
-      "Devis comparables, échanges fluides",
+      "Devis comparables, échanges facilités",
     ],
   },
   {
     id: "pros",
     n: "02",
     title: "Syndics, SCI & professionnels",
-    desc: "Pour les copropriétés, SCI et gestionnaires : organisation des visites de chiffrage, obtention de plusieurs devis comparatifs et coordination des échanges entre intervenants.",
+    desc: "Pour les copropriétés, SCI et gestionnaires : organisation des visites de chiffrage, obtention de plusieurs devis comparatifs et mise en relation avec les bons intervenants.",
     points: [
       "Visites pour chiffrage rapide",
       "Deux à trois devis comparatifs",
-      "Coordination des échanges sur site",
-      "Suivi commercial & administratif",
+      "Mise en relation avec les intervenants",
+      "Accompagnement commercial & administratif",
     ],
   },
   {
@@ -237,5 +241,73 @@ export const FAQ = [
   {
     q: "Dans quelles zones intervenez-vous ?",
     a: "Principalement Mulhouse, Colmar, Guebwiller et l'ensemble du Haut-Rhin, en Alsace. Des interventions plus larges sont possibles selon les projets.",
+  },
+];
+
+// Étapes de la page Investisseurs (parcours d'un projet immobilier).
+export const INVESTOR_STEPS = [
+  {
+    n: "01",
+    title: "Acquisition",
+    desc: "Vous repérez le bien ; je vous oriente vers les bons interlocuteurs pour avancer sereinement sur votre projet.",
+  },
+  {
+    n: "02",
+    title: "Chiffrage",
+    desc: "Organisation des visites et obtention de devis comparables pour estimer le budget travaux en amont.",
+  },
+  {
+    n: "03",
+    title: "Réseau d'entreprises",
+    desc: "Accès à un réseau d'artisans et d'entreprises sélectionnés et assurés, dans tous les corps de métier.",
+  },
+  {
+    n: "04",
+    title: "Mise en relation",
+    desc: "Je connecte votre projet aux entreprises adaptées et facilite les premiers échanges.",
+  },
+  {
+    n: "05",
+    title: "Valorisation",
+    desc: "Des travaux pensés pour augmenter la valeur et l'attractivité de votre bien.",
+  },
+  {
+    n: "06",
+    title: "Remise en état",
+    desc: "Rafraîchissement et mise aux normes avant mise en location ou revente.",
+  },
+  {
+    n: "07",
+    title: "Division",
+    desc: "Orientation vers les intervenants adaptés pour diviser un bien en plusieurs lots.",
+  },
+  {
+    n: "08",
+    title: "Revente",
+    desc: "Un bien valorisé et prêt à être remis sur le marché dans les meilleures conditions.",
+  },
+];
+
+// Exemples de dossiers accompagnés (anonymisés, pour rassurer sans divulguer d'adresses).
+export const DOSSIERS = [
+  {
+    tag: "Immeuble · plusieurs lots",
+    title: "Rénovation complète d'un immeuble",
+    desc: "Mise en relation avec les entreprises adaptées pour une rénovation complète, du gros œuvre aux finitions.",
+  },
+  {
+    tag: "Bien locatif",
+    title: "Remise en état avant mise en location",
+    desc: "Rafraîchissement et mise aux normes pour relouer rapidement, avec des artisans fiables et réactifs.",
+  },
+  {
+    tag: "Création de lots",
+    title: "Accompagnement d'un projet de division",
+    desc: "Orientation vers les bons intervenants pour diviser un bien et en optimiser la valeur.",
+  },
+  {
+    tag: "Syndic · copropriété",
+    title: "Travaux de copropriété votés en AG",
+    desc: "Obtention de devis comparatifs et mise en relation pour des travaux votés en assemblée générale.",
   },
 ];

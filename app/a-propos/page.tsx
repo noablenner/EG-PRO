@@ -5,7 +5,7 @@ import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
 import Counter from "@/components/Counter";
 import CTA from "@/components/CTA";
-import { STATS, SITE } from "@/lib/site";
+import { STATS, SITE, LEGAL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "À propos d'Eliott Guerreiro",
@@ -17,6 +17,7 @@ const NOT = [
   "Maître d'œuvre",
   "Entreprise générale",
   "Conducteur de travaux",
+  "AMO (assistance à maîtrise d'ouvrage)",
   "Bureau d'études",
   "Maître d'ouvrage délégué",
 ];
@@ -141,10 +142,7 @@ export default function AProposPage() {
                   ))}
                 </div>
                 <p className="mt-5 text-sm leading-relaxed text-white/55">
-                  Les entreprises intervenantes restent seules responsables de
-                  leurs devis, prestations, de l'exécution des travaux, de leurs
-                  assurances et du respect des réglementations applicables. Vous
-                  conservez toujours le libre choix des entreprises.
+                  {LEGAL} Vous conservez toujours le libre choix des entreprises.
                 </p>
               </div>
             </Reveal>
