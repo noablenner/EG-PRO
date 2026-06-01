@@ -31,10 +31,18 @@ export const WHATSAPP_URL = `https://wa.me/${SITE.whatsapp.replace(
 export const NAV = [
   { label: "Accueil", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "Investisseurs", href: "/investisseurs" },
-  { label: "Syndics", href: "/coproprietes" },
+  {
+    label: "Pour qui ?",
+    href: "/investisseurs",
+    children: [
+      { label: "Investisseurs", href: "/investisseurs" },
+      { label: "Maîtres d'œuvre & entreprises", href: "/maitre-d-oeuvre" },
+      { label: "Syndics & copropriétés", href: "/coproprietes" },
+      { label: "Professionnels & entreprises", href: "/professionnels" },
+      { label: "Particuliers", href: "/particuliers" },
+    ] as { label: string; href: string }[],
+  },
   { label: "Réalisations", href: "/realisations" },
-  { label: "Apport d'affaires", href: "/apport-d-affaires" },
   { label: "À propos", href: "/a-propos" },
   { label: "Contact", href: "/contact" },
 ];
@@ -121,7 +129,7 @@ export const AUDIENCE_DETAIL = [
   {
     icon: "🏭",
     title: "Professionnels & entreprises",
-    href: "/services",
+    href: "/professionnels",
     intro: "",
     points: [
       "Entretien et maintenance des bâtiments",

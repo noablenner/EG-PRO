@@ -31,7 +31,7 @@ export default function Footer() {
               Navigation
             </h4>
             <ul className="mt-4 space-y-2.5">
-              {NAV.map((n) => (
+              {NAV.filter((n) => !("children" in n && n.children)).map((n) => (
                 <li key={n.href}>
                   <Link
                     href={n.href}

@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next";
 import { NAV, SITE } from "@/lib/site";
 
-// Pages hors menu principal (accessibles via le footer / les sections).
-const EXTRA = ["/particuliers", "/maitre-d-oeuvre"];
+// Pages audiences (sous le menu « Pour qui ? ») + hors menu.
+const EXTRA = ["/maitre-d-oeuvre", "/coproprietes", "/professionnels", "/particuliers"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [...NAV.map((n) => n.href), ...EXTRA];
