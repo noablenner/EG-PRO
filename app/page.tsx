@@ -1,10 +1,8 @@
 import Hero from "@/components/home/Hero";
 import Marquee from "@/components/Marquee";
 import StatsBand from "@/components/home/StatsBand";
-import Founder from "@/components/home/Founder";
 import Audiences from "@/components/Audiences";
 import ProcessScroll from "@/components/home/ProcessScroll";
-import WhyEgPro from "@/components/WhyEgPro";
 import Network from "@/components/Network";
 import ProjectsPreview from "@/components/home/ProjectsPreview";
 import Dossiers from "@/components/Dossiers";
@@ -20,10 +18,8 @@ export default function HomePage() {
       <div className="py-16 md:py-20">
         <StatsBand />
       </div>
-      <Founder />
       <Audiences muted />
       <ProcessScroll />
-      <WhyEgPro />
       <Network />
       <ProjectsPreview />
       <Dossiers light />
