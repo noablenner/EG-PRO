@@ -34,15 +34,86 @@ export const NAV = [
   { label: "Investisseurs", href: "/investisseurs" },
   { label: "Syndics", href: "/coproprietes" },
   { label: "Réalisations", href: "/realisations" },
+  { label: "Apport d'affaires", href: "/apport-d-affaires" },
   { label: "À propos", href: "/a-propos" },
   { label: "Contact", href: "/contact" },
 ];
 
 export const STATS = [
-  { value: 5, suffix: " ans", label: "d'expérience terrain" },
-  { value: 114, suffix: "", label: "projets accompagnés" },
-  { value: 63, suffix: "+", label: "partenaires artisans" },
-  { value: 100, suffix: "%", label: "de mises en relation suivies" },
+  { value: 5, suffix: " ans", label: "dans l'immobilier & la rénovation" },
+  { value: 114, suffix: "", label: "dossiers accompagnés" },
+  { value: 63, suffix: "+", label: "entreprises partenaires" },
+  { value: 20, suffix: "+", label: "corps de métier" },
+];
+
+// Texte de présentation du fondateur (mettre le visage en avant).
+export const FOUNDER_TEXT =
+  "Après plusieurs années dans le secteur des copropriétés, de la rénovation et du suivi de projets immobiliers, j'ai créé EG-PRO afin de mettre mon réseau et mon expérience au service des investisseurs, syndics et entreprises du bâtiment.";
+
+// « Pour qui ? » — 4 cibles principales.
+export const AUDIENCES = [
+  {
+    icon: "🏢",
+    title: "Investisseurs immobiliers",
+    desc: "SCI, marchands de biens : valorisez vos biens en vous appuyant sur les bonnes entreprises, sans perdre de temps.",
+  },
+  {
+    icon: "🏗️",
+    title: "Maîtres d'œuvre & entreprises",
+    desc: "Développez votre activité grâce à des opportunités de chantiers qualifiées et des mises en relation sérieuses.",
+  },
+  {
+    icon: "🏘️",
+    title: "Syndics & copropriétés",
+    desc: "Chiffrages, devis comparatifs et mise en relation pour vos travaux, jusqu'aux décisions votées en AG.",
+  },
+  {
+    icon: "🏠",
+    title: "Particuliers",
+    desc: "Un interlocuteur unique pour trouver rapidement l'artisan fiable adapté à votre projet.",
+  },
+];
+
+// Réseau : plus de 20 corps de métier.
+export const TRADES = [
+  "Couverture",
+  "Façade & ravalement",
+  "Peinture",
+  "Électricité",
+  "Plomberie",
+  "CVC (chauffage / ventilation)",
+  "Menuiserie",
+  "Maçonnerie",
+  "Sols & carrelage",
+  "Isolation",
+  "Étanchéité",
+  "Serrurerie & métallerie",
+  "Nettoyage spécialisé",
+  "Nettoyage par drone",
+  "Plâtrerie & cloisons",
+  "Cuisine & salle de bain",
+  "Assainissement",
+  "Vitrerie",
+  "Charpente",
+  "Démolition",
+];
+
+// « Projets accompagnés » — types de projets (donne de la matière).
+export const PROJECT_TAGS = [
+  "Rénovation d'immeuble",
+  "Remplacement de couverture",
+  "Ravalement de façade",
+  "Nettoyage par drone",
+  "Division de lots",
+  "Remise en état avant location",
+];
+
+// Processus simple « Comment ça fonctionne ? »
+export const HOW_IT_WORKS = [
+  { n: "1", title: "Vous me contactez", desc: "Un appel, un message, un mail : vous m'expliquez votre besoin." },
+  { n: "2", title: "J'analyse votre besoin", desc: "Je clarifie le projet, les contraintes et les délais." },
+  { n: "3", title: "Je vous mets en relation", desc: "Je vous oriente vers les bons partenaires de mon réseau." },
+  { n: "4", title: "Vous choisissez librement", desc: "Vous gardez la main : vous sélectionnez votre prestataire." },
 ];
 
 export const SERVICES = [

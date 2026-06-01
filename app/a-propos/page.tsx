@@ -5,7 +5,7 @@ import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
 import Counter from "@/components/Counter";
 import CTA from "@/components/CTA";
-import { STATS, SITE, LEGAL } from "@/lib/site";
+import { STATS, SITE, LEGAL, FOUNDER_TEXT } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "À propos d'Eliott Guerreiro",
@@ -58,13 +58,7 @@ export default function AProposPage() {
                 Relier les bonnes personnes, simplement.
               </h2>
               <div className="mt-6 space-y-4 text-muted">
-                <p>
-                  À travers EG-PRO, j'accompagne celles et ceux qui veulent
-                  concrétiser leurs projets sans stress, avec des artisans
-                  fiables et impliqués. EG-PRO est une société d'apport
-                  d'affaires et de mise en relation dans l'univers des travaux,
-                  de la rénovation et de l'immobilier.
-                </p>
+                <p>{FOUNDER_TEXT}</p>
                 <p>
                   J'interviens comme intermédiaire et facilitateur entre les
                   clients, les investisseurs, les syndics, les maîtres d'œuvre,
