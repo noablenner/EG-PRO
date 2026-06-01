@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="brand-gradient absolute -left-32 -top-32 h-72 w-72 rounded-full opacity-30 blur-3xl" />
 
       <div className="container-x relative py-16">
-        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
             <Img
               src="/images/logo/logo-mark.png"
@@ -19,8 +19,8 @@ export default function Footer() {
               className="h-16 w-auto object-contain brightness-0 invert"
             />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/70">
-              Société d'apport d'affaires et de mise en relation dans
-              l'univers des travaux, de la rénovation et de l'immobilier.
+              Société de courtage en travaux : intermédiaire de mise en relation
+              dans l'univers des travaux, de la rénovation et de l'immobilier.
               Je connecte les bons projets aux bons partenaires.
             </p>
             <p className="mt-4 text-sm text-white/50">{SITE.zone}</p>
@@ -37,6 +37,26 @@ export default function Footer() {
                     href={n.href}
                     className="text-sm text-white/70 transition-colors hover:text-white"
                   >
+                    {n.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wide text-brand-bright">
+              Pour qui ?
+            </h4>
+            <ul className="mt-4 space-y-2.5">
+              {[
+                { label: "Investisseurs", href: "/investisseurs" },
+                { label: "Maîtres d'œuvre", href: "/maitre-d-oeuvre" },
+                { label: "Syndics & copropriétés", href: "/coproprietes" },
+                { label: "Particuliers", href: "/particuliers" },
+              ].map((n) => (
+                <li key={n.href}>
+                  <Link href={n.href} className="text-sm text-white/70 transition-colors hover:text-white">
                     {n.label}
                   </Link>
                 </li>
