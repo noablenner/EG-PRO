@@ -74,6 +74,62 @@ export const AUDIENCES = [
   },
 ];
 
+// « À qui s'adresse EG-PRO ? » — 4 profils détaillés.
+export const AUDIENCE_DETAIL = [
+  {
+    icon: "🏢",
+    title: "Investisseurs immobiliers",
+    intro: "",
+    points: [
+      "Recherche d'entreprises adaptées à chaque projet",
+      "Rénovation avant location ou revente",
+      "Valorisation d'actifs immobiliers",
+      "Division de lots",
+      "Restructuration d'immeubles",
+      "Gain de temps dans la recherche de partenaires",
+    ],
+  },
+  {
+    icon: "🏗️",
+    title: "Maîtres d'œuvre & entreprises du bâtiment",
+    intro:
+      "Vous recherchez des partenaires fiables pour compléter vos équipes ou répondre à un besoin spécifique ? EG-PRO vous aide à identifier rapidement des entreprises et sous-traitants adaptés grâce à un réseau local développé au fil des années.",
+    points: [
+      "Recherche de sous-traitants qualifiés",
+      "Mise en relation avec des entreprises de confiance",
+      "Réseau multi-métiers",
+      "Renfort sur des corps d'état spécifiques",
+      "Opportunités de collaboration",
+    ],
+  },
+  {
+    icon: "🏘️",
+    title: "Syndics & copropriétés",
+    intro: "",
+    points: [
+      "Recherche d'entreprises adaptées",
+      "Travaux d'entretien et de rénovation",
+      "Mise en concurrence simplifiée",
+      "Interventions techniques spécialisées",
+      "Accompagnement des demandes de devis",
+      "Gain de temps dans la gestion des dossiers",
+    ],
+  },
+  {
+    icon: "🏭",
+    title: "Professionnels & entreprises",
+    intro: "",
+    points: [
+      "Entretien et maintenance des bâtiments",
+      "Rénovation de locaux professionnels",
+      "Travaux multi-métiers",
+      "Nettoyage spécialisé",
+      "Interventions ponctuelles ou récurrentes",
+      "Réseau de partenaires qualifiés",
+    ],
+  },
+];
+
 // Réseau : plus de 20 corps de métier.
 export const TRADES = [
   "Couverture",
