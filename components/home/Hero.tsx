@@ -6,8 +6,6 @@ import { useRef } from "react";
 import Button from "@/components/Button";
 import { SITE } from "@/lib/site";
 
-const headline = ["Développez vos projets", "de rénovation avec", "les bons partenaires."];
-
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -55,28 +53,15 @@ export default function Hero() {
             Disponible pour échanger · {SITE.zone.split(" · ")[0]} & Haut-Rhin
           </motion.span>
 
-          <h1 className="mt-6 font-display text-[2.6rem] font-bold leading-[1.04] sm:text-6xl lg:text-[4.2rem]">
-            {headline.map((line, li) => (
-              <span key={li} className="block overflow-hidden">
-                <motion.span
-                  className="block"
-                  initial={{ y: "110%" }}
-                  animate={{ y: 0 }}
-                  transition={{
-                    duration: 0.9,
-                    delay: 0.15 + li * 0.12,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                >
-                  {li === 2 ? (
-                    <span className="text-gradient">{line}</span>
-                  ) : (
-                    line
-                  )}
-                </motion.span>
-              </span>
-            ))}
-          </h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-6 font-display text-[2rem] font-bold leading-[1.1] [text-wrap:balance] sm:text-5xl lg:text-[3.1rem]"
+          >
+            Développez vos projets de rénovation avec{" "}
+            <span className="text-gradient">les bons partenaires.</span>
+          </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
