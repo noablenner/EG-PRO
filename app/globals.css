@@ -137,6 +137,10 @@ html.lenis body {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+  /* Le bandeau de corps de métier reste animé (défilement doux, sans clignotement) */
+  .animate-marquee {
+    animation-duration: 32s !important;
+  }
 }
 
 /* Sur mobile : neutralise l'animation d'arrivée (contenu affiché directement) */

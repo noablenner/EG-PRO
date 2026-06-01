@@ -1,13 +1,19 @@
 const WORDS = [
-  "Rénovation",
-  "Façade & toiture",
+  "Électricien",
+  "Plombier",
+  "Couvreur",
+  "Façadier",
+  "Peintre",
+  "Menuisier",
+  "Maçon",
+  "Chauffagiste",
+  "Carreleur",
+  "Serrurier",
+  "Charpentier",
+  "Plaquiste",
+  "Vitrier",
+  "Étanchéiste",
   "Nettoyage par drone",
-  "Investisseurs",
-  "SCI & syndics",
-  "Électricité",
-  "Plomberie",
-  "Valorisation immobilière",
-  "Réseau d'artisans",
 ];
 
 /** Bandeau défilant en continu (CSS pur, performant). */
