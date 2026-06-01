@@ -23,9 +23,10 @@ export default function Header() {
 
   useEffect(() => setOpen(false), [pathname]);
 
-  const isOn = (href: string) => pathname === href;
+  const norm = (s: string) => (s !== "/" && s.endsWith("/") ? s.slice(0, -1) : s);
+  const isOn = (href: string) => norm(pathname) === norm(href);
   const itemActive = (item: NavItem) =>
-    item.children ? item.children.some((c) => pathname === c.href) : isOn(item.href);
+    item.children ? item.children.some((c) => isOn(c.href)) : isOn(item.href);
 
   // Couleurs du lien actif / inactif selon l'état (survol fond clair vs hero sombre)
   const linkText = (active: boolean) =>

@@ -8,88 +8,45 @@ import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 /* ------------------------------------------------------------------ */
 
 function DrawPath({
-  p,
-  from,
-  to,
-  d,
-  stroke = "rgb(var(--brand-bright))",
-  width = 2.5,
-  dash,
+  p, from, to, d, stroke = "rgb(var(--brand-bright))", width = 2.5, dash,
 }: {
-  p: MotionValue<number>;
-  from: number;
-  to: number;
-  d: string;
-  stroke?: string;
-  width?: number;
-  dash?: string;
+  p: MotionValue<number>; from: number; to: number; d: string; stroke?: string; width?: number; dash?: string;
 }) {
   const length = useTransform(p, [from, to], [0, 1]);
   const opacity = useTransform(p, [from, from + 0.01], [0, 1]);
   return (
-    <motion.path
-      d={d}
-      fill="none"
-      stroke={stroke}
-      strokeWidth={width}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeDasharray={dash}
-      style={{ pathLength: length, opacity }}
-    />
+    <motion.path d={d} fill="none" stroke={stroke} strokeWidth={width} strokeLinecap="round" strokeLinejoin="round" strokeDasharray={dash} style={{ pathLength: length, opacity }} />
   );
 }
 
-// Une scène : fondu + léger zoom qui s'enchaînent (transitions fluides)
-function Scene({
-  p,
-  start,
-  end,
-  children,
-}: {
-  p: MotionValue<number>;
-  start: number;
-  end: number;
-  children: React.ReactNode;
-}) {
+// Scène : fondu + léger zoom qui s'enchaînent
+function Scene({ p, start, end, children }: { p: MotionValue<number>; start: number; end: number; children: React.ReactNode }) {
   const opacity = useTransform(p, [start - 0.07, start + 0.05, end - 0.06, end + 0.04], [0, 1, 1, 0]);
-  const scale = useTransform(p, [start - 0.07, start + 0.05, end + 0.04], [0.86, 1, 1.12]);
+  const scale = useTransform(p, [start - 0.07, start + 0.05, end + 0.04], [0.9, 1, 1.08]);
   return (
-    <motion.g style={{ opacity, scale, transformBox: "fill-box", transformOrigin: "center" }}>
-      {children}
-    </motion.g>
+    <motion.g style={{ opacity, scale, transformBox: "fill-box", transformOrigin: "center" }}>{children}</motion.g>
   );
 }
 
-function Person({ x, y, flip = false, s = 1 }: { x: number; y: number; flip?: boolean; s?: number }) {
+function Person({ x, y, s = 1, flip = false }: { x: number; y: number; s?: number; flip?: boolean }) {
   return (
     <g transform={`translate(${x} ${y}) scale(${flip ? -s : s} ${s})`}>
-      <circle cx="0" cy="-66" r="26" fill="rgb(var(--brand-bright))" />
-      <path d="M-42 0 Q-42 -54 0 -54 Q42 -54 42 0 Z" fill="rgb(var(--brand))" />
+      <circle cx="0" cy="-64" r="24" fill="url(#bbright)" />
+      <path d="M-40 0 Q-40 -52 0 -52 Q40 -52 40 0 Z" fill="url(#bbrand)" />
     </g>
   );
 }
 
-function Phrase({
-  p,
-  center,
-  label,
-  sub,
-}: {
-  p: MotionValue<number>;
-  center: number;
-  label: string;
-  sub: string;
-}) {
+function Phrase({ p, center, label, sub }: { p: MotionValue<number>; center: number; label: string; sub: string }) {
   const opacity = useTransform(p, [center - 0.13, center - 0.04, center + 0.06, center + 0.15], [0, 1, 1, 0]);
-  const y = useTransform(p, [center - 0.13, center - 0.02], [34, 0]);
+  const y = useTransform(p, [center - 0.13, center - 0.02], [30, 0]);
   const [first, ...rest] = label.split(" ");
   return (
-    <motion.div style={{ opacity, y }} className="pointer-events-none absolute inset-x-0 top-0 text-center">
-      <p className="font-display text-4xl font-extrabold leading-tight text-white sm:text-6xl">
+    <motion.div style={{ opacity, y }} className="pointer-events-none absolute inset-x-0 top-0">
+      <p className="font-display text-3xl font-extrabold leading-tight text-white sm:text-5xl">
         <span className="text-brand-bright">{first}</span> {rest.join(" ")}
       </p>
-      <p className="mx-auto mt-4 max-w-xl text-sm text-white/70 sm:text-lg">{sub}</p>
+      <p className="mt-3 max-w-md text-sm text-white/70 sm:text-base">{sub}</p>
     </motion.div>
   );
 }
@@ -100,42 +57,43 @@ function Sparkle({ p, from, cx, cy, r }: { p: MotionValue<number>; from: number;
   return (
     <motion.path
       d={`M${cx} ${cy - r} L${cx + r * 0.25} ${cy - r * 0.25} L${cx + r} ${cy} L${cx + r * 0.25} ${cy + r * 0.25} L${cx} ${cy + r} L${cx - r * 0.25} ${cy + r * 0.25} L${cx - r} ${cy} L${cx - r * 0.25} ${cy - r * 0.25} Z`}
-      fill="#fff"
-      style={{ opacity, scale, transformBox: "fill-box", transformOrigin: "center" }}
+      fill="#fff" style={{ opacity, scale, transformBox: "fill-box", transformOrigin: "center" }}
     />
   );
 }
 
 function NetworkNode({ p, x, y, selected = false }: { p: MotionValue<number>; x: number; y: number; selected?: boolean }) {
-  const dim = useTransform(p, [0.42, 0.48], [1, selected ? 1 : 0.25]);
+  const dim = useTransform(p, [0.42, 0.48], [1, selected ? 1 : 0.22]);
   const ring = useTransform(p, [0.43, 0.5], [0, selected ? 1 : 0]);
   return (
     <motion.g style={{ opacity: dim }}>
-      <circle cx={x} cy={y} r="32" fill="rgb(var(--brand) / 0.18)" stroke="rgb(var(--brand-bright) / 0.7)" strokeWidth="2" />
-      <path d={`M${x - 9} ${y - 9} l18 18 M${x + 9} ${y - 9} l-18 18`} stroke="rgb(var(--brand-bright))" strokeWidth="3" strokeLinecap="round" />
+      {selected && <circle cx={x} cy={y} r="46" fill="url(#glow)" />}
+      <circle cx={x} cy={y} r="30" fill="rgb(var(--brand) / 0.2)" stroke="rgb(var(--brand-bright) / 0.7)" strokeWidth="2" />
+      <path d={`M${x - 8} ${y - 8} l16 16 M${x + 8} ${y - 8} l-16 16`} stroke="rgb(var(--brand-bright))" strokeWidth="3" strokeLinecap="round" />
       {selected && (
-        <motion.circle cx={x} cy={y} r="42" fill="none" stroke="rgb(var(--brand-bright))" strokeWidth="3.5" style={{ pathLength: ring, opacity: ring }} />
+        <motion.circle cx={x} cy={y} r="40" fill="none" stroke="rgb(var(--brand-bright))" strokeWidth="3.5" style={{ pathLength: ring, opacity: ring }} />
       )}
     </motion.g>
   );
 }
 
 function DevisCard({ p, x, chosen = false }: { p: MotionValue<number>; x: number; chosen?: boolean }) {
-  const lift = useTransform(p, [0.6, 0.68], [0, chosen ? -30 : 0]);
+  const lift = useTransform(p, [0.6, 0.68], [0, chosen ? -26 : 0]);
   const high = useTransform(p, [0.6, 0.68], [0, chosen ? 1 : 0]);
   return (
     <motion.g style={{ y: lift }}>
-      <rect x={x} y="180" width="180" height="210" rx="16" fill="rgb(var(--brand) / 0.12)" stroke="rgb(var(--brand-bright) / 0.45)" strokeWidth="2" />
-      <text x={x + 24} y="228" fill="rgb(var(--brand-bright))" fontSize="28" fontFamily="sans-serif" fontWeight="700">€</text>
-      <rect x={x + 24} y="250" width="120" height="11" rx="5" fill="rgb(255 255 255 / 0.28)" />
-      <rect x={x + 24} y="274" width="88" height="11" rx="5" fill="rgb(255 255 255 / 0.18)" />
-      <rect x={x + 24} y="298" width="108" height="11" rx="5" fill="rgb(255 255 255 / 0.18)" />
-      <rect x={x + 24} y="322" width="70" height="11" rx="5" fill="rgb(255 255 255 / 0.18)" />
+      <rect x={x} y="175" width="170" height="200" rx="16" fill={chosen ? "rgb(var(--brand) / 0.2)" : "rgb(var(--brand) / 0.1)"} stroke="rgb(var(--brand-bright) / 0.45)" strokeWidth="2" />
+      <rect x={x} y="175" width="170" height="44" rx="16" fill="rgb(var(--brand) / 0.3)" />
+      <text x={x + 22} y="205" fill="#fff" fontSize="22" fontFamily="sans-serif" fontWeight="700">Devis</text>
+      <text x={x + 22} y="258" fill="rgb(var(--brand-bright))" fontSize="26" fontFamily="sans-serif" fontWeight="700">€</text>
+      <rect x={x + 22} y="278" width="116" height="10" rx="5" fill="rgb(255 255 255 / 0.28)" />
+      <rect x={x + 22} y="300" width="84" height="10" rx="5" fill="rgb(255 255 255 / 0.18)" />
+      <rect x={x + 22} y="322" width="100" height="10" rx="5" fill="rgb(255 255 255 / 0.18)" />
       {chosen && (
         <motion.g style={{ opacity: high }}>
-          <rect x={x - 3} y="177" width="186" height="216" rx="18" fill="none" stroke="rgb(var(--brand-bright))" strokeWidth="3.5" />
-          <circle cx={x + 156} cy="192" r="18" fill="rgb(var(--brand-bright))" />
-          <path d={`M${x + 148} 192 l6 6 l11 -12`} stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+          <rect x={x - 3} y="172" width="176" height="206" rx="18" fill="none" stroke="rgb(var(--brand-bright))" strokeWidth="3.5" />
+          <circle cx={x + 146} cy="188" r="17" fill="rgb(var(--brand-bright))" />
+          <path d={`M${x + 138} 188 l6 6 l10 -11`} stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
         </motion.g>
       )}
     </motion.g>
@@ -144,7 +102,7 @@ function DevisCard({ p, x, chosen = false }: { p: MotionValue<number>; x: number
 
 function BuildingWindow({ p, x, y, t }: { p: MotionValue<number>; x: number; y: number; t: number }) {
   const opacity = useTransform(p, [t, t + 0.025], [0, 1]);
-  return <motion.rect x={x} y={y} width="56" height="46" rx="4" fill="rgb(var(--brand-bright))" style={{ opacity }} />;
+  return <motion.rect x={x} y={y} width="48" height="40" rx="4" fill="url(#bbright)" style={{ opacity }} />;
 }
 
 /* ------------------------------------------------------------------ */
@@ -159,21 +117,15 @@ const PHRASES = [
 ];
 
 const WIN = [
-  { x: 392, y: 350, t: 0.82 },
-  { x: 462, y: 350, t: 0.845 },
-  { x: 392, y: 288, t: 0.87 },
-  { x: 462, y: 288, t: 0.895 },
-  { x: 392, y: 226, t: 0.92 },
-  { x: 462, y: 226, t: 0.945 },
+  { x: 360, y: 330, t: 0.82 }, { x: 425, y: 330, t: 0.845 },
+  { x: 360, y: 272, t: 0.87 }, { x: 425, y: 272, t: 0.895 },
+  { x: 360, y: 214, t: 0.92 }, { x: 425, y: 214, t: 0.945 },
 ];
 
 const NODES = [
-  { x: 250, y: 150 },
-  { x: 230, y: 320 },
-  { x: 450, y: 110, selected: true },
-  { x: 650, y: 150 },
-  { x: 670, y: 320 },
-  { x: 450, y: 420 },
+  { x: 250, y: 150 }, { x: 230, y: 320 },
+  { x: 430, y: 110, selected: true },
+  { x: 620, y: 150 }, { x: 640, y: 320 }, { x: 430, y: 410 },
 ];
 
 export default function BuildShowcase() {
@@ -181,112 +133,141 @@ export default function BuildShowcase() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
   const p = scrollYProgress;
 
-  const skyOpacity = useTransform(p, [0.7, 0.95], [0, 0.5]);
-  const haloScale = useTransform(p, [0, 1], [0.8, 1.3]);
-  const haloOpacity = useTransform(p, [0.1, 0.5, 0.9], [0.3, 0.45, 0.4]);
-  const haloRotate = useTransform(p, [0, 1], [0, 90]);
+  const skyOpacity = useTransform(p, [0.7, 0.95], [0, 0.45]);
+  const haloScale = useTransform(p, [0, 1], [0.8, 1.25]);
+  const haloRotate = useTransform(p, [0, 1], [0, 80]);
+  const cloudX = useTransform(p, [0.7, 1], [-40, 60]);
   const barScale = p;
 
   return (
-    <section ref={ref} className="relative bg-brand-deep" style={{ height: "420vh" }}>
+    <section ref={ref} className="relative bg-brand-deep" style={{ height: "380vh" }}>
       <div className="relative h-full">
-        <div className="sticky top-0 flex h-screen flex-col items-center justify-center overflow-hidden">
-          {/* Fonds */}
+        <div className="sticky top-0 flex h-screen items-center overflow-hidden">
           <div className="bg-grid pointer-events-none absolute inset-0 opacity-30" />
           <motion.div style={{ opacity: skyOpacity }} className="brand-gradient pointer-events-none absolute inset-0" />
           <motion.div
-            style={{ scale: haloScale, opacity: haloOpacity, rotate: haloRotate }}
-            className="brand-gradient pointer-events-none absolute left-1/2 top-1/2 h-[75vh] w-[75vh] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[130px]"
+            style={{ scale: haloScale, rotate: haloRotate }}
+            className="brand-gradient pointer-events-none absolute -right-20 top-1/2 h-[60vh] w-[60vh] -translate-y-1/2 rounded-full opacity-25 blur-[120px]"
           />
-          {[...Array(18)].map((_, i) => (
+          {[...Array(14)].map((_, i) => (
             <motion.span
               key={i}
               className="pointer-events-none absolute h-1 w-1 rounded-full bg-white/40"
-              style={{ left: `${(i * 53) % 100}%`, top: `${(i * 31) % 100}%` }}
-              animate={{ y: [0, -22, 0], opacity: [0.1, 0.55, 0.1] }}
-              transition={{ duration: 4 + (i % 5), repeat: Infinity, ease: "easeInOut", delay: i * 0.25 }}
+              style={{ left: `${(i * 67) % 100}%`, top: `${(i * 37) % 100}%` }}
+              animate={{ y: [0, -20, 0], opacity: [0.1, 0.5, 0.1] }}
+              transition={{ duration: 4 + (i % 5), repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
             />
           ))}
 
-          <div className="container-x relative flex w-full flex-col items-center">
-            {/* Texte (au-dessus, centré, grand) */}
-            <div className="relative h-40 w-full sm:h-44">
-              {PHRASES.map((ph) => (
-                <Phrase key={ph.label} p={p} center={ph.center} label={ph.label} sub={ph.sub} />
-              ))}
+          <div className="container-x relative grid w-full items-center gap-10 lg:grid-cols-[0.82fr_1.18fr]">
+            {/* Texte à gauche */}
+            <div className="relative z-10">
+              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-brand-bright">
+                <span className="h-px w-8 bg-current opacity-60" />
+                EG-PRO en action
+              </span>
+              <div className="relative mt-6 h-44 sm:h-52">
+                {PHRASES.map((ph) => (
+                  <Phrase key={ph.label} p={p} center={ph.center} label={ph.label} sub={ph.sub} />
+                ))}
+              </div>
+              <div className="mt-4 flex items-center gap-3">
+                <div className="relative h-1 w-40 overflow-hidden rounded-full bg-white/10">
+                  <motion.div style={{ scaleX: barScale, transformOrigin: "left" }} className="absolute inset-0 rounded-full bg-brand-bright" />
+                </div>
+                <span className="text-xs uppercase tracking-widest text-white/40">défilez</span>
+              </div>
             </div>
 
-            {/* Scène (grande, centrée) */}
-            <div className="relative mt-2 w-full max-w-3xl">
-              <svg viewBox="0 0 900 520" className="h-auto w-full" role="img" aria-label="Le déroulé d'un projet avec EG-PRO">
-                {/* sol / réflexion */}
-                <motion.line
-                  x1="100" y1="470" x2="800" y2="470"
-                  stroke="rgb(var(--brand-bright) / 0.4)" strokeWidth="2"
-                  style={{ opacity: useTransform(p, [0.0, 0.08], [0.15, 0.4]) }}
-                />
+            {/* Animation à droite */}
+            <div className="relative">
+              <svg viewBox="0 0 800 460" className="h-auto w-full" role="img" aria-label="Le déroulé d'un projet avec EG-PRO">
+                <defs>
+                  <linearGradient id="bbrand" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stopColor="rgb(var(--brand-bright))" />
+                    <stop offset="1" stopColor="rgb(var(--brand))" />
+                  </linearGradient>
+                  <linearGradient id="bbright" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stopColor="rgb(var(--brand-bright))" />
+                    <stop offset="1" stopColor="rgb(var(--brand))" />
+                  </linearGradient>
+                  <radialGradient id="glow">
+                    <stop offset="0" stopColor="rgb(var(--brand-bright) / 0.55)" />
+                    <stop offset="1" stopColor="rgb(var(--brand-bright) / 0)" />
+                  </radialGradient>
+                </defs>
 
-                {/* SCÈNE 1 — ON imagine (échange) */}
+                <motion.line x1="90" y1="410" x2="710" y2="410" stroke="rgb(var(--brand-bright) / 0.35)" strokeWidth="2" style={{ opacity: useTransform(p, [0, 0.08], [0.15, 0.4]) }} />
+
+                {/* SCÈNE 1 — ON imagine */}
                 <Scene p={p} start={0} end={0.3}>
-                  <Person x={330} y={420} s={1.15} />
-                  <Person x={560} y={420} s={1.15} flip />
+                  {/* ampoule "idée" qui pulse */}
+                  <motion.g animate={{ opacity: [0.4, 1, 0.4], y: [0, -6, 0] }} transition={{ duration: 2.4, repeat: Infinity }}>
+                    <circle cx="400" cy="95" r="26" fill="url(#glow)" />
+                    <circle cx="400" cy="95" r="16" fill="none" stroke="rgb(var(--brand-bright))" strokeWidth="3" />
+                    <rect x="392" y="110" width="16" height="9" rx="3" fill="rgb(var(--brand-bright))" />
+                    <path d="M400 79 v-12 M418 95 h12 M382 95 h-12 M413 82 l8 -8 M387 82 l-8 -8" stroke="rgb(var(--brand-bright))" strokeWidth="2.5" strokeLinecap="round" />
+                  </motion.g>
+                  <Person x={310} y={380} s={1.15} />
+                  <Person x={500} y={380} s={1.15} flip />
                   <motion.g animate={{ opacity: [0.5, 1, 0.5] }} transition={{ duration: 2, repeat: Infinity }}>
-                    <rect x="270" y="250" width="110" height="60" rx="18" fill="rgb(var(--brand) / 0.25)" stroke="rgb(var(--brand-bright) / 0.5)" strokeWidth="2" />
-                    <circle cx="305" cy="280" r="6" fill="rgb(var(--brand-bright))" />
-                    <circle cx="325" cy="280" r="6" fill="rgb(var(--brand-bright))" />
-                    <circle cx="345" cy="280" r="6" fill="rgb(var(--brand-bright))" />
+                    <rect x="250" y="225" width="104" height="56" rx="16" fill="rgb(var(--brand) / 0.25)" stroke="rgb(var(--brand-bright) / 0.5)" strokeWidth="2" />
+                    <circle cx="282" cy="253" r="6" fill="rgb(var(--brand-bright))" />
+                    <circle cx="302" cy="253" r="6" fill="rgb(var(--brand-bright))" />
+                    <circle cx="322" cy="253" r="6" fill="rgb(var(--brand-bright))" />
                   </motion.g>
                   <motion.g animate={{ opacity: [1, 0.5, 1] }} transition={{ duration: 2, repeat: Infinity }}>
-                    <rect x="520" y="225" width="110" height="60" rx="18" fill="rgb(var(--brand) / 0.25)" stroke="rgb(var(--brand-bright) / 0.5)" strokeWidth="2" />
-                    <rect x="542" y="246" width="66" height="7" rx="3" fill="rgb(var(--brand-bright))" />
-                    <rect x="542" y="260" width="46" height="7" rx="3" fill="rgb(var(--brand-bright))" />
+                    <rect x="470" y="205" width="104" height="56" rx="16" fill="rgb(var(--brand) / 0.25)" stroke="rgb(var(--brand-bright) / 0.5)" strokeWidth="2" />
+                    <rect x="490" y="225" width="64" height="7" rx="3" fill="rgb(var(--brand-bright))" />
+                    <rect x="490" y="240" width="44" height="7" rx="3" fill="rgb(var(--brand-bright))" />
                   </motion.g>
                 </Scene>
 
-                {/* SCÈNE 2 — JE sélectionne (réseau) */}
+                {/* SCÈNE 2 — JE sélectionne */}
                 <Scene p={p} start={0.22} end={0.52}>
                   {NODES.map((n, i) => (
-                    <DrawPath key={`l${i}`} p={p} from={0.26} to={0.38} d={`M450 265 L${n.x} ${n.y}`} width={2} stroke="rgb(var(--brand-bright) / 0.5)" />
+                    <DrawPath key={`l${i}`} p={p} from={0.26} to={0.38} d={`M430 235 L${n.x} ${n.y}`} width={2} stroke="rgb(var(--brand-bright) / 0.45)" />
                   ))}
-                  <circle cx="450" cy="265" r="38" fill="rgb(var(--brand))" />
-                  <path d="M438 265 a12 12 0 1 1 24 0 q0 9 -12 15 q-12 -6 -12 -15" fill="#fff" opacity="0.92" />
+                  {/* pulse qui remonte vers le nœud choisi */}
+                  <motion.circle cx="430" cy="235" r="5" fill="#fff" animate={{ cy: [235, 110], opacity: [0, 1, 0] }} transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }} />
+                  <circle cx="430" cy="235" r="36" fill="rgb(var(--brand))" />
+                  <path d="M418 235 a12 12 0 1 1 24 0 q0 9 -12 15 q-12 -6 -12 -15" fill="#fff" opacity="0.92" />
                   {NODES.map((n, i) => (
                     <NetworkNode key={`n${i}`} p={p} x={n.x} y={n.y} selected={n.selected} />
                   ))}
                 </Scene>
 
-                {/* SCÈNE 3 — VOUS choisissez (offres) */}
+                {/* SCÈNE 3 — VOUS choisissez */}
                 <Scene p={p} start={0.46} end={0.74}>
-                  <DevisCard p={p} x={170} />
-                  <DevisCard p={p} x={370} chosen />
-                  <DevisCard p={p} x={570} />
+                  <DevisCard p={p} x={120} />
+                  <DevisCard p={p} x={315} chosen />
+                  <DevisCard p={p} x={510} />
+                  <Sparkle p={p} from={0.66} cx={330} cy={150} r={10} />
+                  <Sparkle p={p} from={0.69} cx={470} cy={170} r={9} />
                 </Scene>
 
-                {/* SCÈNE 4 — ILS réalisent (construction) */}
+                {/* SCÈNE 4 — ILS réalisent */}
                 <Scene p={p} start={0.68} end={1.0}>
-                  <DrawPath p={p} from={0.72} to={0.8} d="M150 470 H750" width={2.5} />
-                  <DrawPath p={p} from={0.74} to={0.84} d="M230 470 V150 M195 164 H520" width={3.5} />
-                  <line x1="480" y1="164" x2="480" y2="210" stroke="rgb(var(--brand-bright))" strokeWidth="2" />
-                  <rect x="460" y="210" width="40" height="28" rx="4" fill="rgb(var(--brand))" opacity="0.85" />
-                  <DrawPath p={p} from={0.78} to={0.9} d="M370 470 V200 H560 V470" width={3.5} stroke="#fff" />
-                  <DrawPath p={p} from={0.85} to={0.93} d="M356 200 H574 M356 184 H574" width={3.5} stroke="#fff" />
+                  {/* nuage qui dérive */}
+                  <motion.g style={{ x: cloudX }} opacity={0.5}>
+                    <ellipse cx="160" cy="120" rx="34" ry="18" fill="#fff" opacity="0.5" />
+                    <ellipse cx="190" cy="112" rx="26" ry="16" fill="#fff" opacity="0.5" />
+                  </motion.g>
+                  <DrawPath p={p} from={0.72} to={0.8} d="M120 410 H680" width={2.5} />
+                  <DrawPath p={p} from={0.74} to={0.84} d="M210 410 V130 M178 144 H470" width={3.5} />
+                  <line x1="435" y1="144" x2="435" y2="190" stroke="rgb(var(--brand-bright))" strokeWidth="2" />
+                  <rect x="416" y="190" width="38" height="26" rx="4" fill="rgb(var(--brand))" opacity="0.85" />
+                  <DrawPath p={p} from={0.78} to={0.9} d="M340 410 V185 H510 V410" width={3.5} stroke="#fff" />
+                  <DrawPath p={p} from={0.85} to={0.93} d="M327 185 H523 M327 170 H523" width={3.5} stroke="#fff" />
                   {WIN.map((w, i) => (
                     <BuildingWindow key={i} p={p} x={w.x} y={w.y} t={w.t} />
                   ))}
-                  <motion.rect x="442" y="424" width="46" height="46" rx="4" fill="rgb(var(--brand-bright))" style={{ opacity: useTransform(p, [0.92, 0.95], [0, 0.9]) }} />
-                  <Sparkle p={p} from={0.93} cx={400} cy={250} r={15} />
-                  <Sparkle p={p} from={0.95} cx={540} cy={300} r={16} />
-                  <Sparkle p={p} from={0.97} cx={465} cy={210} r={12} />
+                  <motion.rect x="408" y="366" width="44" height="44" rx="4" fill="url(#bbright)" style={{ opacity: useTransform(p, [0.92, 0.95], [0, 0.9]) }} />
+                  <Sparkle p={p} from={0.93} cx={370} cy={230} r={13} />
+                  <Sparkle p={p} from={0.95} cx={500} cy={270} r={14} />
+                  <Sparkle p={p} from={0.97} cx={430} cy={195} r={11} />
                 </Scene>
               </svg>
-            </div>
-
-            {/* Barre de progression */}
-            <div className="mt-6 flex items-center gap-3">
-              <div className="relative h-1 w-48 overflow-hidden rounded-full bg-white/10">
-                <motion.div style={{ scaleX: barScale, transformOrigin: "left" }} className="absolute inset-0 rounded-full bg-brand-bright" />
-              </div>
-              <span className="text-xs uppercase tracking-widest text-white/40">défilez</span>
             </div>
           </div>
         </div>
