@@ -2,8 +2,7 @@ import Hero from "@/components/home/Hero";
 import Marquee from "@/components/Marquee";
 import StatsBand from "@/components/home/StatsBand";
 import Founder from "@/components/home/Founder";
-import PourQui from "@/components/PourQui";
-import ServicesPreview from "@/components/home/ServicesPreview";
+import Audiences from "@/components/Audiences";
 import ProcessScroll from "@/components/home/ProcessScroll";
 import WhyEgPro from "@/components/WhyEgPro";
 import Network from "@/components/Network";
@@ -22,8 +21,7 @@ export default function HomePage() {
         <StatsBand />
       </div>
       <Founder />
-      <PourQui muted />
-      <ServicesPreview />
+      <Audiences muted />
       <ProcessScroll />
       <WhyEgPro />
       <Network />
