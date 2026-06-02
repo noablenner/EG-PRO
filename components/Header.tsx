@@ -53,20 +53,12 @@ export default function Header() {
         <div className="container-x flex items-center justify-between">
           <Link href="/" data-cursor="Accueil" className="relative z-10 flex items-center gap-2">
             <Img
-              src="/images/logo/logo-mark.png"
-              alt="EG-PRO"
-              width={200}
-              height={80}
-              priority
-              className={`logo-blue w-auto object-contain transition-all duration-500 ${scrolled ? "h-12" : "h-14 brightness-0 invert"}`}
-            />
-            <Img
               src="/images/logo/logo-mark-green.png"
               alt="EG-PRO"
               width={200}
               height={80}
               priority
-              className={`logo-green w-auto object-contain transition-all duration-500 ${scrolled ? "h-12" : "h-14 brightness-0 invert"}`}
+              className={`w-auto object-contain transition-all duration-500 ${scrolled ? "h-12" : "h-14 brightness-0 invert"}`}
             />
           </Link>
 

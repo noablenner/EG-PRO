@@ -7,7 +7,6 @@ import Cursor from "@/components/Cursor";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
-import ThemeToggle from "@/components/ThemeToggle";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -50,7 +49,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#081B33",
+  themeColor: "#082016",
 };
 
 export default function RootLayout({
@@ -68,7 +67,6 @@ export default function RootLayout({
           <Footer />
         </SmoothScroll>
         <FloatingActions />
-        <ThemeToggle />
       </body>
     </html>
   );
