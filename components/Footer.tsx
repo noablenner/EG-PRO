@@ -97,8 +97,19 @@ export default function Footer() {
           <p className="max-w-4xl text-xs leading-relaxed text-white/45">
             {LEGAL}
           </p>
-          <p className="mt-3 text-xs text-white/35">
-            © {new Date().getFullYear()} {SITE.name}. Tous droits réservés.
+          <p className="mt-3 flex flex-col gap-1 text-xs text-white/35 sm:flex-row sm:items-center sm:justify-between">
+            <span>© {new Date().getFullYear()} {SITE.name}. Tous droits réservés.</span>
+            <span>
+              Site réalisé par{" "}
+              <a
+                href="https://nodeflow.fr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-white/55 transition-colors hover:text-white"
+              >
+                Nodeflow
+              </a>
+            </span>
           </p>
         </div>
       </div>
