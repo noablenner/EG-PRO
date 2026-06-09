@@ -12,11 +12,11 @@
    ============================================================ */
 :root {
   /* ----- VERSION BLEUE (bleu du logo EG-PRO actuel) ----- */
-  --brand: 34 150 95;         /* #22965F  vert principal */
-  --brand-bright: 58 190 122; /* #3ABE7A  vert clair / accents */
-  --brand-dark: 20 90 58;     /* #145A3A  vert foncé */
-  --brand-deep: 8 32 22;      /* #082016  vert nuit (fonds sombres) */
-  --brand-soft: 230 245 237;  /* #E6F5ED  vert très clair (fonds doux) */
+  --brand: 31 111 184;        /* #1F6FB8  bleu principal */
+  --brand-bright: 42 138 214; /* #2A8AD6  bleu clair / accents */
+  --brand-dark: 15 63 110;    /* #0F3F6E  bleu foncé */
+  --brand-deep: 8 27 51;      /* #081B33  bleu nuit (fonds sombres) */
+  --brand-soft: 232 242 251;  /* #E8F2FB  bleu très clair (fonds doux) */
 
   /* ----- Neutres ----- */
   --ink: 17 24 39;            /* texte principal */

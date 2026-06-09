@@ -1,6 +1,5 @@
-import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
-import { TRADES, PROJECT_TAGS } from "@/lib/site";
+import { TRADES } from "@/lib/site";
 
 /** Réseau de partenaires (20+ corps de métier) + types de projets accompagnés. */
 export default function Network() {
@@ -37,25 +36,6 @@ export default function Network() {
               ))}
             </div>
           </Reveal>
-        </div>
-
-        {/* Projets accompagnés */}
-        <div className="mt-16 border-t border-white/10 pt-10">
-          <Reveal>
-            <h3 className="font-display text-xl font-bold text-white sm:text-2xl">
-              Des projets accompagnés de toutes natures
-            </h3>
-          </Reveal>
-          <div className="mt-5 flex flex-wrap gap-2.5">
-            {PROJECT_TAGS.map((t, i) => (
-              <Reveal key={t} delay={i * 0.04}>
-                <span className="inline-flex items-center gap-2 rounded-full bg-brand px-4 py-2 text-sm font-medium text-white">
-                  <span className="h-1.5 w-1.5 rounded-full bg-white/70" />
-                  {t}
-                </span>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </div>
     </section>

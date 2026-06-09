@@ -33,19 +33,19 @@ export default function RealisationsPage() {
           <Reveal>
             <div>
               <h2 className="font-display text-3xl font-bold text-ink sm:text-4xl">
-                Le Républicain — réaménagement complet
+                Aménagement intérieur — projet avec simulation 3D
               </h2>
               <p className="mt-4 text-muted">
-                Mise en relation et apport d'affaires pour la transformation d'un
-                café-tabac emblématique de Mulhouse. De la façade existante à la
-                simulation 3D de l'intérieur rénové, j'ai connecté le porteur de
-                projet aux bonnes entreprises.
+                Un projet présentant la façade existante et une simulation 3D de
+                l'intérieur rénové. Sur ce projet, EG-PRO intervient sur la
+                menuiserie intérieure complète, les habillages muraux et le plan
+                de travail avec finition marbrée.
               </p>
               <ul className="mt-6 space-y-3">
                 {[
-                  "Étude de l'existant et du potentiel du lieu",
-                  "Mise en relation avec les corps de métier adaptés",
-                  "Facilitation des échanges jusqu'à la réalisation",
+                  "Menuiserie intérieure complète",
+                  "Habillages muraux",
+                  "Plan de travail finition marbrée",
                 ].map((p) => (
                   <li key={p} className="flex items-start gap-3 text-ink/80">
                     <svg className="mt-0.5 shrink-0 text-brand" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
