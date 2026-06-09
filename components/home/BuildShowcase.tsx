@@ -4,6 +4,18 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 
 /* ------------------------------------------------------------------ */
+/*  Timeline partagée — texte ET dessin suivent EXACTEMENT la même     */
+/*  cadence, avec un petit espace entre chaque scène (pas de chevauch.) */
+/* ------------------------------------------------------------------ */
+// fenêtre d'une scène autour de son "centre" : apparition / maintien / sortie
+const IN = 0.11; // début du fondu avant le centre
+const HOLD = 0.05; // demi-durée du maintien plein
+
+function useSegOpacity(p: MotionValue<number>, c: number) {
+  return useTransform(p, [c - IN, c - HOLD, c + HOLD, c + IN], [0, 1, 1, 0]);
+}
+
+/* ------------------------------------------------------------------ */
 /*  Helpers                                                           */
 /* ------------------------------------------------------------------ */
 
@@ -13,16 +25,15 @@ function DrawPath({
   p: MotionValue<number>; from: number; to: number; d: string; stroke?: string; width?: number; dash?: string;
 }) {
   const length = useTransform(p, [from, to], [0, 1]);
-  const opacity = useTransform(p, [from, from + 0.01], [0, 1]);
   return (
-    <motion.path d={d} fill="none" stroke={stroke} strokeWidth={width} strokeLinecap="round" strokeLinejoin="round" strokeDasharray={dash} style={{ pathLength: length, opacity }} />
+    <motion.path d={d} fill="none" stroke={stroke} strokeWidth={width} strokeLinecap="round" strokeLinejoin="round" strokeDasharray={dash} style={{ pathLength: length }} />
   );
 }
 
-// Scène : fondu + léger zoom qui s'enchaînent
-function Scene({ p, start, end, children }: { p: MotionValue<number>; start: number; end: number; children: React.ReactNode }) {
-  const opacity = useTransform(p, [start - 0.07, start + 0.05, end - 0.06, end + 0.04], [0, 1, 1, 0]);
-  const scale = useTransform(p, [start - 0.07, start + 0.05, end + 0.04], [0.9, 1, 1.08]);
+// Scène : même cadence que sa phrase (centre commun) + léger zoom
+function Scene({ p, center, children }: { p: MotionValue<number>; center: number; children: React.ReactNode }) {
+  const opacity = useSegOpacity(p, center);
+  const scale = useTransform(p, [center - IN, center - HOLD, center + IN], [0.95, 1, 1.05]);
   return (
     <motion.g style={{ opacity, scale, transformBox: "fill-box", transformOrigin: "center" }}>{children}</motion.g>
   );
@@ -38,8 +49,8 @@ function Person({ x, y, s = 1, flip = false }: { x: number; y: number; s?: numbe
 }
 
 function Phrase({ p, center, label, sub }: { p: MotionValue<number>; center: number; label: string; sub: string }) {
-  const opacity = useTransform(p, [center - 0.13, center - 0.04, center + 0.06, center + 0.15], [0, 1, 1, 0]);
-  const y = useTransform(p, [center - 0.13, center - 0.02], [30, 0]);
+  const opacity = useSegOpacity(p, center);
+  const y = useTransform(p, [center - IN, center - HOLD, center + HOLD, center + IN], [30, 0, 0, -22]);
   const [first, ...rest] = label.split(" ");
   return (
     <motion.div style={{ opacity, y }} className="pointer-events-none absolute inset-x-0 top-0">
@@ -52,8 +63,8 @@ function Phrase({ p, center, label, sub }: { p: MotionValue<number>; center: num
 }
 
 function Sparkle({ p, from, cx, cy, r }: { p: MotionValue<number>; from: number; cx: number; cy: number; r: number }) {
-  const opacity = useTransform(p, [from, from + 0.03, from + 0.1, from + 0.18], [0, 1, 1, 0]);
-  const scale = useTransform(p, [from, from + 0.05], [0, 1]);
+  const opacity = useTransform(p, [from, from + 0.02, from + 0.06, from + 0.1], [0, 1, 1, 0]);
+  const scale = useTransform(p, [from, from + 0.03], [0, 1]);
   return (
     <motion.path
       d={`M${cx} ${cy - r} L${cx + r * 0.25} ${cy - r * 0.25} L${cx + r} ${cy} L${cx + r * 0.25} ${cy + r * 0.25} L${cx} ${cy + r} L${cx - r * 0.25} ${cy + r * 0.25} L${cx - r} ${cy} L${cx - r * 0.25} ${cy - r * 0.25} Z`}
@@ -63,8 +74,8 @@ function Sparkle({ p, from, cx, cy, r }: { p: MotionValue<number>; from: number;
 }
 
 function NetworkNode({ p, x, y, selected = false }: { p: MotionValue<number>; x: number; y: number; selected?: boolean }) {
-  const dim = useTransform(p, [0.42, 0.48], [1, selected ? 1 : 0.22]);
-  const ring = useTransform(p, [0.43, 0.5], [0, selected ? 1 : 0]);
+  const dim = useTransform(p, [0.40, 0.44], [1, selected ? 1 : 0.22]);
+  const ring = useTransform(p, [0.40, 0.45], [0, selected ? 1 : 0]);
   return (
     <motion.g style={{ opacity: dim }}>
       {selected && <circle cx={x} cy={y} r="46" fill="url(#glow)" />}
@@ -78,8 +89,8 @@ function NetworkNode({ p, x, y, selected = false }: { p: MotionValue<number>; x:
 }
 
 function DevisCard({ p, x, chosen = false }: { p: MotionValue<number>; x: number; chosen?: boolean }) {
-  const lift = useTransform(p, [0.6, 0.68], [0, chosen ? -26 : 0]);
-  const high = useTransform(p, [0.6, 0.68], [0, chosen ? 1 : 0]);
+  const lift = useTransform(p, [0.62, 0.67], [0, chosen ? -26 : 0]);
+  const high = useTransform(p, [0.62, 0.67], [0, chosen ? 1 : 0]);
   return (
     <motion.g style={{ y: lift }}>
       <rect x={x} y="175" width="170" height="200" rx="16" fill={chosen ? "rgb(var(--brand) / 0.2)" : "rgb(var(--brand) / 0.1)"} stroke="rgb(var(--brand-bright) / 0.45)" strokeWidth="2" />
@@ -101,7 +112,7 @@ function DevisCard({ p, x, chosen = false }: { p: MotionValue<number>; x: number
 }
 
 function BuildingWindow({ p, x, y, t }: { p: MotionValue<number>; x: number; y: number; t: number }) {
-  const opacity = useTransform(p, [t, t + 0.025], [0, 1]);
+  const opacity = useTransform(p, [t, t + 0.02], [0, 1]);
   return <motion.rect x={x} y={y} width="48" height="40" rx="4" fill="url(#bbright)" style={{ opacity }} />;
 }
 
@@ -109,17 +120,20 @@ function BuildingWindow({ p, x, y, t }: { p: MotionValue<number>; x: number; y: 
 /*  Section                                                           */
 /* ------------------------------------------------------------------ */
 
+// Centres des 4 segments (texte + dessin partagent le même centre)
+const C1 = 0.14, C2 = 0.4, C3 = 0.66, C4 = 0.9;
+
 const PHRASES = [
-  { center: 0.12, label: "ON imagine.", sub: "Vous me communiquez vos besoins, nous les qualifions ensemble." },
-  { center: 0.4, label: "JE sélectionne.", sub: "Parmi un large réseau d'artisans partenaires." },
-  { center: 0.64, label: "VOUS choisissez.", sub: "L'offre de prix qui vous convient et la solution proposée." },
-  { center: 0.88, label: "ILS réalisent votre projet…", sub: "De l'idée à la réalité — vous gardez la main du début à la fin." },
+  { center: C1, label: "ON imagine.", sub: "Vous me communiquez vos besoins, nous les qualifions ensemble." },
+  { center: C2, label: "JE sélectionne.", sub: "Parmi un large réseau d'artisans partenaires." },
+  { center: C3, label: "VOUS choisissez.", sub: "L'offre de prix qui vous convient et la solution proposée." },
+  { center: C4, label: "ILS réalisent votre projet…", sub: "De l'idée à la réalité — vous gardez la main du début à la fin." },
 ];
 
 const WIN = [
-  { x: 360, y: 330, t: 0.82 }, { x: 425, y: 330, t: 0.845 },
-  { x: 360, y: 272, t: 0.87 }, { x: 425, y: 272, t: 0.895 },
-  { x: 360, y: 214, t: 0.92 }, { x: 425, y: 214, t: 0.945 },
+  { x: 360, y: 330, t: 0.85 }, { x: 425, y: 330, t: 0.865 },
+  { x: 360, y: 272, t: 0.88 }, { x: 425, y: 272, t: 0.895 },
+  { x: 360, y: 214, t: 0.91 }, { x: 425, y: 214, t: 0.925 },
 ];
 
 const NODES = [
@@ -133,10 +147,10 @@ export default function BuildShowcase() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
   const p = scrollYProgress;
 
-  const skyOpacity = useTransform(p, [0.7, 0.95], [0, 0.45]);
+  const skyOpacity = useTransform(p, [0.75, 0.95], [0, 0.45]);
   const haloScale = useTransform(p, [0, 1], [0.8, 1.25]);
   const haloRotate = useTransform(p, [0, 1], [0, 80]);
-  const cloudX = useTransform(p, [0.7, 1], [-40, 60]);
+  const cloudX = useTransform(p, [0.8, 1], [-40, 60]);
   const barScale = p;
 
   return (
@@ -197,11 +211,8 @@ export default function BuildShowcase() {
                   </radialGradient>
                 </defs>
 
-                <motion.line x1="90" y1="410" x2="710" y2="410" stroke="rgb(var(--brand-bright) / 0.35)" strokeWidth="2" style={{ opacity: useTransform(p, [0, 0.08], [0.15, 0.4]) }} />
-
                 {/* SCÈNE 1 — ON imagine */}
-                <Scene p={p} start={0} end={0.3}>
-                  {/* ampoule "idée" qui pulse */}
+                <Scene p={p} center={C1}>
                   <motion.g animate={{ opacity: [0.4, 1, 0.4], y: [0, -6, 0] }} transition={{ duration: 2.4, repeat: Infinity }}>
                     <circle cx="400" cy="95" r="26" fill="url(#glow)" />
                     <circle cx="400" cy="95" r="16" fill="none" stroke="rgb(var(--brand-bright))" strokeWidth="3" />
@@ -224,11 +235,10 @@ export default function BuildShowcase() {
                 </Scene>
 
                 {/* SCÈNE 2 — JE sélectionne */}
-                <Scene p={p} start={0.22} end={0.52}>
+                <Scene p={p} center={C2}>
                   {NODES.map((n, i) => (
-                    <DrawPath key={`l${i}`} p={p} from={0.26} to={0.38} d={`M430 235 L${n.x} ${n.y}`} width={2} stroke="rgb(var(--brand-bright) / 0.45)" />
+                    <DrawPath key={`l${i}`} p={p} from={0.31} to={0.38} d={`M430 235 L${n.x} ${n.y}`} width={2} stroke="rgb(var(--brand-bright) / 0.45)" />
                   ))}
-                  {/* pulse qui remonte vers le nœud choisi */}
                   <motion.circle cx="430" cy="235" r="5" fill="#fff" animate={{ cy: [235, 110], opacity: [0, 1, 0] }} transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }} />
                   <circle cx="430" cy="235" r="36" fill="rgb(var(--brand))" />
                   <path d="M418 235 a12 12 0 1 1 24 0 q0 9 -12 15 q-12 -6 -12 -15" fill="#fff" opacity="0.92" />
@@ -238,34 +248,32 @@ export default function BuildShowcase() {
                 </Scene>
 
                 {/* SCÈNE 3 — VOUS choisissez */}
-                <Scene p={p} start={0.46} end={0.74}>
+                <Scene p={p} center={C3}>
                   <DevisCard p={p} x={120} />
                   <DevisCard p={p} x={315} chosen />
                   <DevisCard p={p} x={510} />
                   <Sparkle p={p} from={0.66} cx={330} cy={150} r={10} />
-                  <Sparkle p={p} from={0.69} cx={470} cy={170} r={9} />
+                  <Sparkle p={p} from={0.68} cx={470} cy={170} r={9} />
                 </Scene>
 
                 {/* SCÈNE 4 — ILS réalisent */}
-                <Scene p={p} start={0.68} end={1.0}>
-                  {/* nuage qui dérive */}
+                <Scene p={p} center={C4}>
                   <motion.g style={{ x: cloudX }} opacity={0.5}>
                     <ellipse cx="160" cy="120" rx="34" ry="18" fill="#fff" opacity="0.5" />
                     <ellipse cx="190" cy="112" rx="26" ry="16" fill="#fff" opacity="0.5" />
                   </motion.g>
-                  <DrawPath p={p} from={0.72} to={0.8} d="M120 410 H680" width={2.5} />
-                  <DrawPath p={p} from={0.74} to={0.84} d="M210 410 V130 M178 144 H470" width={3.5} />
+                  <DrawPath p={p} from={0.8} to={0.85} d="M120 410 H680" width={2.5} />
+                  <DrawPath p={p} from={0.81} to={0.87} d="M210 410 V130 M178 144 H470" width={3.5} />
                   <line x1="435" y1="144" x2="435" y2="190" stroke="rgb(var(--brand-bright))" strokeWidth="2" />
                   <rect x="416" y="190" width="38" height="26" rx="4" fill="rgb(var(--brand))" opacity="0.85" />
-                  <DrawPath p={p} from={0.78} to={0.9} d="M340 410 V185 H510 V410" width={3.5} stroke="#fff" />
-                  <DrawPath p={p} from={0.85} to={0.93} d="M327 185 H523 M327 170 H523" width={3.5} stroke="#fff" />
+                  <DrawPath p={p} from={0.83} to={0.9} d="M340 410 V185 H510 V410" width={3.5} stroke="#fff" />
+                  <DrawPath p={p} from={0.88} to={0.93} d="M327 185 H523 M327 170 H523" width={3.5} stroke="#fff" />
                   {WIN.map((w, i) => (
                     <BuildingWindow key={i} p={p} x={w.x} y={w.y} t={w.t} />
                   ))}
-                  <motion.rect x="408" y="366" width="44" height="44" rx="4" fill="url(#bbright)" style={{ opacity: useTransform(p, [0.92, 0.95], [0, 0.9]) }} />
-                  <Sparkle p={p} from={0.93} cx={370} cy={230} r={13} />
-                  <Sparkle p={p} from={0.95} cx={500} cy={270} r={14} />
-                  <Sparkle p={p} from={0.97} cx={430} cy={195} r={11} />
+                  <motion.rect x="408" y="366" width="44" height="44" rx="4" fill="url(#bbright)" style={{ opacity: useTransform(p, [0.93, 0.95], [0, 0.9]) }} />
+                  <Sparkle p={p} from={0.94} cx={370} cy={230} r={13} />
+                  <Sparkle p={p} from={0.96} cx={500} cy={270} r={14} />
                 </Scene>
               </svg>
             </div>
