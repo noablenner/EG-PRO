@@ -454,26 +454,46 @@ export const INVESTOR_STEPS = [
   },
 ];
 
-// Exemples de dossiers accompagnés (anonymisés, pour rassurer sans divulguer d'adresses).
+// Exemples de projets concrets accompagnés (sans adresses précises).
 export const DOSSIERS = [
   {
-    tag: "Immeuble · plusieurs lots",
-    title: "Rénovation complète d'un immeuble",
-    desc: "Mise en relation avec les entreprises adaptées pour une rénovation complète, du gros œuvre aux finitions.",
+    tag: "Maison · secteur de Bulle",
+    title: "Rénovation d'une maison",
+    desc: "Accompagnement d'une entreprise de rénovation sur une maison dans le secteur de Bulle, avec mise en relation pour la menuiserie extérieure complète, le sanitaire complet et la pose de sol.",
   },
   {
-    tag: "Bien locatif",
-    title: "Remise en état avant mise en location",
-    desc: "Rafraîchissement et mise aux normes pour relouer rapidement, avec des artisans fiables et réactifs.",
+    tag: "Aménagement intérieur",
+    title: "Projet avec simulation 3D intérieure",
+    desc: "Sur ce projet, EG-PRO intervient sur la menuiserie intérieure complète, les habillages muraux et le plan de travail avec finition marbrée.",
   },
   {
-    tag: "Création de lots",
-    title: "Accompagnement d'un projet de division",
-    desc: "Orientation vers les bons intervenants pour diviser un bien et en optimiser la valeur.",
+    tag: "Immeuble · Guebwiller",
+    title: "Rénovation d'immeuble",
+    desc: "Accompagnement d'une entreprise de rénovation dans la recherche de sous-traitants pour la rénovation d'un immeuble sur le secteur de Guebwiller, avec intervention sur les lots sanitaire, façade, menuiserie extérieure et terrassement.",
   },
   {
-    tag: "Syndic · copropriété",
-    title: "Travaux de copropriété votés en AG",
-    desc: "Obtention de devis comparatifs et mise en relation pour des travaux votés en assemblée générale.",
+    tag: "Copropriété · Mulhouse",
+    title: "Remplacement de chaudière",
+    desc: "Accompagnement d'un investisseur immobilier pour le remplacement d'une chaudière dans une copropriété à Mulhouse.",
+  },
+  {
+    tag: "Particuliers · Burnhaupt",
+    title: "Pose de portes coulissantes",
+    desc: "Installation de portes coulissantes chez des particuliers dans le secteur de Burnhaupt.",
+  },
+  {
+    tag: "Syndic · secteur mulhousien",
+    title: "Porte d'entrée de copropriété",
+    desc: "Remplacement d'une porte d'entrée de copropriété sur le secteur mulhousien pour un syndic de copropriété.",
+  },
+  {
+    tag: "Immeuble · Brunstatt",
+    title: "Rénovation multi-lots",
+    desc: "Pour un immeuble à Brunstatt, accompagnement d'une entreprise de rénovation dans la mise en relation avec des sous-traitants pour les lots façade, électricité, sanitaire, pose de sol PVC, carrelage et parquet.",
+  },
+  {
+    tag: "Locaux pro · Saint-Louis",
+    title: "Rénovation de locaux professionnels",
+    desc: "Accompagnement d'une entreprise de rénovation pour la rénovation complète de locaux professionnels sur le secteur de Saint-Louis, avec mise en relation pour les lots électricité, plaquiste et sol.",
   },
 ];

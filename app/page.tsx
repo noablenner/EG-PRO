@@ -4,11 +4,11 @@ import StatsBand from "@/components/home/StatsBand";
 import Audiences from "@/components/Audiences";
 import ProcessScroll from "@/components/home/ProcessScroll";
 import Network from "@/components/Network";
-import ProjectsPreview from "@/components/home/ProjectsPreview";
-import Dossiers from "@/components/Dossiers";
-import Testimonials from "@/components/home/Testimonials";
 import BuildShowcase from "@/components/home/BuildShowcase";
-import CTA from "@/components/CTA";
+import Dossiers from "@/components/Dossiers";
+import ProjectsPreview from "@/components/home/ProjectsPreview";
+import Testimonials from "@/components/home/Testimonials";
+import HomeContact from "@/components/home/HomeContact";
 
 export default function HomePage() {
   return (
@@ -21,14 +21,11 @@ export default function HomePage() {
       <Audiences muted />
       <ProcessScroll />
       <Network />
-      <ProjectsPreview />
-      <Dossiers light />
-      <Testimonials />
       <BuildShowcase />
-      <CTA
-        title="Vous avez un immeuble à rénover ou un projet d'investissement ?"
-        text="Échangeons sur votre projet. Je vous oriente vers les bonnes entreprises, sans engagement."
-      />
+      <Dossiers light />
+      <ProjectsPreview />
+      <Testimonials />
+      <HomeContact />
     </>
   );
 }

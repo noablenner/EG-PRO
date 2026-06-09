@@ -59,8 +59,8 @@ export default function Hero() {
             transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="mt-6 font-display text-[2rem] font-bold leading-[1.1] [text-wrap:balance] sm:text-5xl lg:text-[3.1rem]"
           >
-            Développez vos projets de rénovation avec{" "}
-            <span className="text-gradient">les bons partenaires.</span>
+            Trouvez les bons artisans pour vos{" "}
+            <span className="text-gradient">projets de rénovation.</span>
           </motion.h1>
 
           <motion.p
@@ -69,8 +69,9 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.55 }}
             className="mt-6 max-w-xl text-lg leading-relaxed text-white/75"
           >
-            Mise en relation, développement de projets et réseau d'entreprises
-            pour l'immobilier et la rénovation.
+            EG-PRO vous met en relation avec des partenaires fiables et
+            accompagne vos projets de rénovation, du premier contact aux bons
+            artisans.
           </motion.p>
 
           <motion.p
