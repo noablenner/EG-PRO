@@ -4,26 +4,34 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SITE } from "@/lib/site";
 
-/**
- * Formulaire sans back-end : compose un e-mail pré-rempli vers contact@eg-pro.fr
- * et ouvre le client mail de l'utilisateur. Simple, fiable, hébergeable en statique.
- * (On pourra plus tard brancher un vrai service d'envoi — Formspree, Resend, etc.)
- */
-export default function ContactForm() {
-  const [sent, setSent] = useState(false);
+// Endpoint Formspree : les demandes sont envoyées par e-mail à EG-PRO.
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xbdvorne";
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+type Status = "idle" | "sending" | "ok" | "error";
+
+export default function ContactForm() {
+  const [status, setStatus] = useState<Status>("idle");
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const f = new FormData(e.currentTarget);
-    const nom = String(f.get("nom") || "");
-    const email = String(f.get("email") || "");
-    const tel = String(f.get("tel") || "");
-    const msg = String(f.get("message") || "");
-    const body = `Nom : ${nom}%0D%0AEmail : ${email}%0D%0ATéléphone : ${tel}%0D%0A%0D%0A${msg}`;
-    window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(
-      "Demande via le site — " + nom
-    )}&body=${body}`;
-    setSent(true);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    setStatus("sending");
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (res.ok) {
+        setStatus("ok");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   const field =
@@ -31,6 +39,11 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} className="space-y-4">
+      {/* Objet de l'e-mail reçu par EG-PRO */}
+      <input type="hidden" name="_subject" value="Nouvelle demande via le site EG-PRO" />
+      {/* Anti-spam (honeypot) */}
+      <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label className="mb-1.5 block text-sm font-medium text-ink">Nom</label>
@@ -60,26 +73,34 @@ export default function ContactForm() {
 
       <button
         type="submit"
+        disabled={status === "sending"}
         data-cursor="Envoyer"
-        className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand px-7 py-4 font-semibold text-white shadow-glow transition-colors hover:bg-brand-bright sm:w-auto"
+        className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand px-7 py-4 font-semibold text-white shadow-glow transition-colors hover:bg-brand-bright disabled:opacity-60 sm:w-auto"
       >
-        Envoyer ma demande
-        <svg className="transition-transform group-hover:translate-x-1" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+        {status === "sending" ? "Envoi…" : "Envoyer ma demande"}
+        {status !== "sending" && (
+          <svg className="transition-transform group-hover:translate-x-1" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+        )}
       </button>
 
       <AnimatePresence>
-        {sent && (
+        {status === "ok" && (
           <motion.p
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             className="rounded-2xl bg-brand-soft px-4 py-3 text-sm text-brand-dark"
           >
-            Votre messagerie vient de s'ouvrir avec le message pré-rempli. Si rien
-            ne se passe, écrivez-moi directement à{" "}
-            <a href={`mailto:${SITE.email}`} className="font-semibold underline">
-              {SITE.email}
-            </a>
-            .
+            Merci ! Votre demande a bien été envoyée, je reviens vers vous au plus vite.
+          </motion.p>
+        )}
+        {status === "error" && (
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-700"
+          >
+            Une erreur est survenue. Réessayez ou écrivez-moi directement à{" "}
+            <a href={`mailto:${SITE.email}`} className="font-semibold underline">{SITE.email}</a>.
           </motion.p>
         )}
       </AnimatePresence>

@@ -322,11 +322,11 @@ export const PROJECTS = [
     title: "Le Républicain — réaménagement",
     place: "Mulhouse",
     tag: "Projet en cours",
-    desc: "Accompagnement et mise en relation pour le réaménagement complet d'un café-tabac emblématique : de la façade existante à la simulation 3D de l'intérieur rénové.",
+    desc: "Accompagnement et mise en relation pour le réaménagement intérieur : menuiserie intérieure complète, habillages muraux et plan de travail finition marbrée.",
     before: "/images/projets/tabac-actuel.png",
     after: "/images/projets/tabac-simulation-1.png",
     beforeLabel: "Extérieur actuel",
-    afterLabel: "Simulation du projet",
+    afterLabel: "Intérieur rénové",
   },
   {
     id: "facade",
@@ -457,13 +457,13 @@ export const INVESTOR_STEPS = [
 // Exemples de projets concrets accompagnés (sans adresses précises).
 export const DOSSIERS = [
   {
-    tag: "Maison · secteur de Bulle",
+    tag: "Maison · secteur de Buhl",
     title: "Rénovation d'une maison",
-    desc: "Accompagnement d'une entreprise de rénovation sur une maison dans le secteur de Bulle, avec mise en relation pour la menuiserie extérieure complète, le sanitaire complet et la pose de sol.",
+    desc: "Accompagnement d'une entreprise de rénovation sur une maison dans le secteur de Buhl, avec mise en relation pour la menuiserie extérieure complète, le sanitaire complet et la pose de sol.",
   },
   {
     tag: "Aménagement intérieur",
-    title: "Projet avec simulation 3D intérieure",
+    title: "Aménagement intérieur",
     desc: "Sur ce projet, EG-PRO intervient sur la menuiserie intérieure complète, les habillages muraux et le plan de travail avec finition marbrée.",
   },
   {

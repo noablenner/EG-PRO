@@ -33,13 +33,12 @@ export default function RealisationsPage() {
           <Reveal>
             <div>
               <h2 className="font-display text-3xl font-bold text-ink sm:text-4xl">
-                Aménagement intérieur — projet avec simulation 3D
+                Aménagement intérieur
               </h2>
               <p className="mt-4 text-muted">
-                Un projet présentant la façade existante et une simulation 3D de
-                l'intérieur rénové. Sur ce projet, EG-PRO intervient sur la
-                menuiserie intérieure complète, les habillages muraux et le plan
-                de travail avec finition marbrée.
+                Sur ce projet, EG-PRO intervient sur la menuiserie intérieure
+                complète, les habillages muraux et le plan de travail avec
+                finition marbrée.
               </p>
               <ul className="mt-6 space-y-3">
                 {[
@@ -60,13 +59,13 @@ export default function RealisationsPage() {
               <div className="relative aspect-[16/10] overflow-hidden rounded-3xl shadow-soft">
                 <Img
                   src="/images/projets/tabac-simulation-1.png"
-                  alt="Simulation 3D de l'intérieur rénové du Républicain"
+                  alt="Aménagement intérieur rénové"
                   fill
                   sizes="(max-width: 1024px) 90vw, 560px"
                   className="object-cover"
                 />
                 <span className="absolute left-3 top-3 rounded-full bg-black/55 px-3 py-1 text-xs font-medium text-white backdrop-blur">
-                  Simulation · intérieur
+                  Intérieur rénové
                 </span>
               </div>
               <div className="grid grid-cols-2 gap-4">
@@ -85,13 +84,13 @@ export default function RealisationsPage() {
                 <div className="relative aspect-square overflow-hidden rounded-2xl shadow-sm">
                   <Img
                     src="/images/projets/tabac-simulation-2.png"
-                    alt="Seconde vue de la simulation du projet"
+                    alt="Seconde vue de l'intérieur rénové"
                     fill
                     sizes="280px"
                     className="object-cover"
                   />
                   <span className="absolute left-2 top-2 rounded-full bg-black/55 px-2.5 py-0.5 text-[10px] font-medium text-white">
-                    Simulation · vue 2
+                    Intérieur · vue 2
                   </span>
                 </div>
               </div>
