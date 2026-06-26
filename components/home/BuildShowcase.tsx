@@ -153,8 +153,14 @@ export default function BuildShowcase() {
   const cloudX = useTransform(p, [0.8, 1], [-40, 60]);
   const barScale = p;
 
+  // Scène 1 : entrée animée au scroll (les personnes glissent, l'idée surgit)
+  const s1Left = useTransform(p, [C1 - 0.1, C1 - 0.01], [-130, 0]);
+  const s1Right = useTransform(p, [C1 - 0.1, C1 - 0.01], [130, 0]);
+  const s1Bulb = useTransform(p, [C1 - 0.05, C1 + 0.02], [0, 1]);
+  const s1Bubble = useTransform(p, [C1 - 0.04, C1 + 0.03], [0, 1]);
+
   return (
-    <section ref={ref} className="relative bg-brand-deep" style={{ height: "380vh" }}>
+    <section ref={ref} className="relative bg-brand-deep" style={{ height: "500vh" }}>
       <div className="relative h-full">
         <div className="sticky top-0 flex h-screen items-center overflow-hidden">
           <div className="bg-grid pointer-events-none absolute inset-0 opacity-30" />
@@ -213,24 +219,34 @@ export default function BuildShowcase() {
 
                 {/* SCÈNE 1 — ON imagine */}
                 <Scene p={p} center={C1}>
-                  <motion.g animate={{ opacity: [0.4, 1, 0.4], y: [0, -6, 0] }} transition={{ duration: 2.4, repeat: Infinity }}>
-                    <circle cx="400" cy="95" r="26" fill="url(#glow)" />
-                    <circle cx="400" cy="95" r="16" fill="none" stroke="rgb(var(--brand-bright))" strokeWidth="3" />
-                    <rect x="392" y="110" width="16" height="9" rx="3" fill="rgb(var(--brand-bright))" />
-                    <path d="M400 79 v-12 M418 95 h12 M382 95 h-12 M413 82 l8 -8 M387 82 l-8 -8" stroke="rgb(var(--brand-bright))" strokeWidth="2.5" strokeLinecap="round" />
+                  <motion.g style={{ scale: s1Bulb, transformBox: "fill-box", transformOrigin: "center" }}>
+                    <motion.g animate={{ opacity: [0.5, 1, 0.5], y: [0, -6, 0] }} transition={{ duration: 2.4, repeat: Infinity }}>
+                      <circle cx="400" cy="95" r="26" fill="url(#glow)" />
+                      <circle cx="400" cy="95" r="16" fill="none" stroke="rgb(var(--brand-bright))" strokeWidth="3" />
+                      <rect x="392" y="110" width="16" height="9" rx="3" fill="rgb(var(--brand-bright))" />
+                      <path d="M400 79 v-12 M418 95 h12 M382 95 h-12 M413 82 l8 -8 M387 82 l-8 -8" stroke="rgb(var(--brand-bright))" strokeWidth="2.5" strokeLinecap="round" />
+                    </motion.g>
                   </motion.g>
-                  <Person x={310} y={380} s={1.15} />
-                  <Person x={500} y={380} s={1.15} flip />
-                  <motion.g animate={{ opacity: [0.5, 1, 0.5] }} transition={{ duration: 2, repeat: Infinity }}>
-                    <rect x="250" y="225" width="104" height="56" rx="16" fill="rgb(var(--brand) / 0.25)" stroke="rgb(var(--brand-bright) / 0.5)" strokeWidth="2" />
-                    <circle cx="282" cy="253" r="6" fill="rgb(var(--brand-bright))" />
-                    <circle cx="302" cy="253" r="6" fill="rgb(var(--brand-bright))" />
-                    <circle cx="322" cy="253" r="6" fill="rgb(var(--brand-bright))" />
+                  <motion.g style={{ x: s1Left }}>
+                    <Person x={310} y={380} s={1.15} />
                   </motion.g>
-                  <motion.g animate={{ opacity: [1, 0.5, 1] }} transition={{ duration: 2, repeat: Infinity }}>
-                    <rect x="470" y="205" width="104" height="56" rx="16" fill="rgb(var(--brand) / 0.25)" stroke="rgb(var(--brand-bright) / 0.5)" strokeWidth="2" />
-                    <rect x="490" y="225" width="64" height="7" rx="3" fill="rgb(var(--brand-bright))" />
-                    <rect x="490" y="240" width="44" height="7" rx="3" fill="rgb(var(--brand-bright))" />
+                  <motion.g style={{ x: s1Right }}>
+                    <Person x={500} y={380} s={1.15} flip />
+                  </motion.g>
+                  <motion.g style={{ opacity: s1Bubble }}>
+                    <motion.g animate={{ opacity: [0.55, 1, 0.55] }} transition={{ duration: 2, repeat: Infinity }}>
+                      <rect x="250" y="225" width="104" height="56" rx="16" fill="rgb(var(--brand) / 0.25)" stroke="rgb(var(--brand-bright) / 0.5)" strokeWidth="2" />
+                      <circle cx="282" cy="253" r="6" fill="rgb(var(--brand-bright))" />
+                      <circle cx="302" cy="253" r="6" fill="rgb(var(--brand-bright))" />
+                      <circle cx="322" cy="253" r="6" fill="rgb(var(--brand-bright))" />
+                    </motion.g>
+                  </motion.g>
+                  <motion.g style={{ opacity: s1Bubble }}>
+                    <motion.g animate={{ opacity: [1, 0.55, 1] }} transition={{ duration: 2, repeat: Infinity }}>
+                      <rect x="470" y="205" width="104" height="56" rx="16" fill="rgb(var(--brand) / 0.25)" stroke="rgb(var(--brand-bright) / 0.5)" strokeWidth="2" />
+                      <rect x="490" y="225" width="64" height="7" rx="3" fill="rgb(var(--brand-bright))" />
+                      <rect x="490" y="240" width="44" height="7" rx="3" fill="rgb(var(--brand-bright))" />
+                    </motion.g>
                   </motion.g>
                 </Scene>
 
