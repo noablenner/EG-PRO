@@ -39,9 +39,8 @@ jobs:
       - name: Build (export statique)
         env:
           NEXT_OUTPUT: export
-          # basePath forcé explicitement (le site est servi sous /EG-PRO/).
-          # Si un jour un domaine perso est branché (eg-pro.fr), remettre "".
-          NEXT_PUBLIC_BASE_PATH: /EG-PRO
+          # Domaine perso eg-pro.fr : le site est servi à la racine -> basePath vide.
+          NEXT_PUBLIC_BASE_PATH: ""
         run: npm run build
 
       - name: Empêcher Jekyll de traiter le site
