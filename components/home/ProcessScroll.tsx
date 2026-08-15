@@ -32,9 +32,11 @@ function Wheel({ progress }: { progress: MotionValue<number> }) {
   // Anneau et numéro pilotés par le MÊME scroll que les cartes -> synchro parfaite
   const ringPath = useTransform(progress, [0, 1], [0.02, 1]);
   const rotate = useTransform(progress, [0, 1], [0, 360]);
+  // Le numéro n'incrémente que lorsque la carte précédente est entièrement recouverte
   const bigNumber = useTransform(progress, (v) => {
-    const i = Math.min(N - 1, Math.max(0, Math.floor(v * N + 0.0001)));
-    return STEPS[i].n;
+    let c = 1;
+    for (let i = 1; i < N; i++) if (v >= i / N + 0.12) c = i + 1;
+    return STEPS[c - 1].n;
   });
 
   return (
@@ -61,8 +63,8 @@ function Wheel({ progress }: { progress: MotionValue<number> }) {
 // Carte pilotée par le scroll : elle arrive dans SA fenêtre, puis reste empilée.
 function StepCard({ p, i }: { p: MotionValue<number>; i: number }) {
   const start = i === 0 ? 0 : i / N;
-  const opacity = useTransform(p, [start, start + 0.04], [i === 0 ? 1 : 0, 1]);
-  const y = useTransform(p, [start, start + 0.08], [i === 0 ? 24 : 70, i * 16]);
+  const opacity = useTransform(p, [start, start + 0.05], [i === 0 ? 1 : 0, 1]);
+  const y = useTransform(p, [start, start + 0.12], [i === 0 ? 20 : 90, i * 22]);
   const s = STEPS[i];
   return (
     <motion.div style={{ opacity, y, zIndex: i + 1 }} className="absolute inset-x-0 top-0">
