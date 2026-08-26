@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Inter, Sora } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/lib/site";
@@ -60,6 +61,18 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${inter.variable} ${sora.variable}`}>
       <body>
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-5QG54XTKNY"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-5QG54XTKNY');`}
+        </Script>
+
         <Cursor />
         <SmoothScroll>
           <Header />
