@@ -2,11 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Reveal from "@/components/Reveal";
+import SectionHeading from "@/components/SectionHeading";
 
 const PREFIX = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const VIDEO = `${PREFIX}/videos/eg-pro.mp4`;
 
-/** Bandeau discret : miniature + bouton play, la vidéo (verticale) s'ouvre en plein écran. */
+/** Section vidéo : carte sombre façon hero, aperçu vertical + play, lecture en plein écran. */
 export default function VideoTeaser() {
   const [open, setOpen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -23,37 +25,68 @@ export default function VideoTeaser() {
   }, [open]);
 
   return (
-    <section className="bg-white py-6 md:py-8">
+    <section className="py-10 md:py-14">
       <div className="container-x">
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          aria-label="Lire la vidéo de présentation d'EG-PRO"
-          className="group mx-auto flex w-full max-w-xl items-center gap-4 rounded-2xl border border-ink/10 bg-brand-soft/50 p-3 text-left transition hover:border-brand/40 hover:bg-brand-soft"
-        >
-          <span className="relative h-[72px] w-[72px] shrink-0 overflow-hidden rounded-xl bg-brand-deep">
-            <video
-              src={`${VIDEO}#t=0.5`}
-              preload="metadata"
-              muted
-              playsInline
-              className="h-full w-full object-cover"
-            />
-            <span className="absolute inset-0 flex items-center justify-center bg-brand-deep/40">
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-brand shadow-lg transition group-hover:scale-110">
-                <svg viewBox="0 0 24 24" className="ml-0.5 h-4 w-4 fill-current" aria-hidden="true">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </span>
-            </span>
-          </span>
-          <span>
-            <span className="block font-display text-base font-semibold text-ink sm:text-lg">
-              EG-PRO en vidéo
-            </span>
-            <span className="block text-sm text-muted">Découvrez-nous en quelques secondes</span>
-          </span>
-        </button>
+        <div className="relative overflow-hidden rounded-4xl bg-brand-deep text-white">
+          <div className="bg-grid absolute inset-0 opacity-50" />
+          <div className="brand-gradient absolute -right-24 -top-24 h-80 w-80 rounded-full opacity-40 blur-[110px]" />
+          <div className="absolute -bottom-24 left-0 h-64 w-64 rounded-full bg-brand-bright/25 blur-[100px]" />
+
+          <div className="relative grid items-center gap-8 px-6 py-10 sm:px-10 md:grid-cols-[1.2fr_0.8fr] md:gap-12 md:px-14 md:py-14">
+            <div>
+              <SectionHeading
+                light
+                eyebrow="EG-PRO en vidéo"
+                title={
+                  <>
+                    Découvrez-nous en <span className="text-gradient">une vidéo.</span>
+                  </>
+                }
+                intro="Qui on est, comment on travaille et comment on vous met en relation avec les bons artisans."
+              />
+              <Reveal delay={0.15}>
+                <button
+                  type="button"
+                  onClick={() => setOpen(true)}
+                  className="brand-gradient mt-8 inline-flex items-center gap-3 rounded-full px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand/30 transition hover:scale-[1.03] sm:text-base"
+                >
+                  <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden="true">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                  Lancer la vidéo
+                </button>
+              </Reveal>
+            </div>
+
+            <Reveal delay={0.1} className="justify-self-center">
+              <button
+                type="button"
+                onClick={() => setOpen(true)}
+                aria-label="Lire la vidéo de présentation d'EG-PRO"
+                className="group relative block w-44 rounded-[2rem] border border-white/20 bg-white/10 p-2 shadow-2xl backdrop-blur transition hover:-translate-y-1 sm:w-52"
+              >
+                <span className="relative block aspect-[9/16] overflow-hidden rounded-[1.5rem] bg-black">
+                  <video
+                    src={`${VIDEO}#t=0.5`}
+                    preload="metadata"
+                    muted
+                    playsInline
+                    className="h-full w-full object-cover"
+                  />
+                  <span className="absolute inset-0 bg-gradient-to-t from-brand-deep/70 via-transparent to-brand-deep/20" />
+                  <span className="absolute inset-0 flex items-center justify-center">
+                    <span className="relative flex h-16 w-16 items-center justify-center rounded-full bg-white text-brand shadow-xl transition group-hover:scale-110">
+                      <span className="absolute inset-0 animate-ping rounded-full bg-white/50" />
+                      <svg viewBox="0 0 24 24" className="relative ml-1 h-7 w-7 fill-current" aria-hidden="true">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </span>
+                  </span>
+                </span>
+              </button>
+            </Reveal>
+          </div>
+        </div>
       </div>
 
       <AnimatePresence>
