@@ -217,7 +217,7 @@ export default function RenovationLanding({ page }: { page: RenovationPage }) {
               <div className="rounded-3xl border border-white/10 p-7">
                 <h3 className="font-display text-lg font-bold text-white/90">Communes de l'agglomération</h3>
                 <p className="mt-3 text-sm leading-relaxed text-white/60">
-                  {MULHOUSE_AREA.filter((c) => c !== "Mulhouse").join(" · ")} — et tout le Haut-Rhin : Colmar, Guebwiller, Saint-Louis…
+                  {MULHOUSE_AREA.filter((c) => c !== "Mulhouse").join(" · ")}, et tout le Haut-Rhin : Colmar, Guebwiller, Saint-Louis…
                 </p>
               </div>
             </div>

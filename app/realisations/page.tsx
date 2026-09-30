@@ -9,7 +9,7 @@ import CTA from "@/components/CTA";
 import { PROJECTS } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Réalisations — projets de rénovation accompagnés à Mulhouse",
+  title: "Réalisations : projets de rénovation accompagnés à Mulhouse",
   description:
     "Avant / après de projets de rénovation accompagnés par EG-PRO : nettoyage de façade, mise en sécurité électrique et réaménagement complet. Mulhouse et Haut-Rhin.",
   path: "/realisations",

@@ -26,7 +26,7 @@ const sora = Sora({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Rénovation à Mulhouse — appartement, immeuble, maison · EG-PRO",
+    default: "Rénovation à Mulhouse : appartement, immeuble, maison · EG-PRO",
     template: "%s · EG-PRO",
   },
   description:
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    title: "EG-PRO — Rénovation à Mulhouse : les bons artisans pour votre projet",
+    title: "EG-PRO, rénovation à Mulhouse : les bons artisans pour votre projet",
     description:
       "Mise en relation gratuite avec des artisans fiables pour la rénovation d'appartement, d'immeuble ou de maison à Mulhouse et dans le Haut-Rhin.",
     siteName: SITE.name,

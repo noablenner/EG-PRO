@@ -9,7 +9,7 @@ import JsonLd from "@/components/JsonLd";
 import { FAQ, SITE, WHATSAPP_URL } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Contact — votre projet de rénovation à Mulhouse",
+  title: "Contact : votre projet de rénovation à Mulhouse",
   description:
     "Contactez EG-PRO pour votre projet de rénovation à Mulhouse : besoin d'un devis, d'un conseil ou d'un contact fiable ? Téléphone, email, WhatsApp. Mulhouse, Colmar, Guebwiller et Haut-Rhin.",
   path: "/contact",

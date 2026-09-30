@@ -56,7 +56,7 @@ _sources/             Fichiers sources originaux fournis par le client
 Les textes, services, témoignages, FAQ et projets sont centralisés dans
 **`lib/site.ts`** — pas besoin de toucher au code des pages pour les mettre à jour.
 
-## SEO — pages « Rénovation à Mulhouse »
+## SEO : pages « Rénovation à Mulhouse »
 
 Trois pages locales ciblent les requêtes « rénovation Mulhouse »,
 « rénovation appartement Mulhouse » et « rénovation immeuble Mulhouse » :

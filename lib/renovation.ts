@@ -58,14 +58,14 @@ const pick = (...titles: string[]) =>
   DOSSIERS.filter((d) => titles.includes(d.title));
 
 const FREE_ANSWER =
-  "Oui. Pour vous, la mise en relation est gratuite et sans engagement : EG-PRO est une société de courtage en travaux, rémunérée par les entreprises partenaires lorsqu'une affaire aboutit — jamais par le client.";
+  "Oui. Pour vous, la mise en relation est gratuite et sans engagement : EG-PRO est une société de courtage en travaux, rémunérée par les entreprises partenaires lorsqu'une affaire aboutit, jamais par le client.";
 
 // ------------------------------------------------------------
 //  Rénovation à Mulhouse (page générale)
 // ------------------------------------------------------------
 export const RENOVATION_MULHOUSE: RenovationPage = {
   path: "/renovation-mulhouse",
-  metaTitle: "Rénovation à Mulhouse — artisans fiables, devis comparatifs",
+  metaTitle: "Rénovation à Mulhouse : artisans fiables et devis comparatifs",
   metaDescription:
     "Rénovation à Mulhouse : appartement, maison, immeuble ou local. EG-PRO vous met en relation gratuitement avec des artisans fiables et vous aide à comparer 2 à 3 devis. Mulhouse et agglomération.",
   breadcrumb: "Rénovation à Mulhouse",
@@ -73,11 +73,11 @@ export const RENOVATION_MULHOUSE: RenovationPage = {
   eyebrow: "Rénovation · Mulhouse",
   h1: ["Rénovation à Mulhouse : ", "les bons artisans", " pour votre projet"],
   heroIntro:
-    "Appartement, maison, immeuble ou local professionnel : EG-PRO vous met en relation avec des artisans et entreprises de rénovation fiables à Mulhouse et dans toute l'agglomération — gratuitement et sans engagement.",
+    "Appartement, maison, immeuble ou local professionnel : EG-PRO vous met en relation avec des artisans et entreprises de rénovation fiables à Mulhouse et dans toute l'agglomération, gratuitement et sans engagement.",
   introTitle: "Un seul interlocuteur pour votre rénovation à Mulhouse",
   intro: [
     "Trouver des artisans disponibles, sérieux et au juste prix à Mulhouse prend du temps : il faut contacter plusieurs entreprises, organiser les visites, relancer, puis comparer des devis qui ne chiffrent jamais tout à fait la même chose.",
-    "EG-PRO est une société de courtage en travaux implantée dans le Haut-Rhin. Je m'appuie sur un réseau de plus de 63 entreprises partenaires, couvrant plus de 20 corps de métier, pour orienter votre projet de rénovation vers les professionnels adaptés — et vous aider à obtenir des devis clairs et comparables.",
+    "EG-PRO est une société de courtage en travaux implantée dans le Haut-Rhin. Je m'appuie sur un réseau de plus de 63 entreprises partenaires, couvrant plus de 20 corps de métier, pour orienter votre projet de rénovation vers les professionnels adaptés et vous aider à obtenir des devis clairs et comparables.",
     "Vous gardez toujours le libre choix de l'entreprise. Les travaux sont réalisés par les entreprises partenaires, qui restent seules responsables de leurs devis et de leurs prestations.",
   ],
   profilesTitle: "Quel bien souhaitez-vous rénover ?",
@@ -185,7 +185,7 @@ export const RENOVATION_MULHOUSE: RenovationPage = {
     },
     {
       q: "Combien de devis vais-je recevoir ?",
-      a: "En général, deux à trois devis comparatifs. Les demandes sont préparées de manière claire pour que les propositions soient réellement comparables, et vous restez libre de choisir l'entreprise — ou aucune.",
+      a: "En général, deux à trois devis comparatifs. Les demandes sont préparées de manière claire pour que les propositions soient réellement comparables, et vous restez libre de choisir l'entreprise, ou de n'en retenir aucune.",
     },
     {
       q: "Dans quels secteurs autour de Mulhouse intervenez-vous ?",
@@ -206,7 +206,7 @@ export const RENOVATION_MULHOUSE: RenovationPage = {
 // ------------------------------------------------------------
 export const RENOVATION_APPARTEMENT: RenovationPage = {
   path: "/renovation-appartement-mulhouse",
-  metaTitle: "Rénovation d'appartement à Mulhouse — artisans & devis gratuits",
+  metaTitle: "Rénovation d'appartement à Mulhouse : artisans et devis gratuits",
   metaDescription:
     "Rénovation d'appartement à Mulhouse : rénovation complète, cuisine, salle de bain, sols, électricité, remise en état avant location. Mise en relation gratuite avec des artisans fiables et devis comparatifs.",
   breadcrumb: "Rénovation d'appartement à Mulhouse",
@@ -214,10 +214,10 @@ export const RENOVATION_APPARTEMENT: RenovationPage = {
   eyebrow: "Rénovation d'appartement · Mulhouse",
   h1: ["Rénovation ", "d'appartement", " à Mulhouse"],
   heroIntro:
-    "Rénovation complète, rafraîchissement avant location, cuisine ou salle de bain : EG-PRO vous met en relation avec des artisans fiables pour rénover votre appartement à Mulhouse — gratuitement et sans engagement.",
+    "Rénovation complète, rafraîchissement avant location, cuisine ou salle de bain : EG-PRO vous met en relation avec des artisans fiables pour rénover votre appartement à Mulhouse, gratuitement et sans engagement.",
   introTitle: "Rénover un appartement à Mulhouse, sans multiplier les interlocuteurs",
   intro: [
-    "Rénover un appartement, c'est souvent coordonner plusieurs corps de métier — électricien, plombier, plaquiste, carreleur, peintre, menuisier — tout en composant avec les contraintes d'une copropriété : accès, horaires, parties communes, règlement.",
+    "Rénover un appartement, c'est souvent coordonner plusieurs corps de métier (électricien, plombier, plaquiste, carreleur, peintre, menuisier) tout en composant avec les contraintes d'une copropriété : accès, horaires, parties communes, règlement.",
     "Propriétaire occupant, investisseur ou SCI : je vous oriente vers des entreprises habituées à intervenir en appartement à Mulhouse, capables de chiffrer clairement et de tenir leurs engagements. Vous comparez les devis et choisissez librement.",
     "EG-PRO intervient comme intermédiaire : les entreprises partenaires réalisent les travaux et restent seules responsables de leurs devis et de leurs prestations.",
   ],
@@ -291,7 +291,7 @@ export const RENOVATION_APPARTEMENT: RenovationPage = {
   local: [
     "Dans les immeubles anciens du centre-ville et des faubourgs mulhousiens, les installations électriques et les réseaux d'eau datent souvent de plusieurs décennies : une mise aux normes est fréquemment nécessaire, en particulier avant une remise en location. Dans les copropriétés des années 1960-1970, l'isolation, les menuiseries et la ventilation méritent une attention particulière.",
     "En copropriété, certains travaux touchent aux parties communes ou à l'aspect extérieur de l'immeuble (fenêtres, murs porteurs, gaines, colonnes) et peuvent nécessiter l'accord de l'assemblée générale. Mieux vaut le vérifier avant de lancer les devis.",
-    "Pour les bailleurs, le DPE conditionne désormais la mise en location : les logements classés G ne peuvent plus faire l'objet d'un nouveau bail depuis 2025, les F suivront en 2028 et les E en 2034. Une rénovation bien ciblée — isolation, chauffage, ventilation, menuiseries — permet de sécuriser et de valoriser l'investissement.",
+    "Pour les bailleurs, le DPE conditionne désormais la mise en location : les logements classés G ne peuvent plus faire l'objet d'un nouveau bail depuis 2025, les F suivront en 2028 et les E en 2034. Une rénovation bien ciblée (isolation, chauffage, ventilation, menuiseries) permet de sécuriser et de valoriser l'investissement.",
   ],
   checklistTitle: "Avant de rénover votre appartement",
   checklist: [
@@ -339,7 +339,7 @@ export const RENOVATION_APPARTEMENT: RenovationPage = {
 // ------------------------------------------------------------
 export const RENOVATION_IMMEUBLE: RenovationPage = {
   path: "/renovation-immeuble-mulhouse",
-  metaTitle: "Rénovation d'immeuble à Mulhouse — façade, toiture, multi-lots",
+  metaTitle: "Rénovation d'immeuble à Mulhouse : façade, toiture, multi-lots",
   metaDescription:
     "Rénovation d'immeuble à Mulhouse : façade, toiture, parties communes, colonnes, restructuration et division de lots. EG-PRO trouve les entreprises adaptées à chaque lot pour investisseurs, SCI et copropriétés.",
   breadcrumb: "Rénovation d'immeuble à Mulhouse",
@@ -347,10 +347,10 @@ export const RENOVATION_IMMEUBLE: RenovationPage = {
   eyebrow: "Rénovation d'immeuble · Mulhouse",
   h1: ["Rénovation ", "d'immeuble", " à Mulhouse"],
   heroIntro:
-    "Immeuble de rapport, copropriété ou bâtiment à restructurer : EG-PRO mobilise son réseau d'entreprises du bâtiment pour la rénovation de votre immeuble à Mulhouse — de la façade aux parties communes, lot par lot.",
+    "Immeuble de rapport, copropriété ou bâtiment à restructurer : EG-PRO mobilise son réseau d'entreprises du bâtiment pour la rénovation de votre immeuble à Mulhouse, de la façade aux parties communes, lot par lot.",
   introTitle: "Un réseau multi-lots pour rénover votre immeuble",
   intro: [
-    "La rénovation d'un immeuble mobilise de nombreux corps d'état — façade, couverture, menuiseries, électricité, plomberie, chauffage, sols, peinture — et suppose de trouver, pour chaque lot, une entreprise fiable et disponible au bon moment.",
+    "La rénovation d'un immeuble mobilise de nombreux corps d'état (façade, couverture, menuiseries, électricité, plomberie, chauffage, sols, peinture) et suppose de trouver, pour chaque lot, une entreprise fiable et disponible au bon moment.",
     "C'est le cœur de métier d'EG-PRO : j'accompagne investisseurs, SCI, marchands de biens, syndics et entreprises générales de rénovation dans la recherche des entreprises et sous-traitants adaptés à chaque lot, à Mulhouse et dans tout le Haut-Rhin. Plusieurs rénovations d'immeubles ont déjà été accompagnées, notamment à Brunstatt et à Guebwiller.",
     "EG-PRO n'est ni maître d'œuvre ni entreprise générale : les entreprises partenaires réalisent les travaux et restent seules responsables de leurs devis et de leurs prestations.",
   ],
@@ -427,7 +427,7 @@ export const RENOVATION_IMMEUBLE: RenovationPage = {
   localTitle: "Le bâti mulhousien, un potentiel à valoriser",
   local: [
     "Mulhouse dispose d'un patrimoine important d'immeubles anciens : immeubles de rapport en pierre et en brique du centre et des faubourgs, bâtiments hérités du passé industriel, copropriétés d'après-guerre. Beaucoup offrent un vrai potentiel de valorisation, à condition de traiter correctement façades, toitures, réseaux et performance énergétique.",
-    "Pour un investisseur, un immeuble à rénover à Mulhouse peut permettre de créer plusieurs logements attractifs et conformes aux exigences du DPE. Pour une copropriété, un programme de travaux bien préparé — avec des devis comparables présentés en assemblée générale — facilite les votes et limite les dérives.",
+    "Pour un investisseur, un immeuble à rénover à Mulhouse peut permettre de créer plusieurs logements attractifs et conformes aux exigences du DPE. Pour une copropriété, un programme de travaux bien préparé, avec des devis comparables présentés en assemblée générale, facilite les votes et limite les dérives.",
     "Avant de lancer les consultations, une inspection visuelle par drone permet d'établir un premier état de la toiture et des façades sans échafaudage ni nacelle : un bon moyen de cadrer le programme de travaux.",
   ],
   checklistTitle: "Bien préparer la rénovation d'un immeuble",
@@ -443,7 +443,7 @@ export const RENOVATION_IMMEUBLE: RenovationPage = {
     {
       n: "1",
       title: "Visite & état des lieux",
-      desc: "On fait le point sur l'immeuble et vos objectifs — inspection par drone possible.",
+      desc: "On fait le point sur l'immeuble et vos objectifs, avec une inspection par drone si besoin.",
     },
     {
       n: "2",
@@ -458,7 +458,7 @@ export const RENOVATION_IMMEUBLE: RenovationPage = {
     {
       n: "4",
       title: "Vous décidez",
-      desc: "Devis comparables en main, vous choisissez — ou votez en assemblée générale.",
+      desc: "Devis comparables en main, vous choisissez ou votez en assemblée générale.",
     },
   ],
   dossiers: pick(
@@ -478,7 +478,7 @@ export const RENOVATION_IMMEUBLE: RenovationPage = {
     },
     {
       q: "EG-PRO est-il maître d'œuvre ?",
-      a: "Non. EG-PRO est une société de courtage en travaux : je mets en relation et facilite les échanges, sans diriger le chantier. Pour une opération complexe, le recours à un maître d'œuvre ou à un bureau d'études peut être nécessaire — je peux vous orienter vers les professionnels adaptés.",
+      a: "Non. EG-PRO est une société de courtage en travaux : je mets en relation et facilite les échanges, sans diriger le chantier. Pour une opération complexe, le recours à un maître d'œuvre ou à un bureau d'études peut être nécessaire : je peux vous orienter vers les professionnels adaptés.",
     },
     {
       q: "Comment sont chiffrés les travaux de rénovation d'un immeuble ?",
