@@ -12,6 +12,11 @@ const VIDEO = `${PREFIX}/videos/eg-pro.mp4`;
 export default function VideoTeaser() {
   const [open, setOpen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  // Mobile : on ne précharge pas la vidéo (16 Mo) tant qu'on ne clique pas sur play.
+  const [isMobile, setIsMobile] = useState(true);
+  useEffect(() => {
+    setIsMobile(window.matchMedia("(max-width: 767px)").matches);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -63,12 +68,12 @@ export default function VideoTeaser() {
                 type="button"
                 onClick={() => setOpen(true)}
                 aria-label="Lire la vidéo de présentation d'EG-PRO"
-                className="group relative block w-44 rounded-[2rem] border border-white/20 bg-white/10 p-2 shadow-2xl backdrop-blur transition hover:-translate-y-1 sm:w-52"
+                className="group relative block w-44 rounded-[2rem] border border-white/20 bg-white/10 p-2 shadow-2xl md:backdrop-blur transition hover:-translate-y-1 sm:w-52"
               >
                 <span className="relative block aspect-[9/16] overflow-hidden rounded-[1.5rem] bg-black">
                   <video
                     src={`${VIDEO}#t=0.5`}
-                    preload="metadata"
+                    preload={isMobile ? "none" : "metadata"}
                     muted
                     playsInline
                     className="h-full w-full object-cover"

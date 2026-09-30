@@ -29,7 +29,7 @@ export default function Network() {
               {TRADES.map((t) => (
                 <span
                   key={t}
-                  className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white/85 backdrop-blur transition-colors hover:border-brand-bright/60 hover:text-white"
+                  className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white/85 md:backdrop-blur transition-colors hover:border-brand-bright/60 hover:text-white"
                 >
                   {t}
                 </span>

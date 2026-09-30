@@ -44,7 +44,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/80 backdrop-blur"
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/80 md:backdrop-blur"
           >
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-bright opacity-75" />
@@ -128,7 +128,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.9 }}
-            className="absolute -right-3 top-[26%] z-20 rounded-2xl border border-white/15 bg-white/10 px-4 py-2.5 backdrop-blur-md sm:-right-3 sm:top-12 sm:px-5 sm:py-3"
+            className="absolute -right-3 top-[26%] z-20 rounded-2xl border border-white/15 bg-white/10 px-4 py-2.5 md:backdrop-blur-md sm:-right-3 sm:top-12 sm:px-5 sm:py-3"
           >
             <p className="font-display text-xl font-bold text-brand-bright sm:text-2xl">63+</p>
             <p className="text-[11px] text-white/70 sm:text-xs">partenaires artisans</p>
@@ -139,7 +139,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1 }}
-            className="absolute right-0 bottom-8 z-20 rounded-2xl border border-white/15 bg-white/10 px-4 py-2.5 backdrop-blur-md sm:-right-1 sm:bottom-10 sm:px-5 sm:py-3"
+            className="absolute right-0 bottom-8 z-20 rounded-2xl border border-white/15 bg-white/10 px-4 py-2.5 md:backdrop-blur-md sm:-right-1 sm:bottom-10 sm:px-5 sm:py-3"
           >
             <p className="font-display text-sm font-semibold text-white sm:text-base">Eliott Guerreiro</p>
             <p className="text-[11px] text-white/70 sm:text-xs">Fondateur · EG-PRO</p>
@@ -150,7 +150,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.1 }}
-            className="absolute left-0 top-1/2 z-20 flex -translate-y-1/2 items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-4 py-2.5 backdrop-blur-md sm:-left-2 sm:px-5 sm:py-3"
+            className="absolute left-0 top-1/2 z-20 flex -translate-y-1/2 items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-4 py-2.5 md:backdrop-blur-md sm:-left-2 sm:px-5 sm:py-3"
           >
             <span className="text-sm text-brand-bright">★</span>
             <span className="text-[11px] font-semibold text-white sm:text-xs">Local · réactif</span>

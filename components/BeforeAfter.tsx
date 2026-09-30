@@ -52,7 +52,7 @@ export default function BeforeAfter({
         sizes="(max-width: 768px) 100vw, 600px"
         className="object-cover"
       />
-      <span className="absolute right-3 top-3 z-20 rounded-full bg-black/55 px-3 py-1 text-xs font-medium text-white backdrop-blur">
+      <span className="absolute right-3 top-3 z-20 rounded-full bg-black/55 px-3 py-1 text-xs font-medium text-white md:backdrop-blur">
         {afterLabel}
       </span>
 
@@ -70,7 +70,7 @@ export default function BeforeAfter({
             className="object-cover"
           />
         </div>
-        <span className="absolute left-3 top-3 rounded-full bg-black/55 px-3 py-1 text-xs font-medium text-white backdrop-blur">
+        <span className="absolute left-3 top-3 rounded-full bg-black/55 px-3 py-1 text-xs font-medium text-white md:backdrop-blur">
           {beforeLabel}
         </span>
       </div>

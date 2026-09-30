@@ -66,7 +66,7 @@ export default function RealisationsPage() {
                   sizes="(max-width: 1024px) 90vw, 560px"
                   className="object-cover"
                 />
-                <span className="absolute left-3 top-3 rounded-full bg-black/55 px-3 py-1 text-xs font-medium text-white backdrop-blur">
+                <span className="absolute left-3 top-3 rounded-full bg-black/55 px-3 py-1 text-xs font-medium text-white md:backdrop-blur">
                   Intérieur rénové
                 </span>
               </div>
