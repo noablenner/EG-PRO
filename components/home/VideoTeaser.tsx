@@ -7,16 +7,12 @@ import SectionHeading from "@/components/SectionHeading";
 
 const PREFIX = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const VIDEO = `${PREFIX}/videos/eg-pro.mp4`;
+const POSTER = `${PREFIX}/videos/eg-pro-poster.jpg`;
 
 /** Section vidéo : carte sombre façon hero, aperçu vertical + play, lecture en plein écran. */
 export default function VideoTeaser() {
   const [open, setOpen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-  // Mobile : on ne précharge pas la vidéo (16 Mo) tant qu'on ne clique pas sur play.
-  const [isMobile, setIsMobile] = useState(true);
-  useEffect(() => {
-    setIsMobile(window.matchMedia("(max-width: 767px)").matches);
-  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -72,8 +68,9 @@ export default function VideoTeaser() {
               >
                 <span className="relative block aspect-[9/16] overflow-hidden rounded-[1.5rem] bg-black">
                   <video
-                    src={`${VIDEO}#t=0.5`}
-                    preload={isMobile ? "none" : "metadata"}
+                    src={VIDEO}
+                    poster={POSTER}
+                    preload="none"
                     muted
                     playsInline
                     className="h-full w-full object-cover"
@@ -117,6 +114,7 @@ export default function VideoTeaser() {
             <video
               ref={videoRef}
               src={VIDEO}
+              poster={POSTER}
               controls
               autoPlay
               playsInline
