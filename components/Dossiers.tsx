@@ -24,7 +24,7 @@ export default function Dossiers({
               <article
                 className={`group relative h-full overflow-hidden rounded-3xl border p-7 ${
                   light
-                    ? "border-white/10 bg-white/5 backdrop-blur"
+                    ? "border-white/10 bg-white/5 md:backdrop-blur"
                     : "border-ink/8 bg-white shadow-sm"
                 }`}
               >

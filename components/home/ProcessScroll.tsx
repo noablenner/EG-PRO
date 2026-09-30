@@ -41,7 +41,7 @@ function Wheel({ progress }: { progress: MotionValue<number> }) {
 
   return (
     <div className="relative flex items-center justify-center">
-      <motion.div style={{ rotate }} className="brand-gradient absolute h-40 w-40 rounded-full opacity-20 blur-2xl sm:h-56 sm:w-56 lg:h-64 lg:w-64" />
+      <motion.div style={{ rotate }} className="brand-gradient absolute hidden h-40 w-40 rounded-full opacity-20 blur-2xl sm:h-56 sm:w-56 md:block lg:h-64 lg:w-64" />
       <div className="relative flex h-40 w-40 items-center justify-center sm:h-56 sm:w-56 lg:h-64 lg:w-64">
         <svg viewBox="0 0 100 100" className="absolute inset-0 -rotate-90">
           <circle cx="50" cy="50" r="46" fill="none" stroke="rgb(255 255 255 / 0.1)" strokeWidth="2" />

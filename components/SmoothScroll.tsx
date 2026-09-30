@@ -16,7 +16,10 @@ export default function SmoothScroll({
     const reduce = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
-    if (reduce) return;
+    // Sur mobile/tactile, le scroll natif est bien plus fluide : Lenis n'apporte
+    // rien et sa boucle requestAnimationFrame permanente coûte du CPU.
+    const touch = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+    if (reduce || touch) return;
 
     const lenis = new Lenis({
       duration: 1.15,

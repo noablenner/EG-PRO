@@ -160,7 +160,7 @@ export default function AProposPage() {
           />
           <div className="space-y-8">
             <Reveal>
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur">
+              <div className="rounded-3xl border border-white/10 bg-white/5 p-7 md:backdrop-blur">
                 <h3 className="font-display text-lg font-bold text-brand-bright">
                   Ce que je fais
                 </h3>

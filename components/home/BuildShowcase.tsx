@@ -167,12 +167,12 @@ export default function BuildShowcase() {
           <motion.div style={{ opacity: skyOpacity }} className="brand-gradient pointer-events-none absolute inset-0" />
           <motion.div
             style={{ scale: haloScale, rotate: haloRotate }}
-            className="brand-gradient pointer-events-none absolute -right-20 top-1/2 h-[60vh] w-[60vh] -translate-y-1/2 rounded-full opacity-25 blur-[120px]"
+            className="brand-gradient pointer-events-none absolute -right-20 top-1/2 hidden h-[60vh] w-[60vh] -translate-y-1/2 rounded-full opacity-25 blur-[120px] md:block"
           />
           {[...Array(14)].map((_, i) => (
             <motion.span
               key={i}
-              className="pointer-events-none absolute h-1 w-1 rounded-full bg-white/40"
+              className="pointer-events-none absolute hidden h-1 w-1 rounded-full bg-white/40 md:block"
               style={{ left: `${(i * 67) % 100}%`, top: `${(i * 37) % 100}%` }}
               animate={{ y: [0, -20, 0], opacity: [0.1, 0.5, 0.1] }}
               transition={{ duration: 4 + (i % 5), repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}

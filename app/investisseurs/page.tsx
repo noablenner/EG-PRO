@@ -67,7 +67,7 @@ export default function InvestisseursPage() {
           <div className="grid gap-3 sm:grid-cols-2">
             {FOR_WHOM.map((f, i) => (
               <Reveal key={f} delay={i * 0.05}>
-                <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 backdrop-blur">
+                <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 md:backdrop-blur">
                   <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand text-white">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
                   </span>

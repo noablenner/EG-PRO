@@ -7,6 +7,7 @@ import SectionHeading from "@/components/SectionHeading";
 
 const PREFIX = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const VIDEO = `${PREFIX}/videos/eg-pro.mp4`;
+const POSTER = `${PREFIX}/videos/eg-pro-poster.jpg`;
 
 /** Section vidéo : carte sombre façon hero, aperçu vertical + play, lecture en plein écran. */
 export default function VideoTeaser() {
@@ -63,12 +64,13 @@ export default function VideoTeaser() {
                 type="button"
                 onClick={() => setOpen(true)}
                 aria-label="Lire la vidéo de présentation d'EG-PRO"
-                className="group relative block w-44 rounded-[2rem] border border-white/20 bg-white/10 p-2 shadow-2xl backdrop-blur transition hover:-translate-y-1 sm:w-52"
+                className="group relative block w-44 rounded-[2rem] border border-white/20 bg-white/10 p-2 shadow-2xl md:backdrop-blur transition hover:-translate-y-1 sm:w-52"
               >
                 <span className="relative block aspect-[9/16] overflow-hidden rounded-[1.5rem] bg-black">
                   <video
-                    src={`${VIDEO}#t=0.5`}
-                    preload="metadata"
+                    src={VIDEO}
+                    poster={POSTER}
+                    preload="none"
                     muted
                     playsInline
                     className="h-full w-full object-cover"
@@ -112,6 +114,7 @@ export default function VideoTeaser() {
             <video
               ref={videoRef}
               src={VIDEO}
+              poster={POSTER}
               controls
               autoPlay
               playsInline
