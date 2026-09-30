@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Img from "@/components/Img";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
@@ -7,11 +8,12 @@ import Reveal from "@/components/Reveal";
 import CTA from "@/components/CTA";
 import { PROJECTS } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Réalisations — projets accompagnés",
+export const metadata: Metadata = pageMetadata({
+  title: "Réalisations — projets de rénovation accompagnés à Mulhouse",
   description:
-    "Avant / après de projets accompagnés par EG-PRO : nettoyage de façade, mise en sécurité électrique et réaménagement complet. Mulhouse et Haut-Rhin.",
-};
+    "Avant / après de projets de rénovation accompagnés par EG-PRO : nettoyage de façade, mise en sécurité électrique et réaménagement complet. Mulhouse et Haut-Rhin.",
+  path: "/realisations",
+});
 
 export default function RealisationsPage() {
   return (

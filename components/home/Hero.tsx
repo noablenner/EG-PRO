@@ -60,7 +60,7 @@ export default function Hero() {
             className="mt-6 font-display text-[2rem] font-bold leading-[1.1] [text-wrap:balance] sm:text-5xl lg:text-[3.1rem]"
           >
             Trouvez les bons artisans pour vos{" "}
-            <span className="text-gradient">projets de rénovation.</span>
+            <span className="text-gradient">projets de rénovation</span> à Mulhouse.
           </motion.h1>
 
           <motion.p

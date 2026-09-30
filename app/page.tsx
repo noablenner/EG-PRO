@@ -1,3 +1,6 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
+import RenovationLinks from "@/components/RenovationLinks";
 import Hero from "@/components/home/Hero";
 import Marquee from "@/components/Marquee";
 import VideoTeaser from "@/components/home/VideoTeaser";
@@ -11,6 +14,14 @@ import ProjectsPreview from "@/components/home/ProjectsPreview";
 import Testimonials from "@/components/home/Testimonials";
 import HomeContact from "@/components/home/HomeContact";
 
+export const metadata: Metadata = pageMetadata({
+  title: "Rénovation à Mulhouse — appartement, immeuble, maison · EG-PRO",
+  description:
+    "Projet de rénovation à Mulhouse ? EG-PRO, courtier en travaux, vous met en relation gratuitement avec des artisans fiables pour rénover appartement, immeuble ou maison à Mulhouse et dans le Haut-Rhin.",
+  path: "/",
+  absoluteTitle: true,
+});
+
 export default function HomePage() {
   return (
     <>
@@ -21,6 +32,7 @@ export default function HomePage() {
         <StatsBand />
       </div>
       <Audiences muted />
+      <RenovationLinks />
       <ProcessScroll />
       <Network />
       <BuildShowcase />
