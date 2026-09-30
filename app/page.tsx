@@ -1,5 +1,6 @@
 import Hero from "@/components/home/Hero";
 import Marquee from "@/components/Marquee";
+import VideoTeaser from "@/components/home/VideoTeaser";
 import StatsBand from "@/components/home/StatsBand";
 import Audiences from "@/components/Audiences";
 import ProcessScroll from "@/components/home/ProcessScroll";
@@ -15,6 +16,7 @@ export default function HomePage() {
     <>
       <Hero />
       <Marquee />
+      <VideoTeaser />
       <div className="py-16 md:py-20">
         <StatsBand />
       </div>
