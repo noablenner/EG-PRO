@@ -10,7 +10,8 @@ export const SITE = {
   phone: "06 49 03 82 11",
   phoneIntl: "+33649038211",
   email: "contact@eg-pro.fr",
-  url: "https://www.eg-pro.fr",
+  // Domaine réellement servi (cf. CNAME) : www redirige vers eg-pro.fr.
+  url: "https://eg-pro.fr",
   zone: "Mulhouse · Colmar · Guebwiller · Haut-Rhin · Alsace",
   whatsapp: "+33649038211",
 };
@@ -496,4 +497,50 @@ export const DOSSIERS = [
     title: "Rénovation de locaux professionnels",
     desc: "Accompagnement d'une entreprise de rénovation pour la rénovation complète de locaux professionnels sur le secteur de Saint-Louis, avec mise en relation pour les lots électricité, plaquiste et sol.",
   },
+];
+
+// ============================================================
+//  RÉNOVATION À MULHOUSE — pages locales (SEO)
+// ============================================================
+
+export const RENOVATION_PAGES = [
+  {
+    label: "Rénovation à Mulhouse",
+    short: "Tous travaux",
+    href: "/renovation-mulhouse",
+    desc: "Maison, appartement, immeuble ou local : un interlocuteur unique pour trouver les bons artisans à Mulhouse et alentour.",
+  },
+  {
+    label: "Rénovation d'appartement à Mulhouse",
+    short: "Appartement",
+    href: "/renovation-appartement-mulhouse",
+    desc: "Rénovation complète ou partielle, avant location ou revente : cuisine, salle de bain, sols, électricité, plomberie.",
+  },
+  {
+    label: "Rénovation d'immeuble à Mulhouse",
+    short: "Immeuble",
+    href: "/renovation-immeuble-mulhouse",
+    desc: "Façade, toiture, parties communes, colonnes, restructuration ou division : pour investisseurs, SCI et copropriétés.",
+  },
+];
+
+// Communes de l'agglomération mulhousienne couvertes (m2A et alentours).
+export const MULHOUSE_AREA = [
+  "Mulhouse",
+  "Riedisheim",
+  "Rixheim",
+  "Illzach",
+  "Kingersheim",
+  "Wittenheim",
+  "Pfastatt",
+  "Lutterbach",
+  "Brunstatt-Didenheim",
+  "Zillisheim",
+  "Habsheim",
+  "Sausheim",
+  "Wittelsheim",
+  "Staffelfelden",
+  "Richwiller",
+  "Morschwiller-le-Bas",
+  "Reiningue",
 ];

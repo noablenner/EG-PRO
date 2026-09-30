@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Img from "@/components/Img";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
@@ -7,11 +8,12 @@ import Counter from "@/components/Counter";
 import CTA from "@/components/CTA";
 import { STATS, SITE, LEGAL, FOUNDER_TEXT } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "À propos d'Eliott Guerreiro",
+export const metadata: Metadata = pageMetadata({
+  title: "À propos d'Eliott Guerreiro, courtier en travaux à Mulhouse",
   description:
-    "Eliott Guerreiro, fondateur d'EG-PRO : une société d'apport d'affaires et de mise en relation dans l'univers des travaux, de la rénovation et de l'immobilier en Alsace.",
-};
+    "Eliott Guerreiro, fondateur d'EG-PRO : une société d'apport d'affaires et de mise en relation dans l'univers des travaux, de la rénovation et de l'immobilier à Mulhouse et en Alsace.",
+  path: "/a-propos",
+});
 
 const NOT = [
   "Maître d'œuvre",

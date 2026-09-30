@@ -1,6 +1,6 @@
 import Img from "@/components/Img";
 import Link from "next/link";
-import { NAV, SITE, WHATSAPP_URL, LEGAL } from "@/lib/site";
+import { NAV, SITE, WHATSAPP_URL, LEGAL, RENOVATION_PAGES } from "@/lib/site";
 
 export default function Footer() {
   return (
@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="brand-gradient absolute -left-32 -top-32 h-72 w-72 rounded-full opacity-30 blur-3xl" />
 
       <div className="container-x relative py-16">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1.2fr_1fr_1fr]">
           <div>
             <Img
               src="/images/logo/logo-mark.png"
@@ -37,6 +37,21 @@ export default function Footer() {
                     href={n.href}
                     className="text-sm text-white/70 transition-colors hover:text-white"
                   >
+                    {n.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wide text-brand-bright">
+              Rénovation
+            </h4>
+            <ul className="mt-4 space-y-2.5">
+              {RENOVATION_PAGES.map((n) => (
+                <li key={n.href}>
+                  <Link href={n.href} className="text-sm text-white/70 transition-colors hover:text-white">
                     {n.label}
                   </Link>
                 </li>

@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
 import Accordion from "@/components/Accordion";
-import { SITE, WHATSAPP_URL } from "@/lib/site";
+import JsonLd from "@/components/JsonLd";
+import { FAQ, SITE, WHATSAPP_URL } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Contact",
+export const metadata: Metadata = pageMetadata({
+  title: "Contact — votre projet de rénovation à Mulhouse",
   description:
-    "Contactez EG-PRO : besoin d'un devis, d'un conseil ou d'un contact fiable ? Téléphone, email, WhatsApp. Mulhouse, Colmar, Guebwiller et Haut-Rhin.",
-};
+    "Contactez EG-PRO pour votre projet de rénovation à Mulhouse : besoin d'un devis, d'un conseil ou d'un contact fiable ? Téléphone, email, WhatsApp. Mulhouse, Colmar, Guebwiller et Haut-Rhin.",
+  path: "/contact",
+});
 
 const CONTACTS = [
   {
@@ -45,6 +48,17 @@ const CONTACTS = [
 export default function ContactPage() {
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: FAQ.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }}
+      />
       <PageHero
         eyebrow="Contact"
         title={<>Travaillons <span className="text-gradient">ensemble</span></>}

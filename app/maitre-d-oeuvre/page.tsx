@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
 import Network from "@/components/Network";
 import CTA from "@/components/CTA";
 
-export const metadata: Metadata = {
-  title: "Maîtres d'œuvre & entreprises du bâtiment",
+export const metadata: Metadata = pageMetadata({
+  title: "Maîtres d'œuvre & entreprises du bâtiment à Mulhouse",
   description:
-    "Maîtres d'œuvre, entreprises générales et artisans : EG-PRO (courtage en travaux) vous aide à trouver des sous-traitants qualifiés, à renforcer vos équipes et à développer votre activité grâce à des opportunités de chantiers.",
-};
+    "Maîtres d'œuvre, entreprises générales et artisans à Mulhouse : EG-PRO (courtage en travaux) vous aide à trouver des sous-traitants qualifiés, à renforcer vos équipes et à développer votre activité grâce à des opportunités de chantiers.",
+  path: "/maitre-d-oeuvre",
+});
 
 const HELP = [
   {

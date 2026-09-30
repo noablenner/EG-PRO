@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
@@ -6,11 +7,12 @@ import Dossiers from "@/components/Dossiers";
 import CTA from "@/components/CTA";
 import { INVESTOR_STEPS, LEGAL } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Investisseurs & rénovation immobilière",
+export const metadata: Metadata = pageMetadata({
+  title: "Investisseurs : rénovation immobilière à Mulhouse",
   description:
-    "EG-PRO accompagne investisseurs, SCI, marchands de biens et maîtres d'œuvre : acquisition, chiffrage, réseau d'entreprises, mise en relation, valorisation, remise en état, division et revente. Haut-Rhin & Alsace.",
-};
+    "EG-PRO accompagne investisseurs, SCI, marchands de biens et maîtres d'œuvre à Mulhouse : acquisition, chiffrage, réseau d'entreprises, mise en relation, valorisation, remise en état, division et revente. Haut-Rhin & Alsace.",
+  path: "/investisseurs",
+});
 
 const FOR_WHOM = [
   "Investisseurs immobiliers",

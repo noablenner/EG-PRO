@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
 import CTA from "@/components/CTA";
 
-export const metadata: Metadata = {
-  title: "Professionnels & entreprises",
+export const metadata: Metadata = pageMetadata({
+  title: "Professionnels & entreprises — rénovation de locaux à Mulhouse",
   description:
-    "Commerces, locaux et entreprises : EG-PRO (courtage en travaux) vous met en relation avec des partenaires qualifiés pour l'entretien, la maintenance, la rénovation de vos locaux et le nettoyage spécialisé.",
-};
+    "Commerces, locaux et entreprises à Mulhouse : EG-PRO (courtage en travaux) vous met en relation avec des partenaires qualifiés pour l'entretien, la maintenance, la rénovation de vos locaux et le nettoyage spécialisé.",
+  path: "/professionnels",
+});
 
 const BESOINS = [
   {

@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
 import CTA from "@/components/CTA";
 
-export const metadata: Metadata = {
-  title: "Copropriétés & syndics",
+export const metadata: Metadata = pageMetadata({
+  title: "Travaux de copropriété à Mulhouse — syndics & immeubles",
   description:
-    "EG-PRO accompagne syndics de copropriété, conseils syndicaux et gestionnaires immobiliers : visites de chiffrage, devis comparatifs et mise en relation avec les bons intervenants dans le Haut-Rhin.",
-};
+    "EG-PRO accompagne syndics de copropriété, conseils syndicaux et gestionnaires immobiliers à Mulhouse : visites de chiffrage, devis comparatifs et mise en relation avec les bons intervenants dans le Haut-Rhin.",
+  path: "/coproprietes",
+});
 
 const BENEFITS = [
   {

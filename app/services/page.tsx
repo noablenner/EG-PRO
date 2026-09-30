@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
 import WhyEgPro from "@/components/WhyEgPro";
 import CTA from "@/components/CTA";
+import RenovationLinks from "@/components/RenovationLinks";
 import { SERVICES, PROJECT_TYPES } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Services — travaux, rénovation, drone & immobilier",
+export const metadata: Metadata = pageMetadata({
+  title: "Services travaux & rénovation à Mulhouse — drone & immobilier",
   description:
-    "Mise en relation pour travaux extérieurs, techniques, intérieurs et projets immobiliers. Nettoyage et inspection par drone sur Mulhouse et le Haut-Rhin.",
-};
+    "Mise en relation pour vos travaux de rénovation à Mulhouse : travaux extérieurs, techniques, intérieurs et projets immobiliers. Nettoyage et inspection par drone dans le Haut-Rhin.",
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (
@@ -73,6 +76,8 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      <RenovationLinks />
 
       {/* Pourquoi passer par EG-PRO */}
       <WhyEgPro />
