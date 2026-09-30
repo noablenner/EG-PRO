@@ -6,7 +6,7 @@ export const OG_IMAGE = {
   url: "/images/eliott/eliott-portrait.jpeg",
   width: 1336,
   height: 1536,
-  alt: "Eliott Guerreiro, fondateur d'EG-PRO — rénovation à Mulhouse",
+  alt: "Eliott Guerreiro, fondateur d'EG-PRO, rénovation à Mulhouse",
 };
 
 /** URL canonique d'une page (le site est servi avec un slash final). */

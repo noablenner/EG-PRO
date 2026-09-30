@@ -9,7 +9,7 @@ import RenovationLinks from "@/components/RenovationLinks";
 import { SERVICES, PROJECT_TYPES } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Services travaux & rénovation à Mulhouse — drone & immobilier",
+  title: "Services travaux & rénovation à Mulhouse, drone & immobilier",
   description:
     "Mise en relation pour vos travaux de rénovation à Mulhouse : travaux extérieurs, techniques, intérieurs et projets immobiliers. Nettoyage et inspection par drone dans le Haut-Rhin.",
   path: "/services",

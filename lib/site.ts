@@ -500,7 +500,7 @@ export const DOSSIERS = [
 ];
 
 // ============================================================
-//  RÉNOVATION À MULHOUSE — pages locales (SEO)
+//  RÉNOVATION À MULHOUSE : pages locales (SEO)
 // ============================================================
 
 export const RENOVATION_PAGES = [

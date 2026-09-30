@@ -7,7 +7,7 @@ import CTA from "@/components/CTA";
 import { HOW_IT_WORKS } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Particuliers — trouvez le bon artisan à Mulhouse",
+  title: "Particuliers : trouvez le bon artisan à Mulhouse",
   description:
     "Vous êtes un particulier à Mulhouse ? EG-PRO, société de courtage en travaux, vous met en relation avec des artisans fiables pour votre rénovation, vos dépannages et l'entretien de votre logement. Gratuit et sans engagement.",
   path: "/particuliers",
