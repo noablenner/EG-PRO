@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1.2fr_1fr_1fr]">
           <div>
             <Img
-              src="/images/logo/logo-mark.png"
+              src="/images/logo/logo-mark.webp"
               alt="EG-PRO"
               width={200}
               height={185}

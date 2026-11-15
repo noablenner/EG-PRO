@@ -40,7 +40,7 @@ export default function AProposPage() {
             <div className="relative mx-auto w-full max-w-sm">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-soft">
                 <Img
-                  src="/images/eliott/eliott-portrait.jpeg"
+                  src="/images/eliott/eliott-portrait.webp"
                   alt="Eliott Guerreiro, fondateur d'EG-PRO"
                   fill
                   sizes="(max-width: 1024px) 80vw, 380px"
@@ -122,12 +122,12 @@ export default function AProposPage() {
           />
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { src: "/images/projets/tabac-simulation-1.png", label: "Le Républicain · projet rénové" },
-              { src: "/images/projets/facade-apres.png", label: "Façade assainie" },
-              { src: "/images/projets/tabac-actuel.png", label: "Façade existante" },
-              { src: "/images/projets/tableau-apres.png", label: "Mise en sécurité électrique" },
-              { src: "/images/projets/tabac-simulation-2.png", label: "Ambiance intérieure" },
-              { src: "/images/projets/facade-avant.png", label: "Avant entretien" },
+              { src: "/images/projets/tabac-simulation-1.webp", label: "Le Républicain · projet rénové" },
+              { src: "/images/projets/facade-apres.webp", label: "Façade assainie" },
+              { src: "/images/projets/tabac-actuel.webp", label: "Façade existante" },
+              { src: "/images/projets/tableau-apres.webp", label: "Mise en sécurité électrique" },
+              { src: "/images/projets/tabac-simulation-2.webp", label: "Ambiance intérieure" },
+              { src: "/images/projets/facade-avant.webp", label: "Avant entretien" },
             ].map((g, i) => (
               <Reveal key={g.src} delay={(i % 3) * 0.08}>
                 <div className="group relative aspect-[4/3] overflow-hidden rounded-3xl bg-brand-deep shadow-sm">

@@ -60,7 +60,7 @@ export default function RealisationsPage() {
             <div className="grid gap-4">
               <div className="relative aspect-[16/10] overflow-hidden rounded-3xl shadow-soft">
                 <Img
-                  src="/images/projets/tabac-simulation-1.png"
+                  src="/images/projets/tabac-simulation-1.webp"
                   alt="Aménagement intérieur rénové"
                   fill
                   sizes="(max-width: 1024px) 90vw, 560px"
@@ -73,7 +73,7 @@ export default function RealisationsPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="relative aspect-square overflow-hidden rounded-2xl shadow-sm">
                   <Img
-                    src="/images/projets/tabac-actuel.png"
+                    src="/images/projets/tabac-actuel.webp"
                     alt="Extérieur actuel du Républicain à Mulhouse"
                     fill
                     sizes="280px"
@@ -85,7 +85,7 @@ export default function RealisationsPage() {
                 </div>
                 <div className="relative aspect-square overflow-hidden rounded-2xl shadow-sm">
                   <Img
-                    src="/images/projets/tabac-simulation-2.png"
+                    src="/images/projets/tabac-simulation-2.webp"
                     alt="Seconde vue de l'intérieur rénové"
                     fill
                     sizes="280px"
