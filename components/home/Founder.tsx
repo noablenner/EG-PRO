@@ -18,7 +18,7 @@ export default function Founder() {
           <div className="relative mx-auto w-full max-w-sm">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-soft">
               <Img
-                src="/images/eliott/eliott-portrait.jpeg"
+                src="/images/eliott/eliott-portrait.webp"
                 alt="Eliott Guerreiro, fondateur d'EG-PRO"
                 width={760}
                 height={950}

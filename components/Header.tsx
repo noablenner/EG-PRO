@@ -53,7 +53,7 @@ export default function Header() {
         <div className="container-x flex items-center justify-between">
           <Link href="/" data-cursor="Accueil" className="relative z-10 flex items-center gap-2">
             <Img
-              src="/images/logo/logo-mark.png"
+              src="/images/logo/logo-mark.webp"
               alt="EG-PRO"
               width={200}
               height={80}

@@ -25,12 +25,12 @@ export default function Hero() {
       {/* Fonds animés */}
       <div className="bg-grid absolute inset-0 opacity-50" />
       <motion.div
-        className="brand-gradient absolute -right-40 top-0 h-[70vh] w-[70vh] rounded-full opacity-40 blur-[120px]"
+        className="brand-gradient absolute -right-40 top-0 hidden h-[70vh] w-[70vh] rounded-full opacity-40 blur-[120px] md:block"
         animate={{ scale: [1, 1.15, 1], opacity: [0.35, 0.5, 0.35] }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute -bottom-40 -left-20 h-[55vh] w-[55vh] rounded-full bg-brand-bright/30 blur-[120px]"
+        className="absolute -bottom-40 -left-20 hidden h-[55vh] w-[55vh] rounded-full bg-brand-bright/30 blur-[120px] md:block"
         animate={{ scale: [1.1, 1, 1.1] }}
         transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
       />
@@ -108,13 +108,13 @@ export default function Hero() {
         >
           {/* Halo derrière Eliott */}
           <div className="pointer-events-none absolute bottom-0 flex h-[90%] w-full items-center justify-center">
-            <div className="brand-gradient h-[78%] w-[78%] rounded-full opacity-40 blur-[90px]" />
+            <div className="brand-gradient h-[78%] w-[78%] rounded-full opacity-40 blur-2xl md:blur-[90px]" />
           </div>
           <div className="absolute bottom-6 h-[62%] w-[78%] rounded-[50%] bg-brand-bright/20 blur-2xl" />
 
           <motion.div style={{ scale: scalePhoto }} className="relative z-10">
             <Img
-              src="/images/eliott/eliott-cutout.png"
+              src="/images/eliott/eliott-cutout.webp"
               alt="Eliott Guerreiro, fondateur d'EG-PRO"
               width={1198}
               height={1372}
